@@ -116,20 +116,18 @@ flowchart LR
 
 | | Integrante |
 |---|---|
-| 🧑‍💻 | Belphon Linardy Bahm Kiminu |
-| 🧑‍💻 | Bruno Nicholas Marques da Silva |
-| 🧑‍💻 | Caio Leal Vargas |
-| 🧑‍💻 | Felipe Akira Furrier Serikava |
-| 🧑‍💻 | Henrique Vasconcelos Ribeiro de Oliveira |
-| 🧑‍💻 | Pedro Abílio Cruzeiro Moreira |
-| 🧑‍💻 | Vitor Gabriel Carvalho Souza |
+| 👤 | Belphon Linardy Bahm Kiminu |
+| 👤 | Bruno Nicholas Marques da Silva |
+| 👤 | Caio Leal Vargas |
+| 👤 | Felipe Akira Furrier Serikava |
+| 👤 | Henrique Vasconcelos Ribeiro de Oliveira |
+| 👤 | Pedro Abílio Cruzeiro Moreira |
+| 👤 | Vitor Gabriel Carvalho Souza |
 
 🎓 **Orientação:** professor Edson Mintsu Hung
 
 <div align="center">
 
 <sub>Projeto Integrador de Fundamentos · Universidade de Brasília · 2026</sub>
-
-**Feito com 💚 por estudantes da UnB**
 
 </div>
