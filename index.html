@@ -1,0 +1,421 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tô aqui UnB</title>
+<meta name="description" content="Tô aqui UnB: app de caronas entre estudantes da Universidade de Brasília, de carro e a pé, até o Campus Darcy Ribeiro.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+html{scroll-behavior:smooth}
+.tq{--bg:#F6F8FB;--surface:#FFFFFF;--ink:#0F172A;--muted:#475569;--soft:#334155;--line:#E2E8F0;--line2:#CBD5E1;--line3:#EEF2F6;--blue-t:#003366;--blue-bg:#003366;--green-t:#008040;--green-bg:#008040;--green-deep:#00592D;--pale-blue:#E8EEF5;--pale-green:#E6F4EC;--pale-gray:#F1F5F9;--amber-bg:#FEF3C7;--amber-t:#7A4A00;--band:#003366;--frame:#0F172A;--footer:#0F172A;--hl:#008040}
+.tq.dark{--bg:#0A1628;--surface:#12223A;--ink:#E8EEF7;--muted:#A9B8CC;--soft:#C3D0E0;--line:#243752;--line2:#34506F;--line3:#1D3049;--blue-t:#7DB2F0;--blue-bg:#2F6DB5;--green-t:#4CC38A;--green-bg:#008040;--green-deep:#8EE0B4;--pale-blue:#1B3355;--pale-green:#123B2B;--pale-gray:#1D3049;--amber-bg:#3D2E0A;--amber-t:#F5D27A;--band:#123E70;--frame:#27405F;--footer:#050B16;--hl:#4CC38A}
+.tq a{color:var(--blue-t)}.tq a:hover{color:var(--green-t)}
+.hl{text-decoration:underline;text-decoration-color:var(--hl);text-decoration-thickness:2px;text-underline-offset:4px}
+</style>
+<style>
+.icon-sun{display:none}
+.tq.dark .icon-sun{display:block}
+.tq.dark .icon-moon{display:none}
+</style>
+</head>
+<body>
+<div class="tq" style="width: 100%; background: var(--bg); color: var(--ink); font-family: 'Plus Jakarta Sans', system-ui, sans-serif; line-height: 1.6">
+
+<!-- NAV -->
+<div style="background: var(--surface); border-bottom: 1px solid var(--line)">
+<div style="max-width: 1120px; margin: 0 auto; padding: 16px 24px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px">
+<a href="#topo" style="display: flex; align-items: center; gap: 12px; text-decoration: none">
+<div style="width: 40px; height: 40px; background: var(--blue-bg); color: #FFFFFF; border-radius: 12px; display: flex; align-items: center; justify-content: center">
+<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s7-6.2 7-11.5A7 7 0 005 9.5C5 14.8 12 21 12 21z"></path><circle cx="12" cy="9.5" r="2.5"></circle></svg>
+</div>
+<span style="font-family: 'Sora', sans-serif; font-weight: 700; font-size: 20px; color: var(--blue-t)">Tô aqui <span style="color: var(--green-t)">UnB</span></span>
+</a>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px 24px; font-size: 14px; font-weight: 500">
+<a href="#como-funciona" style="color: var(--soft); text-decoration: none">Como funciona</a>
+<a href="#funcionalidades" style="color: var(--soft); text-decoration: none">Funcionalidades</a>
+<a href="#seguranca" style="color: var(--soft); text-decoration: none">Segurança</a>
+<a href="#andamento" style="color: #FFFFFF; background: var(--blue-bg); text-decoration: none; padding: 10px 20px; border-radius: 999px; font-weight: 600">Acompanhe o projeto</a>
+<button type="button" id="theme-toggle" aria-label="Mudar para o modo escuro" title="Mudar para o modo escuro" style="width: 44px; height: 44px; padding: 0; border-radius: 999px; border: 1px solid var(--line2); background: var(--surface); color: var(--ink); display: flex; align-items: center; justify-content: center; cursor: pointer">
+<svg class="icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path></svg>
+<svg class="icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 019.5 4a8 8 0 1010.5 10.5z"></path></svg>
+</button>
+</div>
+</div>
+</div>
+
+<!-- HERO -->
+<div id="topo" style="max-width: 1120px; margin: 0 auto; padding: 72px 24px 80px; display: flex; flex-wrap: wrap; align-items: center; gap: 48px">
+<div style="flex: 1 1 440px; display: flex; flex-direction: column; gap: 24px">
+<div style="align-self: flex-start; display: flex; align-items: center; gap: 8px; padding: 6px 14px; border-radius: 999px; background: var(--pale-green); color: var(--green-deep); font-size: 13px; font-weight: 600">
+<span style="width: 8px; height: 8px; border-radius: 999px; background: var(--green-bg)"></span>
+Em desenvolvimento · Projeto Integrador 2026
+</div>
+<h1 style="margin: 0; font-family: 'Sora', sans-serif; font-weight: 800; font-size: 52px; line-height: 1.1; color: var(--ink)">Carona entre estudantes na <span style="color: var(--blue-t)">UnB</span>.</h1>
+<p style="margin: 0; font-size: 19px; color: var(--muted); max-width: 520px">Divida caronas de carro e a pé até o Campus Darcy Ribeiro, na volta para casa e dentro do campus. Gastar menos, chegar mais rápido e <span class="hl">conhecer gente nova no caminho</span>.</p>
+<div style="display: flex; flex-wrap: wrap; gap: 12px; padding-top: 8px">
+<a href="#funcionalidades" style="display: inline-block; background: var(--blue-bg); color: #FFFFFF; text-decoration: none; padding: 14px 28px; border-radius: 12px; font-weight: 600">Conheça o app</a>
+<a href="#andamento" style="display: inline-block; background: var(--surface); color: var(--blue-t); text-decoration: none; padding: 14px 28px; border-radius: 12px; font-weight: 600; border: 1px solid var(--line2)">Ver andamento</a>
+</div>
+<p style="margin: 0; font-size: 14px; color: var(--muted)">Acesso restrito a quem tem e-mail institucional <strong>@aluno.unb.br</strong>.</p>
+</div>
+
+<div style="flex: 1 1 320px; display: flex; flex-direction: column; align-items: center; gap: 12px">
+<div style="width: 290px; height: 600px; box-sizing: border-box; background: var(--frame); border-radius: 42px; padding: 12px; box-shadow: 0 24px 48px rgba(15,23,42,0.18)">
+<img src="img/lista-de-caronas.jpg" alt="Tela de caronas do app Tô aqui UnB, com a lista de caronas da região e o botão Oferecer carona" style="display: block; width: 100%; height: 100%; object-fit: cover; border-radius: 32px">
+</div>
+</div>
+</div>
+
+<!-- FATOS -->
+<div style="background: var(--surface); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line)">
+<div style="max-width: 1120px; margin: 0 auto; padding: 40px 24px; display: flex; flex-wrap: wrap; gap: 32px">
+<div style="flex: 1 1 240px; display: flex; flex-direction: column; gap: 4px">
+<div style="font-family: 'Sora', sans-serif; font-weight: 700; font-size: 20px; color: var(--blue-t)">Só comunidade UnB</div>
+<div style="font-size: 14px; color: var(--muted)">Entrada com matrícula ou e-mail @aluno.unb.br.</div>
+</div>
+<div style="flex: 1 1 240px; display: flex; flex-direction: column; gap: 4px">
+<div style="font-family: 'Sora', sans-serif; font-weight: 700; font-size: 20px; color: var(--green-t)">Login sem senha</div>
+<div style="font-size: 14px; color: var(--muted)">Você recebe um código por e-mail e a sessão dura 7 dias.</div>
+</div>
+<div style="flex: 1 1 240px; display: flex; flex-direction: column; gap: 4px">
+<div style="font-family: 'Sora', sans-serif; font-weight: 700; font-size: 20px; color: var(--blue-t)">Sem coleta de CPF</div>
+<div style="font-size: 14px; color: var(--muted)">O app respeita a LGPD e pede só o necessário.</div>
+</div>
+<div style="flex: 1 1 240px; display: flex; flex-direction: column; gap: 4px">
+<div style="font-family: 'Sora', sans-serif; font-weight: 700; font-size: 20px; color: var(--green-t)">Motoristas com CNH</div>
+<div style="font-size: 14px; color: var(--muted)">Só quem tem a CNH aprovada pode publicar caronas.</div>
+</div>
+</div>
+</div>
+
+<!-- COMO FUNCIONA -->
+<div id="como-funciona" style="max-width: 1120px; margin: 0 auto; padding: 88px 24px 24px">
+<div style="max-width: 640px; display: flex; flex-direction: column; gap: 12px; margin-bottom: 40px">
+<div style="font-size: 13px; font-weight: 700; color: var(--green-t); letter-spacing: 0.08em; text-transform: uppercase">Como funciona</div>
+<h2 style="margin: 0; font-family: 'Sora', sans-serif; font-weight: 700; font-size: 34px; line-height: 1.2">Do cadastro à carona em três passos</h2>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 20px">
+<div style="flex: 1 1 300px; background: var(--surface); border: 1px solid var(--line); border-radius: 20px; padding: 28px; display: flex; flex-direction: column; gap: 12px">
+<div style="width: 40px; height: 40px; border-radius: 999px; background: var(--blue-bg); color: #FFFFFF; font-family: 'Sora', sans-serif; font-weight: 700; display: flex; align-items: center; justify-content: center">1</div>
+<h3 style="margin: 0; font-family: 'Sora', sans-serif; font-size: 20px">Entre com seu e-mail da UnB</h3>
+<p style="margin: 0; font-size: 15px; color: var(--muted)">Informe a matrícula ou o e-mail @aluno.unb.br e digite o código que chega na sua caixa de entrada.</p>
+</div>
+<div style="flex: 1 1 300px; background: var(--surface); border: 1px solid var(--line); border-radius: 20px; padding: 28px; display: flex; flex-direction: column; gap: 12px">
+<div style="width: 40px; height: 40px; border-radius: 999px; background: var(--blue-bg); color: #FFFFFF; font-family: 'Sora', sans-serif; font-weight: 700; display: flex; align-items: center; justify-content: center">2</div>
+<h3 style="margin: 0; font-family: 'Sora', sans-serif; font-size: 20px">Monte seu perfil e sua semana</h3>
+<p style="margin: 0; font-size: 15px; color: var(--muted)">Em menos de um minuto você pode escolher a região onde mora e já recebe notificações de possíveis trajetos úteis. Caso queira, você também pode marcar seus turnos de aula em “Minha semana”.</p>
+</div>
+<div style="flex: 1 1 300px; background: var(--surface); border: 1px solid var(--line); border-radius: 20px; padding: 28px; display: flex; flex-direction: column; gap: 12px">
+<div style="width: 40px; height: 40px; border-radius: 999px; background: var(--blue-bg); color: #FFFFFF; font-family: 'Sora', sans-serif; font-weight: 700; display: flex; align-items: center; justify-content: center">3</div>
+<h3 style="margin: 0; font-family: 'Sora', sans-serif; font-size: 20px">Combine a carona</h3>
+<p style="margin: 0; font-size: 15px; color: var(--muted)">Veja as caronas da sua região, ofereça a sua com dia, horário e vagas, e <span class="hl">receba avisos quando surgir uma compatível com você</span>.</p>
+</div>
+</div>
+</div>
+
+<!-- FUNCIONALIDADES -->
+<div id="funcionalidades" style="max-width: 1120px; margin: 0 auto; padding: 72px 24px 24px">
+<div style="max-width: 640px; display: flex; flex-direction: column; gap: 12px; margin-bottom: 40px">
+<div style="font-size: 13px; font-weight: 700; color: var(--green-t); letter-spacing: 0.08em; text-transform: uppercase">Funcionalidades</div>
+<h2 style="margin: 0; font-family: 'Sora', sans-serif; font-weight: 700; font-size: 34px; line-height: 1.2">Pensado para o dia a dia de quem estuda na UnB</h2>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 20px">
+
+<div style="flex: 1 1 320px; background: var(--surface); border: 1px solid var(--line); border-radius: 20px; padding: 28px; display: flex; flex-direction: column; gap: 12px">
+<div style="width: 48px; height: 48px; border-radius: 14px; background: var(--pale-blue); color: var(--blue-t); display: flex; align-items: center; justify-content: center">
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 16V12l2-5h12l2 5v4"></path><path d="M3 16h18v3H3z"></path><circle cx="7.5" cy="16" r="1"></circle><circle cx="16.5" cy="16" r="1"></circle></svg>
+</div>
+<h3 style="margin: 0; font-family: 'Sora', sans-serif; font-size: 19px">Caronas de carro e a pé</h3>
+<p style="margin: 0; font-size: 15px; color: var(--muted)">Ida ao campus, volta para a sua região e deslocamentos dentro do campus, em um só lugar.</p>
+</div>
+
+<div style="flex: 1 1 320px; background: var(--surface); border: 1px solid var(--line); border-radius: 20px; padding: 28px; display: flex; flex-direction: column; gap: 12px">
+<div style="width: 48px; height: 48px; border-radius: 14px; background: var(--pale-green); color: var(--green-t); display: flex; align-items: center; justify-content: center">
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s7-6.2 7-11.5A7 7 0 005 9.5C5 14.8 12 21 12 21z"></path><circle cx="12" cy="9.5" r="2.5"></circle></svg>
+</div>
+<h3 style="margin: 0; font-family: 'Sora', sans-serif; font-size: 19px">Caronas por região</h3>
+<p style="margin: 0; font-size: 15px; color: var(--muted)">Filtre pela região onde você mora e pelo tipo de motorista. Se não houver carona agora, <span class="hl">o app avisa quando aparecer uma</span>.</p>
+</div>
+
+<div style="flex: 1 1 320px; background: var(--surface); border: 1px solid var(--line); border-radius: 20px; padding: 28px; display: flex; flex-direction: column; gap: 12px">
+<div style="width: 48px; height: 48px; border-radius: 14px; background: var(--pale-blue); color: var(--blue-t); display: flex; align-items: center; justify-content: center">
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 17V11a6 6 0 1112 0v6l1.5 2h-15L6 17z"></path><path d="M10 21h4"></path></svg>
+</div>
+<h3 style="margin: 0; font-family: 'Sora', sans-serif; font-size: 19px">Avisos no sininho</h3>
+<p style="margin: 0; font-size: 15px; color: var(--muted)">Receba alertas de caronas na sua região e veja quando houver demanda, com o botão “Tô aqui!” para o motorista ajudar.</p>
+</div>
+
+<div style="flex: 1 1 320px; background: var(--surface); border: 1px solid var(--line); border-radius: 20px; padding: 28px; display: flex; flex-direction: column; gap: 12px">
+<div style="width: 48px; height: 48px; border-radius: 14px; background: var(--pale-green); color: var(--green-t); display: flex; align-items: center; justify-content: center">
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"></rect><path d="M3 10h18M8 3v4M16 3v4"></path></svg>
+</div>
+<h3 style="margin: 0; font-family: 'Sora', sans-serif; font-size: 19px">Minha semana</h3>
+<p style="margin: 0; font-size: 15px; color: var(--muted)">Marque seus turnos de aula e o app calcula chegada e saída do campus. <span class="hl">Só você vê seus horários</span>; motoristas veem apenas quantas pessoas chegam.</p>
+</div>
+
+<div style="flex: 1 1 320px; background: var(--surface); border: 1px solid var(--line); border-radius: 20px; padding: 28px; display: flex; flex-direction: column; gap: 12px">
+<div style="width: 48px; height: 48px; border-radius: 14px; background: var(--pale-blue); color: var(--blue-t); display: flex; align-items: center; justify-content: center">
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.5"></circle><path d="M2.5 20c0-3.5 3-6 6.5-6s6.5 2.5 6.5 6"></path><circle cx="17.5" cy="9" r="2.5"></circle><path d="M17 14c3 0 4.5 2 4.5 5"></path></svg>
+</div>
+<h3 style="margin: 0; font-family: 'Sora', sans-serif; font-size: 19px">Grupos de afinidade</h3>
+<p style="margin: 0; font-size: 15px; color: var(--muted)">Cada carona mostra como o motorista se declarou, e você filtra por esse critério. <span class="hl">Isso permite caronas exclusivas, como só para mulheres</span>. Quem prefere não declarar usa o app normalmente.</p>
+</div>
+
+<div style="flex: 1 1 320px; background: var(--surface); border: 1px solid var(--line); border-radius: 20px; padding: 28px; display: flex; flex-direction: column; gap: 12px">
+<div style="width: 48px; height: 48px; border-radius: 14px; background: var(--pale-green); color: var(--green-t); display: flex; align-items: center; justify-content: center">
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"></rect><circle cx="9" cy="11" r="2"></circle><path d="M6 16c.5-1.5 1.7-2 3-2s2.5.5 3 2M14 10h4M14 14h3"></path></svg>
+</div>
+<h3 style="margin: 0; font-family: 'Sora', sans-serif; font-size: 19px">Motoristas verificados</h3>
+<p style="margin: 0; font-size: 15px; color: var(--muted)"><span class="hl">A CNH passa por aprovação antes de qualquer oferta</span>. Se for recusada, o app explica o motivo e orienta o envio de uma nova foto.</p>
+</div>
+
+</div>
+</div>
+
+<!-- TELAS DO APP -->
+<div id="telas" style="max-width: 1120px; margin: 0 auto; padding: 72px 24px 24px">
+<div style="max-width: 640px; display: flex; flex-direction: column; gap: 12px; margin-bottom: 40px">
+<div style="font-size: 13px; font-weight: 700; color: var(--green-t); letter-spacing: 0.08em; text-transform: uppercase">O app por dentro</div>
+<h2 style="margin: 0; font-family: 'Sora', sans-serif; font-weight: 700; font-size: 34px; line-height: 1.2">Telas da versão atual</h2>
+<p style="margin: 0; font-size: 16px; color: var(--muted)">Capturas reais do aplicativo em desenvolvimento, com dados de teste.</p>
+</div>
+<div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 40px 32px">
+
+<div style="flex: none; width: 240px; display: flex; flex-direction: column; gap: 16px">
+<div style="width: 240px; height: 497px; box-sizing: border-box; background: var(--frame); border-radius: 36px; padding: 10px; box-shadow: 0 20px 40px rgba(15,23,42,0.15)">
+<img src="img/oferecer-carona.jpg" alt="Tela Oferecer carona, com sentido, ponto de saída, dia, horário, vagas e observação" style="display: block; width: 100%; height: 100%; object-fit: cover; border-radius: 27px">
+</div>
+<div>
+<div style="font-family: 'Sora', sans-serif; font-weight: 700; font-size: 17px">Oferecer carona</div>
+<div style="font-size: 14px; color: var(--muted)">Sentido, saída, dia, horário e vagas. O app não deixa publicar com horário no passado.</div>
+</div>
+</div>
+
+<div style="flex: none; width: 240px; display: flex; flex-direction: column; gap: 16px">
+<div style="width: 240px; height: 497px; box-sizing: border-box; background: var(--frame); border-radius: 36px; padding: 10px; box-shadow: 0 20px 40px rgba(15,23,42,0.15)">
+<img src="img/avisos.jpg" alt="Central de avisos com caronas na região, aprovação da CNH e pedido de carona com o botão Tô aqui" style="display: block; width: 100%; height: 100%; object-fit: cover; border-radius: 27px">
+</div>
+<div>
+<div style="font-family: 'Sora', sans-serif; font-weight: 700; font-size: 17px">Central de avisos</div>
+<div style="font-size: 14px; color: var(--muted)">Caronas na região, aprovação da CNH e pedidos de carona, com o botão “Tô aqui!” para o motorista ajudar.</div>
+</div>
+</div>
+
+<div style="flex: none; width: 240px; display: flex; flex-direction: column; gap: 16px">
+<div style="width: 240px; height: 497px; box-sizing: border-box; background: var(--frame); border-radius: 36px; padding: 10px; box-shadow: 0 20px 40px rgba(15,23,42,0.15)">
+<img src="img/minha-semana.jpg" alt="Tela Minha semana, com os turnos de aula de cada dia e os horários de chegada e saída do campus" style="display: block; width: 100%; height: 100%; object-fit: cover; border-radius: 27px">
+</div>
+<div>
+<div style="font-family: 'Sora', sans-serif; font-weight: 700; font-size: 17px">Minha semana</div>
+<div style="font-size: 14px; color: var(--muted)">Marque os turnos de aula e o app calcula chegada e saída do campus. <span class="hl">Só você vê seus horários</span>.</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<!-- SEGURANÇA -->
+<div id="seguranca" style="max-width: 1120px; margin: 0 auto; padding: 72px 24px 24px">
+<div style="background: var(--band); color: #FFFFFF; border-radius: 28px; padding: 56px 48px; display: flex; flex-wrap: wrap; gap: 40px">
+<div style="flex: 1 1 340px; display: flex; flex-direction: column; gap: 16px">
+<div style="font-size: 13px; font-weight: 700; color: #7FD1A4; letter-spacing: 0.08em; text-transform: uppercase">Segurança e confiança</div>
+<h2 style="margin: 0; font-family: 'Sora', sans-serif; font-weight: 700; font-size: 34px; line-height: 1.2">Uma comunidade fechada, com canal de denúncia</h2>
+<p style="margin: 0; font-size: 16px; color: #D5E0EC">O objetivo é criar um ambiente seguro e social: <span class="hl" style="text-decoration-color: #7FD1A4">só entra quem é da UnB</span>, e quem se comporta mal pode ser denunciado e, no futuro, suspenso.</p>
+</div>
+<div style="flex: 1 1 380px; display: flex; flex-direction: column; gap: 20px">
+<div style="display: flex; gap: 16px; align-items: flex-start">
+<div style="flex: none; width: 40px; height: 40px; border-radius: 12px; background: var(--surface); color: var(--blue-t); display: flex; align-items: center; justify-content: center">
+<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 3v6c0 4.5-3.2 8-8 9-4.8-1-8-4.5-8-9V6l8-3z"></path><path d="M9 12l2 2 4-4"></path></svg>
+</div>
+<div>
+<div style="font-weight: 700">Verificação por e-mail institucional</div>
+<div style="font-size: 14px; color: #D5E0EC">A matrícula é confirmada automaticamente quando o e-mail é o numérico.</div>
+</div>
+</div>
+<div style="display: flex; gap: 16px; align-items: flex-start">
+<div style="flex: none; width: 40px; height: 40px; border-radius: 12px; background: var(--surface); color: var(--blue-t); display: flex; align-items: center; justify-content: center">
+<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 21V4M5 4h11l-2 4 2 4H5"></path></svg>
+</div>
+<div>
+<div style="font-weight: 700">Canal de denúncias</div>
+<div style="font-size: 14px; color: #D5E0EC">Informe a pessoa, o motivo e descreva o ocorrido. A equipe analisa cada caso e a denúncia não gera advertência automática.</div>
+</div>
+</div>
+<div style="display: flex; gap: 16px; align-items: flex-start">
+<div style="flex: none; width: 40px; height: 40px; border-radius: 12px; background: var(--surface); color: var(--blue-t); display: flex; align-items: center; justify-content: center">
+<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"></rect><path d="M8 11V8a4 4 0 018 0v3"></path></svg>
+</div>
+<div>
+<div style="font-weight: 700">Dados protegidos</div>
+<div style="font-size: 14px; color: #D5E0EC">Regras de acesso no banco de dados: cada pessoa só enxerga e edita o próprio perfil.</div>
+</div>
+</div>
+<div style="display: flex; gap: 16px; align-items: flex-start">
+<div style="flex: none; width: 40px; height: 40px; border-radius: 12px; background: #7FD1A4; color: #002347; display: flex; align-items: center; justify-content: center">
+<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg>
+</div>
+<div>
+<div style="font-weight: 700">Em breve</div>
+<div style="font-size: 14px; color: #D5E0EC">Suspensão de usuários por cartões amarelos e vermelhos, com base em denúncia e verificação pelos moderadores.</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- ANDAMENTO -->
+<div id="andamento" style="max-width: 1120px; margin: 0 auto; padding: 72px 24px 24px">
+<div style="max-width: 640px; display: flex; flex-direction: column; gap: 12px; margin-bottom: 40px">
+<div style="font-size: 13px; font-weight: 700; color: var(--green-t); letter-spacing: 0.08em; text-transform: uppercase">Andamento do projeto</div>
+<h2 style="margin: 0; font-family: 'Sora', sans-serif; font-weight: 700; font-size: 34px; line-height: 1.2">O que já funciona e o que vem a seguir</h2>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 20px">
+
+<div style="flex: 1 1 240px; background: var(--surface); border: 1px solid var(--line); border-radius: 20px; padding: 24px; display: flex; flex-direction: column; gap: 10px">
+<span style="align-self: flex-start; background: var(--pale-green); color: var(--green-deep); font-size: 12px; font-weight: 700; padding: 4px 12px; border-radius: 999px">Em funcionamento</span>
+<div style="font-size: 13px; font-weight: 600; color: var(--muted)">Etapa 1</div>
+<h3 style="margin: 0; font-family: 'Sora', sans-serif; font-size: 18px">Identificação e verificação</h3>
+<p style="margin: 0; font-size: 14px; color: var(--muted)">Login por código, verificação do e-mail institucional e perfil.</p>
+</div>
+
+<div style="flex: 1 1 240px; background: var(--surface); border: 1px solid var(--line); border-radius: 20px; padding: 24px; display: flex; flex-direction: column; gap: 10px">
+<span style="align-self: flex-start; background: var(--pale-blue); color: var(--blue-t); font-size: 12px; font-weight: 700; padding: 4px 12px; border-radius: 999px">Em andamento</span>
+<div style="font-size: 13px; font-weight: 600; color: var(--muted)">Etapa 2</div>
+<h3 style="margin: 0; font-family: 'Sora', sans-serif; font-size: 18px">Banco de dados e conexões</h3>
+<p style="margin: 0; font-size: 14px; color: var(--muted)">Caronas, avisos por região e “Minha semana” já estão no app.</p>
+</div>
+
+<div style="flex: 1 1 240px; background: var(--surface); border: 1px solid var(--line); border-radius: 20px; padding: 24px; display: flex; flex-direction: column; gap: 10px">
+<span style="align-self: flex-start; background: var(--amber-bg); color: var(--amber-t); font-size: 12px; font-weight: 700; padding: 4px 12px; border-radius: 999px">Em construção</span>
+<div style="font-size: 13px; font-weight: 600; color: var(--muted)">Etapa 3</div>
+<h3 style="margin: 0; font-family: 'Sora', sans-serif; font-size: 18px">Mapeamento e rotas</h3>
+<p style="margin: 0; font-size: 14px; color: var(--muted)">Pontos do campus definidos; a tela do mapa será feita com Leaflet.</p>
+</div>
+
+<div style="flex: 1 1 240px; background: var(--surface); border: 1px solid var(--line); border-radius: 20px; padding: 24px; display: flex; flex-direction: column; gap: 10px">
+<span style="align-self: flex-start; background: var(--pale-gray); color: var(--soft); font-size: 12px; font-weight: 700; padding: 4px 12px; border-radius: 999px">Primeira versão</span>
+<div style="font-size: 13px; font-weight: 600; color: var(--muted)">Etapa 4</div>
+<h3 style="margin: 0; font-family: 'Sora', sans-serif; font-size: 18px">Segurança e denúncia</h3>
+<p style="margin: 0; font-size: 14px; color: var(--muted)">Primeira versão da tela de denúncias criada; a suspensão de usuários ainda será ligada a ela.</p>
+</div>
+
+</div>
+</div>
+
+<!-- PONTOS DO CAMPUS -->
+<div id="pontos" style="max-width: 1120px; margin: 0 auto; padding: 72px 24px 24px; display: flex; flex-wrap: wrap; gap: 40px">
+<div style="flex: 1 1 320px; display: flex; flex-direction: column; gap: 12px">
+<div style="font-size: 13px; font-weight: 700; color: var(--green-t); letter-spacing: 0.08em; text-transform: uppercase">Mapa do campus</div>
+<h2 style="margin: 0; font-family: 'Sora', sans-serif; font-weight: 700; font-size: 34px; line-height: 1.2">Pontos de encontro já definidos</h2>
+<p style="margin: 0; font-size: 16px; color: var(--muted)">A equipe mapeou oito pontos do Campus Darcy Ribeiro, com coordenadas, iluminação, movimento à noite e acessibilidade. Eles serão usados nos testes de mapa e geolocalização.</p>
+</div>
+<div style="flex: 1 1 460px; background: var(--surface); border: 1px solid var(--line); border-radius: 20px; padding: 8px 24px">
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 4px 16px; padding: 14px 0; border-bottom: 1px solid var(--line3)">
+<span style="flex: none; width: 40px; font-family: 'Sora', sans-serif; font-weight: 700; font-size: 14px; color: var(--green-t)">P01</span>
+<span style="flex: 1 1 220px; font-size: 15px; font-weight: 600">Entrada Principal FT</span>
+<span style="flex: none; font-size: 13px; color: var(--muted)">Estacionamento</span>
+</div>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 4px 16px; padding: 14px 0; border-bottom: 1px solid var(--line3)">
+<span style="flex: none; width: 40px; font-family: 'Sora', sans-serif; font-weight: 700; font-size: 14px; color: var(--green-t)">P02</span>
+<span style="flex: 1 1 220px; font-size: 15px; font-weight: 600">Saída Principal FT (Parada ICC Norte)</span>
+<span style="flex: none; font-size: 13px; color: var(--muted)">Saída de prédio</span>
+</div>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 4px 16px; padding: 14px 0; border-bottom: 1px solid var(--line3)">
+<span style="flex: none; width: 40px; font-family: 'Sora', sans-serif; font-weight: 700; font-size: 14px; color: var(--green-t)">P03</span>
+<span style="flex: 1 1 220px; font-size: 15px; font-weight: 600">Acesso ICC Norte (Ceubinho)</span>
+<span style="flex: none; font-size: 13px; color: var(--muted)">Saída de prédio</span>
+</div>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 4px 16px; padding: 14px 0; border-bottom: 1px solid var(--line3)">
+<span style="flex: none; width: 40px; font-family: 'Sora', sans-serif; font-weight: 700; font-size: 14px; color: var(--green-t)">P04</span>
+<span style="flex: 1 1 220px; font-size: 15px; font-weight: 600">Acesso ICC Sul (UDFinho)</span>
+<span style="flex: none; font-size: 13px; color: var(--muted)">Saída de prédio</span>
+</div>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 4px 16px; padding: 14px 0; border-bottom: 1px solid var(--line3)">
+<span style="flex: none; width: 40px; font-family: 'Sora', sans-serif; font-weight: 700; font-size: 14px; color: var(--green-t)">P05</span>
+<span style="flex: 1 1 220px; font-size: 15px; font-weight: 600">Acesso BSAN (Bloco de Salas Norte)</span>
+<span style="flex: none; font-size: 13px; color: var(--muted)">Saída de prédio</span>
+</div>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 4px 16px; padding: 14px 0; border-bottom: 1px solid var(--line3)">
+<span style="flex: none; width: 40px; font-family: 'Sora', sans-serif; font-weight: 700; font-size: 14px; color: var(--green-t)">P06</span>
+<span style="flex: 1 1 220px; font-size: 15px; font-weight: 600">Acesso BSAS (Bloco de Salas Sul)</span>
+<span style="flex: none; font-size: 13px; color: var(--muted)">Saída de prédio</span>
+</div>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 4px 16px; padding: 14px 0; border-bottom: 1px solid var(--line3)">
+<span style="flex: none; width: 40px; font-family: 'Sora', sans-serif; font-weight: 700; font-size: 14px; color: var(--green-t)">P07</span>
+<span style="flex: 1 1 220px; font-size: 15px; font-weight: 600">Parada L2 Norte (sentido Asa Norte)</span>
+<span style="flex: none; font-size: 13px; color: var(--muted)">Parada de ônibus</span>
+</div>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 4px 16px; padding: 14px 0; border-bottom: 1px solid var(--line3)">
+<span style="flex: none; width: 40px; font-family: 'Sora', sans-serif; font-weight: 700; font-size: 14px; color: var(--green-t)">P08</span>
+<span style="flex: 1 1 220px; font-size: 15px; font-weight: 600">Parada L2 Norte (sentido Rodoviária)</span>
+<span style="flex: none; font-size: 13px; color: var(--muted)">Parada de ônibus</span>
+</div>
+</div>
+</div>
+
+<!-- TECNOLOGIA E EQUIPE -->
+<div style="max-width: 1120px; margin: 0 auto; padding: 72px 24px 88px; display: flex; flex-wrap: wrap; gap: 40px">
+<div style="flex: 1 1 360px; display: flex; flex-direction: column; gap: 16px">
+<h2 style="margin: 0; font-family: 'Sora', sans-serif; font-weight: 700; font-size: 26px">Tecnologia</h2>
+<div style="display: flex; flex-wrap: wrap; gap: 10px">
+<span style="background: var(--surface); border: 1px solid var(--line2); border-radius: 999px; padding: 6px 16px; font-size: 14px; font-weight: 600">Flutter (Dart)</span>
+<span style="background: var(--surface); border: 1px solid var(--line2); border-radius: 999px; padding: 6px 16px; font-size: 14px; font-weight: 600">Supabase</span>
+<span style="background: var(--surface); border: 1px solid var(--line2); border-radius: 999px; padding: 6px 16px; font-size: 14px; font-weight: 600">Leaflet (previsto)</span>
+</div>
+<p style="margin: 0; font-size: 15px; color: var(--muted)">Aplicativo testado no navegador e em Android, com código organizado por funcionalidade.</p>
+</div>
+<div style="flex: 1 1 460px; display: flex; flex-direction: column; gap: 16px">
+<h2 style="margin: 0; font-family: 'Sora', sans-serif; font-weight: 700; font-size: 26px">Equipe</h2>
+<div style="display: flex; flex-wrap: wrap; gap: 10px">
+<span style="background: var(--pale-blue); color: var(--blue-t); border-radius: 999px; padding: 6px 16px; font-size: 14px; font-weight: 600">Belphon Linardy Bahm Kiminu</span>
+<span style="background: var(--pale-blue); color: var(--blue-t); border-radius: 999px; padding: 6px 16px; font-size: 14px; font-weight: 600">Bruno Nicholas Marques da Silva</span>
+<span style="background: var(--pale-blue); color: var(--blue-t); border-radius: 999px; padding: 6px 16px; font-size: 14px; font-weight: 600">Caio Leal Vargas</span>
+<span style="background: var(--pale-blue); color: var(--blue-t); border-radius: 999px; padding: 6px 16px; font-size: 14px; font-weight: 600">Felipe Akira Furrier Serikava</span>
+<span style="background: var(--pale-blue); color: var(--blue-t); border-radius: 999px; padding: 6px 16px; font-size: 14px; font-weight: 600">Henrique Vasconcelos Ribeiro de Oliveira</span>
+<span style="background: var(--pale-blue); color: var(--blue-t); border-radius: 999px; padding: 6px 16px; font-size: 14px; font-weight: 600">Pedro Abílio Cruzeiro Moreira</span>
+<span style="background: var(--pale-blue); color: var(--blue-t); border-radius: 999px; padding: 6px 16px; font-size: 14px; font-weight: 600">Vitor Gabriel Carvalho Souza</span>
+</div>
+<p style="margin: 0; font-size: 15px; color: var(--muted)">Projeto Integrador de Fundamentos, Universidade de Brasília, 2026. Orientação do professor Edson Mintsu Hung.</p>
+</div>
+</div>
+
+<!-- RODAPÉ -->
+<div style="background: var(--footer); color: #CBD5E1">
+<div style="max-width: 1120px; margin: 0 auto; padding: 40px 24px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px">
+<div style="display: flex; align-items: center; gap: 12px">
+<div style="width: 36px; height: 36px; background: var(--blue-bg); color: #FFFFFF; border-radius: 10px; display: flex; align-items: center; justify-content: center">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s7-6.2 7-11.5A7 7 0 005 9.5C5 14.8 12 21 12 21z"></path><circle cx="12" cy="9.5" r="2.5"></circle></svg>
+</div>
+<span style="font-family: 'Sora', sans-serif; font-weight: 700; font-size: 18px; color: #FFFFFF">Tô aqui UnB</span>
+</div>
+<p style="margin: 0; font-size: 14px; max-width: 520px">Projeto acadêmico desenvolvido por estudantes para a comunidade da Universidade de Brasília.</p>
+<p style="margin: 0; font-size: 13px; color: #94A3B8">© 2026 Tô aqui UnB</p>
+</div>
+</div>
+
+</div>
+
+<script>
+(function () {
+  var root = document.querySelector('.tq');
+  var btn = document.getElementById('theme-toggle');
+  function apply(dark) {
+    root.classList.toggle('dark', dark);
+    document.body.style.background = dark ? '#0A1628' : '#F6F8FB';
+    var label = dark ? 'Mudar para o modo claro' : 'Mudar para o modo escuro';
+    btn.setAttribute('aria-label', label);
+    btn.setAttribute('title', label);
+  }
+  try { if (localStorage.getItem('tq-theme') === 'dark') apply(true); } catch (e) {}
+  btn.addEventListener('click', function () {
+    var dark = !root.classList.contains('dark');
+    apply(dark);
+    try { localStorage.setItem('tq-theme', dark ? 'dark' : 'light'); } catch (e) {}
+  });
+})();
+</script>
+</body>
+</html>
