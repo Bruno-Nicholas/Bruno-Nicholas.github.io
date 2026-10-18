@@ -1,10 +1,10 @@
-# Tô aqui UnB
+# 📍 Tô aqui UnB
 
 Aplicativo de caronas entre estudantes da Universidade de Brasília (UnB). O objetivo é reunir quem vai de carro e quem vai a pé até o Campus Darcy Ribeiro, na volta para casa e dentro do campus, para gastar menos, chegar mais rápido e conhecer gente nova no caminho.
 
 Este repositório contém a landing page do projeto, publicada com GitHub Pages.
 
-## Sobre o aplicativo
+## 🚗 Sobre o aplicativo
 
 - Acesso restrito a quem tem e-mail institucional @aluno.unb.br
 - Login sem senha, com código enviado por e-mail
@@ -14,18 +14,18 @@ Este repositório contém a landing page do projeto, publicada com GitHub Pages.
 - Motoristas com CNH aprovada
 - Canal de denúncias
 
-## Andamento
+## 🛠️ Andamento
 
 1. Identificação e verificação: em funcionamento
 2. Banco de dados e conexões: em andamento
 3. Mapeamento e rotas: em construção
 4. Segurança e denúncia: primeira versão
 
-## Tecnologias
+## 💻 Tecnologias
 
 Aplicativo em Flutter (Dart), com Supabase no back-end. O mapa será feito com Leaflet.
 
-## Sobre este repositório
+## 📂 Sobre este repositório
 
 - `index.html`: página do projeto
 - `img/`: capturas de tela do aplicativo (com dados de teste)
@@ -33,7 +33,7 @@ Aplicativo em Flutter (Dart), com Supabase no back-end. O mapa será feito com L
 
 Para alterar um texto da página, edite o `index.html` pelo próprio GitHub.
 
-## Equipe
+## 👥 Equipe
 
 Belphon Linardy Bahm Kiminu, Bruno Nicholas Marques da Silva, Caio Leal Vargas, Felipe Akira Furrier Serikava, Henrique Vasconcelos Ribeiro de Oliveira, Pedro Abílio Cruzeiro Moreira e Vitor Gabriel Carvalho Souza.
 
