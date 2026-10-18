@@ -35,7 +35,7 @@ A ideia é simples: **gastar menos, chegar mais rápido e conhecer gente nova no
 | 🔔 | **Avisos no sininho** | Alertas de caronas na região e pedidos de carona, com o botão "Tô aqui!" |
 | 📅 | **Minha semana** | O estudante marca seus turnos de aula e só ele vê os horários |
 | 💜 | **Grupos de afinidade** | Identificação do motorista e caronas exclusivas, como só para mulheres |
-| 🪪 | **Motoristas verificados** | Só quem tem a CNH aprovada pode oferecer caronas |
+| 🚗 | **Motoristas verificados** | Só quem tem a CNH aprovada pode oferecer caronas |
 | 🚩 | **Canal de denúncias** | A equipe analisa cada caso, sem advertência automática |
 
 ---
