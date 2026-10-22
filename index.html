@@ -127,13 +127,14 @@ html{scroll-behavior:smooth}
 .pchip{font-size:13px;font-weight:700;padding:6px 14px;border-radius:999px;background:var(--pale-blue);color:var(--blue-t)}
 
 /* ---------- funcionalidades: faixa com lista editorial ---------- */
-.fband{--hl:#7FD1A4;background:var(--band);color:#fff;border-radius:28px;padding:56px 48px;display:flex;flex-wrap:wrap;gap:48px}
-.fband .head{flex:1 1 280px;align-self:flex-start;display:flex;flex-direction:column;gap:16px}
+.fband{--hl:#7FD1A4;background:var(--band);color:#fff;border-radius:28px;padding:56px 48px;display:flex;flex-direction:column;gap:32px}
+.fband .head{max-width:640px;display:flex;flex-direction:column;gap:16px}
 .fband .eyebrow{color:#7FD1A4}
 .fband h2{margin:0;font-family:'Sora',sans-serif;font-weight:700;font-size:34px;line-height:1.2}
-.flist{flex:1.7 1 420px;display:flex;flex-direction:column}
+.flist{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 56px}
 .frow{display:flex;gap:18px;align-items:flex-start;padding:22px 16px;margin:0 -16px;border-bottom:1px solid rgba(255,255,255,.18);border-radius:16px;transition:background .25s ease,opacity .7s ease var(--d,0s),translate .7s ease var(--d,0s)}
-.frow:last-child{border-bottom:0}
+.frow:nth-last-child(-n+2){border-bottom:0}
+@media(max-width:860px){.flist{grid-template-columns:1fr}.frow:nth-last-child(2){border-bottom:1px solid rgba(255,255,255,.18)}}
 .frow:hover{background:rgba(255,255,255,.08)}
 .frow .ic{flex:none;width:48px;height:48px;border-radius:14px;background:var(--surface);color:var(--blue-t);display:flex;align-items:center;justify-content:center;transition:transform .25s ease}
 .frow:hover .ic{transform:scale(1.1) rotate(-4deg)}
