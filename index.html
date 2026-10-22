@@ -13,86 +13,71 @@ html{scroll-behavior:smooth}
 .tq{--bg:#E6ECF4;--surface:#F4F7FB;--ink:#0F172A;--muted:#3B4A5F;--soft:#293850;--line:#C7D3E1;--line2:#AEBDD0;--line3:#D6DFEA;--blue-t:#003366;--blue-bg:#003366;--green-t:#007038;--green-bg:#008040;--green-deep:#00592D;--pale-blue:#D3E0EF;--pale-green:#CFE8DA;--pale-gray:#DDE5EF;--amber-bg:#F8E7B0;--amber-t:#6B4000;--band:#003366;--frame:#0F172A;--footer:#0F172A;--hl:#008040}
 .tq.dark{--bg:#0A1628;--surface:#12223A;--ink:#E8EEF7;--muted:#A9B8CC;--soft:#C3D0E0;--line:#243752;--line2:#34506F;--line3:#1D3049;--blue-t:#7DB2F0;--blue-bg:#2F6DB5;--green-t:#4CC38A;--green-bg:#008040;--green-deep:#8EE0B4;--pale-blue:#1B3355;--pale-green:#123B2B;--pale-gray:#1D3049;--amber-bg:#3D2E0A;--amber-t:#F5D27A;--band:#123E70;--frame:#27405F;--footer:#050B16;--hl:#4CC38A}
 .tq a{color:var(--blue-t)}.tq a:hover{color:var(--green-t)}
-</style>
-<style>
-.icon-sun{display:none}
-.tq.dark .icon-sun{display:block}
-.tq.dark .icon-moon{display:none}
+.icon-sun{display:none}.tq.dark .icon-sun{display:block}.tq.dark .icon-moon{display:none}
 
-/* ---------- destaques de texto (sublinhado animado) ---------- */
 .hl{--tint:color-mix(in srgb,var(--hl) 24%,transparent);background-image:linear-gradient(var(--hl),var(--hl)),linear-gradient(var(--tint),var(--tint));background-repeat:no-repeat;background-position:0 100%,0 100%;background-size:100% 2px,100% 0;padding-bottom:2px;border-radius:3px;-webkit-box-decoration-break:clone;box-decoration-break:clone;transition:background-size .9s ease .15s}
-.js .hl{background-size:0 2px,100% 0}
-.js .hl.in{background-size:100% 2px,100% 0}
+.js .hl{background-size:0 2px,100% 0}.js .hl.in{background-size:100% 2px,100% 0}
 .hl:hover,.js .hl.in:hover{background-size:100% 2px,100% 100%;transition-duration:.35s;transition-delay:0s}
 
-/* ---------- entrada suave ao rolar ---------- */
 .rv{transition:opacity .7s ease var(--d,0s),translate .7s ease var(--d,0s)}
-.js .rv{opacity:0;translate:0 22px}
-.js .rv.in{opacity:1;translate:0 0}
+.js .rv{opacity:0;translate:0 22px}.js .rv.in{opacity:1;translate:0 0}
 
-/* ---------- cartões, chips e linhas ---------- */
 .fx-card{transition:opacity .7s ease var(--d,0s),translate .7s ease var(--d,0s),transform .25s ease,box-shadow .25s ease,border-color .25s ease}
 .fx-card:hover{transform:translateY(-5px);box-shadow:0 16px 34px rgba(15,23,42,.12);border-color:var(--line2)}
 .tq.dark .fx-card:hover{box-shadow:0 16px 34px rgba(0,0,0,.45)}
 .fx-card>div:first-child{transition:transform .25s ease}
 .fx-card:hover>div:first-child{transform:scale(1.1) rotate(-4deg)}
-.fx-chip{transition:transform .2s ease}
-.fx-chip:hover{transform:translateY(-2px)}
-.fx-row{transition:background .2s ease,box-shadow .2s ease}
-.fx-row:hover{background:var(--pale-blue);box-shadow:-14px 0 0 var(--pale-blue),14px 0 0 var(--pale-blue);border-radius:6px}
+.fx-chip{transition:transform .2s ease}.fx-chip:hover{transform:translateY(-2px)}
+.fx-row{transition:background .2s ease}.fx-row:hover{background:var(--pale-blue)}
 
-/* ---------- celulares clicáveis ---------- */
 .shot-btn{display:block;width:100%;height:100%;padding:0;border:0;background:none;cursor:zoom-in;border-radius:inherit;font:inherit}
 .shot-btn:focus-visible{outline:3px solid var(--green-t);outline-offset:4px}
 .fx-shot{position:relative;transition:transform .3s ease,box-shadow .3s ease}
 .fx-shot:not(.fx-tilt):hover{transform:translateY(-8px) rotate(-1.2deg);box-shadow:0 30px 56px rgba(15,23,42,.28)!important}
-.fx-shot::after{content:"Ampliar";position:absolute;left:50%;bottom:24px;translate:-50% 8px;background:rgba(15,23,42,.88);color:#FFFFFF;font-size:12px;font-weight:700;padding:6px 14px;border-radius:999px;opacity:0;pointer-events:none;transition:opacity .2s,translate .2s}
+.fx-shot::after{content:"Ampliar e dar zoom";position:absolute;left:50%;bottom:24px;translate:-50% 8px;background:rgba(15,23,42,.88);color:#fff;font-size:12px;font-weight:700;padding:6px 14px;border-radius:999px;opacity:0;pointer-events:none;transition:opacity .2s,translate .2s;white-space:nowrap}
 .fx-shot:hover::after,.fx-shot:focus-within::after{opacity:1;translate:-50% 0}
 .fx-tilt{transform:perspective(900px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg));transition:transform .15s ease-out}
 .fx-tilt.rest{transition:transform .5s ease}
 
-/* ---------- visualização ampliada ---------- */
-#lightbox{border:0;padding:0;background:transparent;width:100vw;height:100vh;max-width:none;max-height:none;color:#FFFFFF}
-#lightbox[open]{display:flex;align-items:center;justify-content:center;gap:12px}
-#lightbox::backdrop{background:rgba(5,11,22,.82);backdrop-filter:blur(5px)}
-#lightbox figure{margin:0;display:flex;flex-direction:column;align-items:center;gap:12px;max-width:min(92vw,520px);animation:lbIn .25s ease}
-#lightbox img{display:block;max-width:100%;max-height:82vh;width:auto;height:auto;border-radius:24px;box-shadow:0 30px 80px rgba(0,0,0,.5);background:#111111}
-#lightbox figcaption{font:600 15px 'Plus Jakarta Sans',system-ui,sans-serif;text-align:center}
-.lb-btn{flex:none;width:48px;height:48px;border-radius:999px;border:1px solid rgba(255,255,255,.3);background:rgba(15,23,42,.6);color:#FFFFFF;font-size:26px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center}
-.lb-btn:hover{background:rgba(255,255,255,.2)}
-.lb-btn:focus-visible{outline:3px solid #7FD1A4;outline-offset:2px}
-.lb-close{position:absolute;top:16px;right:16px}
-@keyframes lbIn{from{opacity:0;scale:.96}to{opacity:1;scale:1}}
-@media (max-width:600px){#lightbox[open]{gap:4px}.lb-btn{width:40px;height:40px}}
+/* ---------- visualização ampliada com zoom ---------- */
+#lightbox{border:0;padding:0;background:transparent;width:100vw;height:100vh;max-width:none;max-height:none;color:#fff;overflow:hidden}
+#lightbox::backdrop{background:rgba(5,11,22,.9);backdrop-filter:blur(5px)}
+.lb-stage{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;overflow:hidden;touch-action:none;cursor:zoom-in}
+.lb-stage.z{cursor:grab}.lb-stage.drag{cursor:grabbing}
+#lb-img{max-width:92vw;max-height:78vh;border-radius:24px;box-shadow:0 30px 80px rgba(0,0,0,.5);background:#111;user-select:none;-webkit-user-drag:none;transform-origin:center;will-change:transform}
+.lb-bar{position:absolute;left:50%;bottom:20px;translate:-50% 0;display:flex;align-items:center;gap:6px;background:rgba(15,23,42,.82);border:1px solid rgba(255,255,255,.25);border-radius:999px;padding:6px 10px;font:600 14px 'Plus Jakarta Sans',system-ui,sans-serif}
+.lb-btn{flex:none;width:40px;height:40px;border-radius:999px;border:0;background:transparent;color:#fff;font-size:22px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.lb-btn:hover{background:rgba(255,255,255,.2)}.lb-btn:focus-visible{outline:3px solid #7FD1A4;outline-offset:2px}
+#lb-zl{width:auto;min-width:52px;font-size:14px;font-weight:700}
+#lb-cap{padding:0 8px;max-width:34vw;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.lb-close{position:absolute;top:16px;right:16px;width:48px;height:48px;background:rgba(15,23,42,.8);border:1px solid rgba(255,255,255,.3);font-size:26px}
+.lb-nav{position:absolute;top:50%;translate:0 -50%;width:48px;height:48px;background:rgba(15,23,42,.7);border:1px solid rgba(255,255,255,.3);font-size:28px}
+#lb-prev{left:14px}#lb-next{right:14px}
+.lb-hint{position:absolute;top:24px;left:50%;translate:-50% 0;font:500 13px 'Plus Jakarta Sans',system-ui,sans-serif;opacity:.75;text-align:center;width:min(70vw,560px)}
 
-/* ---------- menu de seções (lateral) ---------- */
-/* invisível até o mouse chegar na borda direita; no celular, um toque abre (e uma barrinha indica onde tocar) */
+/* ---------- menu de seções ---------- */
 .sec-wrap{--x:0;position:fixed;z-index:50;right:0;top:50%;transform:translateY(-50%);padding:20px 6px 20px 28px}
 .sec-wrap.open,.sec-wrap:has(:focus-visible){--x:1}
 @media (hover:hover){.sec-wrap:hover{--x:1}}
 .sec-nav{position:relative;display:flex;flex-direction:column;gap:2px;padding:8px 4px;background:color-mix(in srgb,var(--surface) 94%,transparent);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border:1px solid var(--line);border-radius:22px;box-shadow:0 calc(6px + var(--x)*8px) calc(18px + var(--x)*14px) rgba(15,23,42,calc(.10 + var(--x)*.08));opacity:var(--x);transform:translateX(calc((1 - var(--x))*34px));transition:opacity .3s ease,transform .45s cubic-bezier(.2,.8,.2,1),box-shadow .35s ease}
-.tq.dark .sec-nav{box-shadow:0 calc(6px + var(--x)*8px) calc(18px + var(--x)*14px) rgba(0,0,0,.45)}
 .sec-nav a{position:relative;display:flex;align-items:center;justify-content:flex-end;height:32px;padding:0 7px;border-radius:999px;color:var(--soft);font-size:13px;font-weight:600;text-decoration:none;white-space:nowrap;transition:background .2s ease,color .2s ease}
 .sec-nav a span{display:block;overflow:hidden;max-width:calc(var(--x)*140px);padding-right:calc(var(--x)*10px);opacity:var(--x);transform:translateX(calc((1 - var(--x))*12px));transition:max-width .45s cubic-bezier(.2,.8,.2,1) calc(var(--x)*var(--i,0)*28ms),padding .45s cubic-bezier(.2,.8,.2,1) calc(var(--x)*var(--i,0)*28ms),opacity .3s ease calc(var(--x)*var(--i,0)*28ms),transform .45s cubic-bezier(.2,.8,.2,1) calc(var(--x)*var(--i,0)*28ms)}
 .sec-nav a::after{content:"";flex:none;position:relative;z-index:1;width:10px;height:10px;border-radius:999px;background:var(--line2);transition:background .25s ease,transform .25s ease}
 .sec-nav a:hover{background:var(--pale-blue);color:var(--blue-t)}
 .sec-nav a:hover::after{background:var(--blue-t);transform:scale(1.15)}
-.sec-nav a.active{color:var(--blue-t)}
-.sec-nav a.active::after{background:var(--green-t)}
+.sec-nav a.active{color:var(--blue-t)}.sec-nav a.active::after{background:var(--green-t)}
 .sec-nav a:focus-visible{outline:3px solid var(--green-t);outline-offset:-2px}
-/* anel verde que desliza até a seção atual */
 .sec-ind{position:absolute;top:0;right:7px;width:18px;height:18px;box-sizing:border-box;border:2px solid var(--green-t);border-radius:999px;opacity:0;pointer-events:none;transition:transform .5s cubic-bezier(.3,1.4,.5,1),opacity .3s ease}
 .sec-ind.ready{opacity:1}
 @media (hover:none){.sec-wrap::after{content:"";position:absolute;right:3px;top:50%;width:5px;height:64px;margin-top:-32px;border-radius:999px;background:var(--blue-t);opacity:.4;transition:opacity .2s ease;pointer-events:none}.sec-wrap.open::after{opacity:0}}
 @media (max-height:520px){.sec-nav a{height:26px}}
 
-/* ---------- trilha do andamento ---------- */
+/* ---------- trilha ---------- */
 .trail{--t:.35s;list-style:none;margin:0 -20px 0 0;padding:18px 0 0;display:flex;align-items:stretch}
 .stage{flex:1 1 0;min-width:0;display:flex;flex-direction:column;gap:22px}
 .stage-top{display:flex;align-items:center}
 .node{flex:none;position:relative;box-sizing:border-box;width:44px;height:44px;border-radius:999px;display:flex;align-items:center;justify-content:center;font:700 16px 'Sora',sans-serif}
-.done .node{background:var(--green-bg);color:#FFFFFF}
-.progress .node{background:var(--blue-bg);color:#FFFFFF}
+.done .node{background:var(--green-bg);color:#fff}.progress .node{background:var(--blue-bg);color:#fff}
 .progress .node::after{content:"";position:absolute;inset:0;border-radius:inherit;border:2px solid var(--blue-t);animation:nodePing 2.2s ease-out infinite}
 .build .node{background:var(--amber-bg);color:var(--amber-t);border:2px solid var(--amber-t)}
 .first .node{background:var(--pale-gray);color:var(--soft);border:2px dashed var(--line2)}
@@ -107,48 +92,66 @@ html{scroll-behavior:smooth}
 .stage-card p{margin:0;font-size:14px;color:var(--muted)}
 .etapa{font-size:13px;font-weight:600;color:var(--muted)}
 .badge{align-self:flex-start;font-size:12px;font-weight:700;padding:4px 12px;border-radius:999px}
-.b-green{background:var(--pale-green);color:var(--green-deep)}
-.b-blue{background:var(--pale-blue);color:var(--blue-t)}
-.b-amber{background:var(--amber-bg);color:var(--amber-t)}
-.b-gray{background:var(--pale-gray);color:var(--soft)}
+.b-green{background:var(--pale-green);color:var(--green-deep)}.b-blue{background:var(--pale-blue);color:var(--blue-t)}.b-amber{background:var(--amber-bg);color:var(--amber-t)}.b-gray{background:var(--pale-gray);color:var(--soft)}
 .here{position:absolute;top:-13px;left:20px;display:flex;align-items:center;gap:6px;background:var(--ink);color:var(--bg);font-size:12px;font-weight:700;padding:3px 12px 3px 8px;border-radius:999px}
-/* o caminho se desenha ao rolar (só com JavaScript) */
 .js .stage .node{scale:.6;opacity:0;transition:scale .45s cubic-bezier(.3,1.5,.5,1) calc(var(--k,0)*var(--t)),opacity .3s ease calc(var(--k,0)*var(--t))}
 .js .stage.in .node{scale:1;opacity:1}
 .js .stage .link{clip-path:inset(-8px 100% -8px 0);transition:clip-path .8s ease calc(var(--k,0)*var(--t) + .25s)}
 .js .stage.in .link{clip-path:inset(-8px -14px -8px 0)}
 .js .stage-card{opacity:0;translate:0 16px;transition:opacity .6s ease calc(var(--k,0)*var(--t) + .1s),translate .6s ease calc(var(--k,0)*var(--t) + .1s),transform .25s ease,box-shadow .25s ease,border-color .25s ease}
 .js .stage.in .stage-card{opacity:1;translate:0 0}
-/* celular: o caminho vira vertical, descendo */
 @media (max-width:860px){
 .trail{--t:0s;flex-direction:column;margin-right:0;padding-top:12px}
-.stage{flex-direction:row;gap:18px}
-.stage-top{flex-direction:column}
+.stage{flex-direction:row;gap:18px}.stage-top{flex-direction:column}
 .link{flex:1 1 auto;width:3px;height:auto;min-height:26px;margin:8px 0;background:repeating-linear-gradient(180deg,currentColor 0 8px,transparent 8px 14px)}
 .link::after{right:auto;top:auto;left:50%;bottom:-4px;translate:-50% 0;border-left:6px solid transparent;border-right:6px solid transparent;border-top:10px solid currentColor;border-bottom:0}
 .done .link{background:currentColor}
 .progress .link{background:linear-gradient(var(--blue-t),var(--blue-t)) 0 0/100% 38% no-repeat,repeating-linear-gradient(180deg,var(--line2) 0 8px,transparent 8px 14px)}
-.stage-card{margin:0 0 22px}
-.stage:last-child .stage-card{margin-bottom:0}
-.js .stage .link{clip-path:inset(0 -8px 100% -8px)}
-.js .stage.in .link{clip-path:inset(0 -8px -14px -8px)}
-}
+.stage-card{margin:0 0 22px}.stage:last-child .stage-card{margin-bottom:0}
+.js .stage .link{clip-path:inset(0 -8px 100% -8px)}.js .stage.in .link{clip-path:inset(0 -8px -14px -8px)}}
 
-/* ---------- tecnologias coloridas ---------- */
+/* ---------- pontos do campus (cartões por tipo) ---------- */
+.k-park{--c:var(--blue-bg)}.k-exit{--c:var(--green-bg)}.k-bus{--c:#B45F06}
+.pgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:20px;align-items:start}
+.pgrp{background:var(--surface);border:1px solid var(--line);border-radius:24px;overflow:hidden}
+.pgrp-h{display:flex;align-items:center;gap:14px;padding:20px 24px;background:var(--c);color:#fff}
+.pgrp-n{flex:none;width:44px;height:44px;border-radius:14px;background:rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;font:700 18px 'Sora',sans-serif}
+.pgrp-h h3{margin:0;font:700 18px 'Sora',sans-serif}
+.pgrp-h span{font-size:13px;opacity:.9}
+.pgrp ul{list-style:none;margin:0;padding:8px 12px 12px}
+.pgrp li{display:flex;align-items:center;gap:12px;padding:12px;border-radius:12px}
+.pgrp .pid{flex:none;min-width:42px;text-align:center;border-radius:9px;padding:4px 0;background:var(--c);color:#fff;font:700 12px 'Sora',sans-serif}
+.pgrp .pnm{font-size:15px;font-weight:600;line-height:1.35}
+.pgrp .psub{display:block;font-size:12px;font-weight:500;color:var(--muted)}
+.pstrip{display:flex;flex-wrap:wrap;gap:10px;margin-top:4px}
+.pchip{font-size:13px;font-weight:700;padding:6px 14px;border-radius:999px;background:var(--pale-blue);color:var(--blue-t)}
+
+/* ---------- funcionalidades em destaque ---------- */
+.fband{background:var(--band);color:#fff;border-radius:28px;padding:56px 48px}
+.fband .head{max-width:640px;display:flex;flex-direction:column;gap:12px;margin-bottom:40px}
+.fband .eyebrow{color:#7FD1A4}
+.fband h2{margin:0;font-family:'Sora',sans-serif;font-weight:700;font-size:34px;line-height:1.2}
+.fband .sub{margin:0;font-size:16px;color:#D5E0EC}
+.fband .grid{display:flex;flex-wrap:wrap;gap:20px}
+.fcard{flex:1 1 300px;background:var(--surface);color:var(--ink);border:1px solid var(--line);border-radius:20px;padding:28px;display:flex;flex-direction:column;gap:12px}
+.fcard .ic{width:48px;height:48px;border-radius:14px;display:flex;align-items:center;justify-content:center}
+.fcard .ic.b{background:var(--pale-blue);color:var(--blue-t)}.fcard .ic.g{background:var(--pale-green);color:var(--green-t)}
+.fcard h3{margin:0;font-family:'Sora',sans-serif;font-size:19px}
+.fcard p{margin:0;font-size:15px;color:var(--muted)}
+@media(max-width:600px){.fband{padding:36px 22px}}
+
+/* ---------- tecnologias ---------- */
 .tech{display:inline-flex;align-items:center;gap:8px;border:1px solid;border-radius:999px;padding:6px 16px;font-size:14px;font-weight:600}
 .tech::before{content:"";width:8px;height:8px;border-radius:999px;background:currentColor}
-.t-flutter{background:#DCEBFA;color:#0B4F9C;border-color:#9CC3EE}
-.t-supabase{background:#D3F0E1;color:#0A6B40;border-color:#8FD6B3}
-.t-leaflet{background:#FBE5BF;color:#8A4B00;border-color:#E3B25E;border-style:dashed}
-.tq.dark .t-flutter{background:#12335C;color:#8FC1FF;border-color:#2B5A94}
-.tq.dark .t-supabase{background:#0F3A2A;color:#5FDDA0;border-color:#1F6B4C}
-.tq.dark .t-leaflet{background:#3D2A0A;color:#F5B95C;border-color:#7A5A1E}
+.t-flutter{background:#DCEBFA;color:#0B4F9C;border-color:#9CC3EE}.t-supabase{background:#D3F0E1;color:#0A6B40;border-color:#8FD6B3}.t-leaflet{background:#FBE5BF;color:#8A4B00;border-color:#E3B25E;border-style:dashed}
+.tq.dark .t-flutter{background:#12335C;color:#8FC1FF;border-color:#2B5A94}.tq.dark .t-supabase{background:#0F3A2A;color:#5FDDA0;border-color:#1F6B4C}.tq.dark .t-leaflet{background:#3D2A0A;color:#F5B95C;border-color:#7A5A1E}
 
-/* ---------- participantes ---------- */
-.team{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:16px}
-.member{display:flex;align-items:center;min-height:64px;box-sizing:border-box;background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:16px 22px;font-size:15px;font-weight:600;line-height:1.35;transition:opacity .7s ease var(--d,0s),translate .7s ease var(--d,0s),transform .25s ease,box-shadow .25s ease,border-color .25s ease}
+/* ---------- participantes: um nome por linha de cartão, última linha centralizada ---------- */
+.team{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;justify-content:center;gap:16px}
+.member{flex:0 0 auto;max-width:100%;display:flex;align-items:center;box-sizing:border-box;min-height:64px;background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:16px 26px;font-size:15px;font-weight:600;line-height:1.35;white-space:nowrap;transition:opacity .7s ease var(--d,0s),translate .7s ease var(--d,0s),transform .25s ease,box-shadow .25s ease,border-color .25s ease}
 .member:hover{transform:translateY(-3px);border-color:var(--line2);box-shadow:0 12px 26px rgba(15,23,42,.1)}
-.advisor{margin-top:20px;background:var(--band);color:#FFFFFF;border-radius:24px;padding:28px 32px;display:flex;flex-direction:column;gap:4px}
+@media(max-width:480px){.member{white-space:normal}}
+.advisor{margin-top:20px;background:var(--band);color:#fff;border-radius:24px;padding:28px 32px;display:flex;flex-direction:column;gap:4px}
 .adv-label{font-size:13px;font-weight:700;color:#7FD1A4;letter-spacing:.08em;text-transform:uppercase}
 .adv-name{font-family:'Sora',sans-serif;font-weight:700;font-size:20px}
 .adv-sub{font-size:14px;color:#D5E0EC}
@@ -157,20 +160,15 @@ html{scroll-behavior:smooth}
 html{scroll-behavior:auto}
 .rv,.fx-card,.fx-shot,.fx-tilt,.hl,.sec-nav,.sec-nav a span,.sec-ind,.stage .node,.stage .link,.stage-card,.member{transition:none!important}
 .progress .node::after{animation:none}
-.js .stage .link{clip-path:none!important}
-.js .stage .node{scale:1!important;opacity:1!important}
-.js .stage-card{opacity:1!important;translate:none!important}
-.js .rv{opacity:1!important;translate:none!important}
-.js .hl{background-size:100% 2px,100% 0!important}
-#lightbox figure{animation:none}
-}
+.js .stage .link{clip-path:none!important}.js .stage .node{scale:1!important;opacity:1!important}
+.js .stage-card{opacity:1!important;translate:none!important}.js .rv{opacity:1!important;translate:none!important}
+.js .hl{background-size:100% 2px,100% 0!important}}
 </style>
 <script>document.documentElement.className+=' js'</script>
 </head>
 <body>
-<div class="tq" style="width: 100%; background: var(--bg); color: var(--ink); font-family: 'Plus Jakarta Sans', system-ui, sans-serif; line-height: 1.6">
+<div class="tq" style="width:100%;background:var(--bg);color:var(--ink);font-family:'Plus Jakarta Sans',system-ui,sans-serif;line-height:1.6">
 
-<!-- MENU DE SEÇÕES (lateral: fica invisível e aparece ao passar o mouse na borda direita; no celular abre com um toque) -->
 <div class="sec-wrap" id="sec-wrap">
 <nav class="sec-nav" id="sec-nav" aria-label="Navegação por seções">
 <i class="sec-ind" id="sec-ind" aria-hidden="true"></i>
@@ -185,585 +183,253 @@ html{scroll-behavior:auto}
 </nav>
 </div>
 
-<!-- NAV -->
-<div style="background: var(--surface); border-bottom: 1px solid var(--line)">
-<div style="max-width: 1120px; margin: 0 auto; padding: 16px 24px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px">
-<a href="#topo" style="display: flex; align-items: center; gap: 12px; text-decoration: none">
-<div style="width: 40px; height: 40px; background: var(--blue-bg); color: #FFFFFF; border-radius: 12px; display: flex; align-items: center; justify-content: center">
-<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s7-6.2 7-11.5A7 7 0 005 9.5C5 14.8 12 21 12 21z"></path><circle cx="12" cy="9.5" r="2.5"></circle></svg>
-</div>
-<span style="font-family: 'Sora', sans-serif; font-weight: 700; font-size: 20px; color: var(--blue-t)">Tô aqui <span style="color: var(--green-t)">UnB</span></span>
-</a>
-<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px 24px; font-size: 14px; font-weight: 500">
-<a href="#como-funciona" style="color: var(--soft); text-decoration: none">Como funciona</a>
-<a href="#funcionalidades" style="color: var(--soft); text-decoration: none">Funcionalidades</a>
-<a href="#seguranca" style="color: var(--soft); text-decoration: none">Segurança</a>
-<a href="#andamento" style="color: #FFFFFF; background: var(--blue-bg); text-decoration: none; padding: 10px 20px; border-radius: 999px; font-weight: 600">Acompanhe o projeto</a>
-<button type="button" id="theme-toggle" aria-label="Mudar para o modo escuro" title="Mudar para o modo escuro" style="width: 44px; height: 44px; padding: 0; border-radius: 999px; border: 1px solid var(--line2); background: var(--surface); color: var(--ink); display: flex; align-items: center; justify-content: center; cursor: pointer">
+<div style="background:var(--surface);border-bottom:1px solid var(--line)">
+<div style="max-width:1120px;margin:0 auto;padding:16px 24px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px">
+<a href="#topo" style="display:flex;align-items:center;gap:12px;text-decoration:none">
+<div style="width:40px;height:40px;background:var(--blue-bg);color:#fff;border-radius:12px;display:flex;align-items:center;justify-content:center">
+<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s7-6.2 7-11.5A7 7 0 005 9.5C5 14.8 12 21 12 21z"></path><circle cx="12" cy="9.5" r="2.5"></circle></svg></div>
+<span style="font-family:'Sora',sans-serif;font-weight:700;font-size:20px;color:var(--blue-t)">Tô aqui <span style="color:var(--green-t)">UnB</span></span></a>
+<div style="display:flex;flex-wrap:wrap;align-items:center;gap:8px 24px;font-size:14px;font-weight:500">
+<a href="#como-funciona" style="color:var(--soft);text-decoration:none">Como funciona</a>
+<a href="#funcionalidades" style="color:var(--soft);text-decoration:none">Funcionalidades</a>
+<a href="#seguranca" style="color:var(--soft);text-decoration:none">Segurança</a>
+<a href="#andamento" style="color:#fff;background:var(--blue-bg);text-decoration:none;padding:10px 20px;border-radius:999px;font-weight:600">Acompanhe o projeto</a>
+<button type="button" id="theme-toggle" aria-label="Mudar para o modo escuro" title="Mudar para o modo escuro" style="width:44px;height:44px;padding:0;border-radius:999px;border:1px solid var(--line2);background:var(--surface);color:var(--ink);display:flex;align-items:center;justify-content:center;cursor:pointer">
 <svg class="icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path></svg>
-<svg class="icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 019.5 4a8 8 0 1010.5 10.5z"></path></svg>
-</button>
-</div>
-</div>
+<svg class="icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 019.5 4a8 8 0 1010.5 10.5z"></path></svg></button>
+</div></div></div>
+
+<div id="topo" style="max-width:1120px;margin:0 auto;padding:72px 24px 80px;display:flex;flex-wrap:wrap;align-items:center;gap:48px">
+<div style="flex:1 1 440px;display:flex;flex-direction:column;gap:24px">
+<div style="align-self:flex-start;display:flex;align-items:center;gap:8px;padding:6px 14px;border-radius:999px;background:var(--pale-green);color:var(--green-deep);font-size:13px;font-weight:600"><span style="width:8px;height:8px;border-radius:999px;background:var(--green-bg)"></span>Em desenvolvimento · Projeto Integrador 2026</div>
+<h1 style="margin:0;font-family:'Sora',sans-serif;font-weight:800;font-size:52px;line-height:1.1;color:var(--ink)">Carona entre estudantes na <span style="color:var(--blue-t)">UnB</span>.</h1>
+<p style="margin:0;font-size:19px;color:var(--muted);max-width:520px">Divida caronas de carro e a pé até o Campus Darcy Ribeiro, na volta para casa e dentro do campus. Gastar menos, chegar mais rápido e <span class="hl">conhecer gente nova no caminho</span>.</p>
+<div style="display:flex;flex-wrap:wrap;gap:12px;padding-top:8px">
+<a href="#funcionalidades" style="display:inline-block;background:var(--blue-bg);color:#fff;text-decoration:none;padding:14px 28px;border-radius:12px;font-weight:600">Conheça o app</a>
+<a href="#andamento" style="display:inline-block;background:var(--surface);color:var(--blue-t);text-decoration:none;padding:14px 28px;border-radius:12px;font-weight:600;border:1px solid var(--line2)">Ver andamento</a></div>
+<p style="margin:0;font-size:14px;color:var(--muted)">Acesso restrito a quem tem e-mail institucional <strong>@aluno.unb.br</strong>.</p></div>
+<div style="flex:1 1 320px;display:flex;flex-direction:column;align-items:center;gap:12px">
+<div style="width:290px;height:600px;box-sizing:border-box;background:var(--frame);border-radius:42px;padding:12px;box-shadow:0 24px 48px rgba(15,23,42,.18)">
+<button type="button" class="shot-btn" aria-label="Ampliar a tela: Lista de caronas"><img src="img/lista-de-caronas.jpg" data-cap="Lista de caronas" alt="Tela de caronas do app Tô aqui UnB, com a lista de caronas da região e o botão Oferecer carona" style="display:block;width:100%;height:100%;object-fit:cover;border-radius:32px"></button></div></div>
 </div>
 
-<!-- HERO -->
-<div id="topo" style="max-width: 1120px; margin: 0 auto; padding: 72px 24px 80px; display: flex; flex-wrap: wrap; align-items: center; gap: 48px">
-<div style="flex: 1 1 440px; display: flex; flex-direction: column; gap: 24px">
-<div style="align-self: flex-start; display: flex; align-items: center; gap: 8px; padding: 6px 14px; border-radius: 999px; background: var(--pale-green); color: var(--green-deep); font-size: 13px; font-weight: 600">
-<span style="width: 8px; height: 8px; border-radius: 999px; background: var(--green-bg)"></span>
-Em desenvolvimento · Projeto Integrador 2026
-</div>
-<h1 style="margin: 0; font-family: 'Sora', sans-serif; font-weight: 800; font-size: 52px; line-height: 1.1; color: var(--ink)">Carona entre estudantes na <span style="color: var(--blue-t)">UnB</span>.</h1>
-<p style="margin: 0; font-size: 19px; color: var(--muted); max-width: 520px">Divida caronas de carro e a pé até o Campus Darcy Ribeiro, na volta para casa e dentro do campus. Gastar menos, chegar mais rápido e <span class="hl">conhecer gente nova no caminho</span>.</p>
-<div style="display: flex; flex-wrap: wrap; gap: 12px; padding-top: 8px">
-<a href="#funcionalidades" style="display: inline-block; background: var(--blue-bg); color: #FFFFFF; text-decoration: none; padding: 14px 28px; border-radius: 12px; font-weight: 600">Conheça o app</a>
-<a href="#andamento" style="display: inline-block; background: var(--surface); color: var(--blue-t); text-decoration: none; padding: 14px 28px; border-radius: 12px; font-weight: 600; border: 1px solid var(--line2)">Ver andamento</a>
-</div>
-<p style="margin: 0; font-size: 14px; color: var(--muted)">Acesso restrito a quem tem e-mail institucional <strong>@aluno.unb.br</strong>.</p>
-</div>
+<div style="background:var(--surface);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+<div style="max-width:1120px;margin:0 auto;padding:40px 24px;display:flex;flex-wrap:wrap;gap:32px">
+<div style="flex:1 1 240px"><div style="font-family:'Sora',sans-serif;font-weight:700;font-size:20px;color:var(--blue-t)">Só comunidade UnB</div><div style="font-size:14px;color:var(--muted)">Entrada de alunos com seus e-mails @aluno.unb.br e para docentes com @unb.br.</div></div>
+<div style="flex:1 1 240px"><div style="font-family:'Sora',sans-serif;font-weight:700;font-size:20px;color:var(--green-t)">Login sem senha</div><div style="font-size:14px;color:var(--muted)">Você recebe um código por e-mail e a sessão dura 7 dias.</div></div>
+<div style="flex:1 1 240px"><div style="font-family:'Sora',sans-serif;font-weight:700;font-size:20px;color:var(--blue-t)">Sem coleta de CPF</div><div style="font-size:14px;color:var(--muted)">O app respeita a LGPD e pede só o necessário.</div></div>
+<div style="flex:1 1 240px"><div style="font-family:'Sora',sans-serif;font-weight:700;font-size:20px;color:var(--green-t)">Motoristas com CNH</div><div style="font-size:14px;color:var(--muted)">Só quem tem a CNH aprovada pode publicar caronas.</div></div>
+</div></div>
 
-<div style="flex: 1 1 320px; display: flex; flex-direction: column; align-items: center; gap: 12px">
-<div style="width: 290px; height: 600px; box-sizing: border-box; background: var(--frame); border-radius: 42px; padding: 12px; box-shadow: 0 24px 48px rgba(15,23,42,0.18)">
-<button type="button" class="shot-btn" aria-label="Ampliar a tela: Lista de caronas"><img src="img/lista-de-caronas.jpg" data-cap="Lista de caronas" alt="Tela de caronas do app Tô aqui UnB, com a lista de caronas da região e o botão Oferecer carona" style="display: block; width: 100%; height: 100%; object-fit: cover; border-radius: 32px"></button>
-</div>
-</div>
-</div>
+<div id="como-funciona" style="max-width:1120px;margin:0 auto;padding:88px 24px 24px">
+<div style="max-width:640px;display:flex;flex-direction:column;gap:12px;margin-bottom:40px">
+<div class="eyebrow" style="font-size:13px;font-weight:700;color:var(--green-t);letter-spacing:.08em;text-transform:uppercase">Como funciona</div>
+<h2 style="margin:0;font-family:'Sora',sans-serif;font-weight:700;font-size:34px;line-height:1.2">Do cadastro à carona em três passos</h2></div>
+<div style="display:flex;flex-wrap:wrap;gap:20px">
+<div style="flex:1 1 300px;background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:28px;display:flex;flex-direction:column;gap:12px"><div style="width:40px;height:40px;border-radius:999px;background:var(--blue-bg);color:#fff;font-family:'Sora',sans-serif;font-weight:700;display:flex;align-items:center;justify-content:center">1</div><h3 style="margin:0;font-family:'Sora',sans-serif;font-size:20px">Entre com seu e-mail da UnB</h3><p style="margin:0;font-size:15px;color:var(--muted)">Informe a matrícula ou o e-mail @aluno.unb.br e digite o código que chega na sua caixa de entrada.</p></div>
+<div style="flex:1 1 300px;background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:28px;display:flex;flex-direction:column;gap:12px"><div style="width:40px;height:40px;border-radius:999px;background:var(--blue-bg);color:#fff;font-family:'Sora',sans-serif;font-weight:700;display:flex;align-items:center;justify-content:center">2</div><h3 style="margin:0;font-family:'Sora',sans-serif;font-size:20px">Monte seu perfil e sua semana</h3><p style="margin:0;font-size:15px;color:var(--muted)">Em menos de um minuto você pode escolher a região onde mora e já recebe notificações de possíveis trajetos úteis. Caso queira, você também pode marcar seus turnos de aula em “Minha semana”.</p></div>
+<div style="flex:1 1 300px;background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:28px;display:flex;flex-direction:column;gap:12px"><div style="width:40px;height:40px;border-radius:999px;background:var(--blue-bg);color:#fff;font-family:'Sora',sans-serif;font-weight:700;display:flex;align-items:center;justify-content:center">3</div><h3 style="margin:0;font-family:'Sora',sans-serif;font-size:20px">Combine a carona</h3><p style="margin:0;font-size:15px;color:var(--muted)">Veja as caronas da sua região, ofereça a sua com dia, horário e vagas, e <span class="hl">receba avisos quando surgir uma compatível com você</span>.</p></div>
+</div></div>
 
-<!-- FATOS -->
-<div style="background: var(--surface); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line)">
-<div style="max-width: 1120px; margin: 0 auto; padding: 40px 24px; display: flex; flex-wrap: wrap; gap: 32px">
-<div style="flex: 1 1 240px; display: flex; flex-direction: column; gap: 4px">
-<div style="font-family: 'Sora', sans-serif; font-weight: 700; font-size: 20px; color: var(--blue-t)">Só comunidade UnB</div>
-<div style="font-size: 14px; color: var(--muted)">Entrada de alunos com seus e-mails @aluno.unb.br e para docentes com @unb.br.</div>
-</div>
-<div style="flex: 1 1 240px; display: flex; flex-direction: column; gap: 4px">
-<div style="font-family: 'Sora', sans-serif; font-weight: 700; font-size: 20px; color: var(--green-t)">Login sem senha</div>
-<div style="font-size: 14px; color: var(--muted)">Você recebe um código por e-mail e a sessão dura 7 dias.</div>
-</div>
-<div style="flex: 1 1 240px; display: flex; flex-direction: column; gap: 4px">
-<div style="font-family: 'Sora', sans-serif; font-weight: 700; font-size: 20px; color: var(--blue-t)">Sem coleta de CPF</div>
-<div style="font-size: 14px; color: var(--muted)">O app respeita a LGPD e pede só o necessário.</div>
-</div>
-<div style="flex: 1 1 240px; display: flex; flex-direction: column; gap: 4px">
-<div style="font-family: 'Sora', sans-serif; font-weight: 700; font-size: 20px; color: var(--green-t)">Motoristas com CNH</div>
-<div style="font-size: 14px; color: var(--muted)">Só quem tem a CNH aprovada pode publicar caronas.</div>
-</div>
-</div>
-</div>
+<!-- FUNCIONALIDADES (faixa em destaque) -->
+<div id="funcionalidades" style="max-width:1120px;margin:0 auto;padding:72px 24px 24px">
+<div class="fband">
+<div class="head"><div class="eyebrow">Funcionalidades</div><h2>Pensado para o dia a dia de quem estuda na UnB</h2></div>
+<div class="grid">
+<div class="fcard"><div class="ic b"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 16V12l2-5h12l2 5v4"></path><path d="M3 16h18v3H3z"></path><circle cx="7.5" cy="16" r="1"></circle><circle cx="16.5" cy="16" r="1"></circle></svg></div><h3>Caronas de carro e a pé</h3><p>Ida ao campus, volta para a sua região e deslocamentos dentro do campus, em um só lugar.</p></div>
+<div class="fcard"><div class="ic g"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s7-6.2 7-11.5A7 7 0 005 9.5C5 14.8 12 21 12 21z"></path><circle cx="12" cy="9.5" r="2.5"></circle></svg></div><h3>Caronas por região</h3><p>Filtre pela região onde você mora e pelo tipo de motorista. Se não houver carona agora, <span class="hl">o app avisa quando aparecer uma</span>.</p></div>
+<div class="fcard"><div class="ic b"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 17V11a6 6 0 1112 0v6l1.5 2h-15L6 17z"></path><path d="M10 21h4"></path></svg></div><h3>Avisos no sininho</h3><p>Receba alertas de caronas na sua região e veja quando houver demanda, com o botão “Tô aqui!” para o motorista ajudar.</p></div>
+<div class="fcard"><div class="ic g"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"></rect><path d="M3 10h18M8 3v4M16 3v4"></path></svg></div><h3>Minha semana</h3><p>Marque seus turnos de aula e o app calcula chegada e saída do campus. <span class="hl">Só você vê seus horários</span>; motoristas veem apenas quantas pessoas chegam.</p></div>
+<div class="fcard"><div class="ic b"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.5"></circle><path d="M2.5 20c0-3.5 3-6 6.5-6s6.5 2.5 6.5 6"></path><circle cx="17.5" cy="9" r="2.5"></circle><path d="M17 14c3 0 4.5 2 4.5 5"></path></svg></div><h3>Grupos de afinidade</h3><p>Cada carona mostra como o motorista se declarou, e você filtra por esse critério. <span class="hl">Isso permite caronas exclusivas, como só para mulheres</span>. Quem prefere não declarar usa o app normalmente.</p></div>
+<div class="fcard"><div class="ic g"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"></rect><circle cx="9" cy="11" r="2"></circle><path d="M6 16c.5-1.5 1.7-2 3-2s2.5.5 3 2M14 10h4M14 14h3"></path></svg></div><h3>Motoristas verificados</h3><p><span class="hl">A CNH passa por aprovação antes de qualquer oferta</span>. Se for recusada, o app explica o motivo e orienta o envio de uma nova foto.</p></div>
+</div></div></div>
 
-<!-- COMO FUNCIONA -->
-<div id="como-funciona" style="max-width: 1120px; margin: 0 auto; padding: 88px 24px 24px">
-<div style="max-width: 640px; display: flex; flex-direction: column; gap: 12px; margin-bottom: 40px">
-<div style="font-size: 13px; font-weight: 700; color: var(--green-t); letter-spacing: 0.08em; text-transform: uppercase">Como funciona</div>
-<h2 style="margin: 0; font-family: 'Sora', sans-serif; font-weight: 700; font-size: 34px; line-height: 1.2">Do cadastro à carona em três passos</h2>
-</div>
-<div style="display: flex; flex-wrap: wrap; gap: 20px">
-<div style="flex: 1 1 300px; background: var(--surface); border: 1px solid var(--line); border-radius: 20px; padding: 28px; display: flex; flex-direction: column; gap: 12px">
-<div style="width: 40px; height: 40px; border-radius: 999px; background: var(--blue-bg); color: #FFFFFF; font-family: 'Sora', sans-serif; font-weight: 700; display: flex; align-items: center; justify-content: center">1</div>
-<h3 style="margin: 0; font-family: 'Sora', sans-serif; font-size: 20px">Entre com seu e-mail da UnB</h3>
-<p style="margin: 0; font-size: 15px; color: var(--muted)">Informe a matrícula ou o e-mail @aluno.unb.br e digite o código que chega na sua caixa de entrada.</p>
-</div>
-<div style="flex: 1 1 300px; background: var(--surface); border: 1px solid var(--line); border-radius: 20px; padding: 28px; display: flex; flex-direction: column; gap: 12px">
-<div style="width: 40px; height: 40px; border-radius: 999px; background: var(--blue-bg); color: #FFFFFF; font-family: 'Sora', sans-serif; font-weight: 700; display: flex; align-items: center; justify-content: center">2</div>
-<h3 style="margin: 0; font-family: 'Sora', sans-serif; font-size: 20px">Monte seu perfil e sua semana</h3>
-<p style="margin: 0; font-size: 15px; color: var(--muted)">Em menos de um minuto você pode escolher a região onde mora e já recebe notificações de possíveis trajetos úteis. Caso queira, você também pode marcar seus turnos de aula em “Minha semana”.</p>
-</div>
-<div style="flex: 1 1 300px; background: var(--surface); border: 1px solid var(--line); border-radius: 20px; padding: 28px; display: flex; flex-direction: column; gap: 12px">
-<div style="width: 40px; height: 40px; border-radius: 999px; background: var(--blue-bg); color: #FFFFFF; font-family: 'Sora', sans-serif; font-weight: 700; display: flex; align-items: center; justify-content: center">3</div>
-<h3 style="margin: 0; font-family: 'Sora', sans-serif; font-size: 20px">Combine a carona</h3>
-<p style="margin: 0; font-size: 15px; color: var(--muted)">Veja as caronas da sua região, ofereça a sua com dia, horário e vagas, e <span class="hl">receba avisos quando surgir uma compatível com você</span>.</p>
-</div>
-</div>
-</div>
+<div id="telas" style="max-width:1120px;margin:0 auto;padding:72px 24px 24px">
+<div style="max-width:640px;display:flex;flex-direction:column;gap:12px;margin-bottom:40px">
+<div class="eyebrow" style="font-size:13px;font-weight:700;color:var(--green-t);letter-spacing:.08em;text-transform:uppercase">O app por dentro</div>
+<h2 style="margin:0;font-family:'Sora',sans-serif;font-weight:700;font-size:34px;line-height:1.2">Telas da versão atual</h2>
+<p style="margin:0;font-size:16px;color:var(--muted)">Capturas reais do aplicativo em desenvolvimento, com dados de teste. Clique para ampliar e use a roda do mouse ou a pinça para dar zoom.</p></div>
+<div style="display:flex;flex-wrap:wrap;justify-content:center;gap:40px 32px">
+<div style="flex:none;width:240px;display:flex;flex-direction:column;gap:16px"><div style="width:240px;height:497px;box-sizing:border-box;background:var(--frame);border-radius:36px;padding:10px;box-shadow:0 20px 40px rgba(15,23,42,.15)"><button type="button" class="shot-btn" aria-label="Ampliar a tela: Oferecer carona"><img src="img/oferecer-carona.jpg" data-cap="Oferecer carona" alt="Tela Oferecer carona, com sentido, ponto de saída, dia, horário, vagas e observação" style="display:block;width:100%;height:100%;object-fit:cover;border-radius:27px"></button></div><div><div style="font-family:'Sora',sans-serif;font-weight:700;font-size:17px">Oferecer carona</div><div style="font-size:14px;color:var(--muted)">Sentido, saída, dia, horário e vagas. O app não deixa publicar com horário no passado.</div></div></div>
+<div style="flex:none;width:240px;display:flex;flex-direction:column;gap:16px"><div style="width:240px;height:497px;box-sizing:border-box;background:var(--frame);border-radius:36px;padding:10px;box-shadow:0 20px 40px rgba(15,23,42,.15)"><button type="button" class="shot-btn" aria-label="Ampliar a tela: Central de avisos"><img src="img/avisos.jpg" data-cap="Central de avisos" alt="Central de avisos com caronas na região, aprovação da CNH e pedido de carona com o botão Tô aqui" style="display:block;width:100%;height:100%;object-fit:cover;border-radius:27px"></button></div><div><div style="font-family:'Sora',sans-serif;font-weight:700;font-size:17px">Central de avisos</div><div style="font-size:14px;color:var(--muted)">Caronas na região, aprovação da CNH e pedidos de carona, com o botão “Tô aqui!” para o motorista ajudar.</div></div></div>
+<div style="flex:none;width:240px;display:flex;flex-direction:column;gap:16px"><div style="width:240px;height:497px;box-sizing:border-box;background:var(--frame);border-radius:36px;padding:10px;box-shadow:0 20px 40px rgba(15,23,42,.15)"><button type="button" class="shot-btn" aria-label="Ampliar a tela: Minha semana"><img src="img/minha-semana.jpg" data-cap="Minha semana" alt="Tela Minha semana, com os turnos de aula de cada dia e os horários de chegada e saída do campus" style="display:block;width:100%;height:100%;object-fit:cover;border-radius:27px"></button></div><div><div style="font-family:'Sora',sans-serif;font-weight:700;font-size:17px">Minha semana</div><div style="font-size:14px;color:var(--muted)">Marque os turnos de aula e o app calcula chegada e saída do campus. <span class="hl">Só você vê seus horários</span>.</div></div></div>
+</div></div>
 
-<!-- FUNCIONALIDADES -->
-<div id="funcionalidades" style="max-width: 1120px; margin: 0 auto; padding: 72px 24px 24px">
-<div style="max-width: 640px; display: flex; flex-direction: column; gap: 12px; margin-bottom: 40px">
-<div style="font-size: 13px; font-weight: 700; color: var(--green-t); letter-spacing: 0.08em; text-transform: uppercase">Funcionalidades</div>
-<h2 style="margin: 0; font-family: 'Sora', sans-serif; font-weight: 700; font-size: 34px; line-height: 1.2">Pensado para o dia a dia de quem estuda na UnB</h2>
-</div>
-<div style="display: flex; flex-wrap: wrap; gap: 20px">
+<div id="seguranca" style="max-width:1120px;margin:0 auto;padding:72px 24px 24px">
+<div style="background:var(--band);color:#fff;border-radius:28px;padding:56px 48px;display:flex;flex-wrap:wrap;gap:40px">
+<div style="flex:1 1 340px;display:flex;flex-direction:column;gap:16px">
+<div style="font-size:13px;font-weight:700;color:#7FD1A4;letter-spacing:.08em;text-transform:uppercase">Segurança e confiança</div>
+<h2 style="margin:0;font-family:'Sora',sans-serif;font-weight:700;font-size:34px;line-height:1.2">Uma comunidade fechada, com canal de denúncia</h2>
+<p style="margin:0;font-size:16px;color:#D5E0EC">O objetivo é criar um ambiente seguro e social: <span class="hl" style="--hl:#7FD1A4">só entra quem é da UnB</span>, e quem se comporta mal pode ser denunciado e, no futuro, suspenso.</p></div>
+<div style="flex:1 1 380px;display:flex;flex-direction:column;gap:20px">
+<div style="display:flex;gap:16px;align-items:flex-start"><div style="flex:none;width:40px;height:40px;border-radius:12px;background:var(--surface);color:var(--blue-t);display:flex;align-items:center;justify-content:center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 3v6c0 4.5-3.2 8-8 9-4.8-1-8-4.5-8-9V6l8-3z"></path><path d="M9 12l2 2 4-4"></path></svg></div><div><div style="font-weight:700">Verificação por e-mail institucional</div><div style="font-size:14px;color:#D5E0EC">A matrícula é confirmada automaticamente quando o e-mail é o numérico.</div></div></div>
+<div style="display:flex;gap:16px;align-items:flex-start"><div style="flex:none;width:40px;height:40px;border-radius:12px;background:var(--surface);color:var(--blue-t);display:flex;align-items:center;justify-content:center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 21V4M5 4h11l-2 4 2 4H5"></path></svg></div><div><div style="font-weight:700">Canal de denúncias</div><div style="font-size:14px;color:#D5E0EC">Informe a pessoa, o motivo e descreva o ocorrido. A equipe analisa cada caso e a denúncia não gera advertência automática.</div></div></div>
+<div style="display:flex;gap:16px;align-items:flex-start"><div style="flex:none;width:40px;height:40px;border-radius:12px;background:var(--surface);color:var(--blue-t);display:flex;align-items:center;justify-content:center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"></rect><path d="M8 11V8a4 4 0 018 0v3"></path></svg></div><div><div style="font-weight:700">Dados protegidos</div><div style="font-size:14px;color:#D5E0EC">Regras de acesso no banco de dados: cada pessoa só enxerga e edita o próprio perfil.</div></div></div>
+<div style="display:flex;gap:16px;align-items:flex-start"><div style="flex:none;width:40px;height:40px;border-radius:12px;background:#7FD1A4;color:#002347;display:flex;align-items:center;justify-content:center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg></div><div><div style="font-weight:700">Em breve</div><div style="font-size:14px;color:#D5E0EC">Suspensão de usuários por cartões amarelos e vermelhos, com base em denúncia e verificação pelos moderadores.</div></div></div>
+</div></div></div>
 
-<div style="flex: 1 1 320px; background: var(--surface); border: 1px solid var(--line); border-radius: 20px; padding: 28px; display: flex; flex-direction: column; gap: 12px">
-<div style="width: 48px; height: 48px; border-radius: 14px; background: var(--pale-blue); color: var(--blue-t); display: flex; align-items: center; justify-content: center">
-<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 16V12l2-5h12l2 5v4"></path><path d="M3 16h18v3H3z"></path><circle cx="7.5" cy="16" r="1"></circle><circle cx="16.5" cy="16" r="1"></circle></svg>
-</div>
-<h3 style="margin: 0; font-family: 'Sora', sans-serif; font-size: 19px">Caronas de carro e a pé</h3>
-<p style="margin: 0; font-size: 15px; color: var(--muted)">Ida ao campus, volta para a sua região e deslocamentos dentro do campus, em um só lugar.</p>
-</div>
-
-<div style="flex: 1 1 320px; background: var(--surface); border: 1px solid var(--line); border-radius: 20px; padding: 28px; display: flex; flex-direction: column; gap: 12px">
-<div style="width: 48px; height: 48px; border-radius: 14px; background: var(--pale-green); color: var(--green-t); display: flex; align-items: center; justify-content: center">
-<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s7-6.2 7-11.5A7 7 0 005 9.5C5 14.8 12 21 12 21z"></path><circle cx="12" cy="9.5" r="2.5"></circle></svg>
-</div>
-<h3 style="margin: 0; font-family: 'Sora', sans-serif; font-size: 19px">Caronas por região</h3>
-<p style="margin: 0; font-size: 15px; color: var(--muted)">Filtre pela região onde você mora e pelo tipo de motorista. Se não houver carona agora, <span class="hl">o app avisa quando aparecer uma</span>.</p>
-</div>
-
-<div style="flex: 1 1 320px; background: var(--surface); border: 1px solid var(--line); border-radius: 20px; padding: 28px; display: flex; flex-direction: column; gap: 12px">
-<div style="width: 48px; height: 48px; border-radius: 14px; background: var(--pale-blue); color: var(--blue-t); display: flex; align-items: center; justify-content: center">
-<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 17V11a6 6 0 1112 0v6l1.5 2h-15L6 17z"></path><path d="M10 21h4"></path></svg>
-</div>
-<h3 style="margin: 0; font-family: 'Sora', sans-serif; font-size: 19px">Avisos no sininho</h3>
-<p style="margin: 0; font-size: 15px; color: var(--muted)">Receba alertas de caronas na sua região e veja quando houver demanda, com o botão “Tô aqui!” para o motorista ajudar.</p>
-</div>
-
-<div style="flex: 1 1 320px; background: var(--surface); border: 1px solid var(--line); border-radius: 20px; padding: 28px; display: flex; flex-direction: column; gap: 12px">
-<div style="width: 48px; height: 48px; border-radius: 14px; background: var(--pale-green); color: var(--green-t); display: flex; align-items: center; justify-content: center">
-<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"></rect><path d="M3 10h18M8 3v4M16 3v4"></path></svg>
-</div>
-<h3 style="margin: 0; font-family: 'Sora', sans-serif; font-size: 19px">Minha semana</h3>
-<p style="margin: 0; font-size: 15px; color: var(--muted)">Marque seus turnos de aula e o app calcula chegada e saída do campus. <span class="hl">Só você vê seus horários</span>; motoristas veem apenas quantas pessoas chegam.</p>
-</div>
-
-<div style="flex: 1 1 320px; background: var(--surface); border: 1px solid var(--line); border-radius: 20px; padding: 28px; display: flex; flex-direction: column; gap: 12px">
-<div style="width: 48px; height: 48px; border-radius: 14px; background: var(--pale-blue); color: var(--blue-t); display: flex; align-items: center; justify-content: center">
-<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.5"></circle><path d="M2.5 20c0-3.5 3-6 6.5-6s6.5 2.5 6.5 6"></path><circle cx="17.5" cy="9" r="2.5"></circle><path d="M17 14c3 0 4.5 2 4.5 5"></path></svg>
-</div>
-<h3 style="margin: 0; font-family: 'Sora', sans-serif; font-size: 19px">Grupos de afinidade</h3>
-<p style="margin: 0; font-size: 15px; color: var(--muted)">Cada carona mostra como o motorista se declarou, e você filtra por esse critério. <span class="hl">Isso permite caronas exclusivas, como só para mulheres</span>. Quem prefere não declarar usa o app normalmente.</p>
-</div>
-
-<div style="flex: 1 1 320px; background: var(--surface); border: 1px solid var(--line); border-radius: 20px; padding: 28px; display: flex; flex-direction: column; gap: 12px">
-<div style="width: 48px; height: 48px; border-radius: 14px; background: var(--pale-green); color: var(--green-t); display: flex; align-items: center; justify-content: center">
-<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"></rect><circle cx="9" cy="11" r="2"></circle><path d="M6 16c.5-1.5 1.7-2 3-2s2.5.5 3 2M14 10h4M14 14h3"></path></svg>
-</div>
-<h3 style="margin: 0; font-family: 'Sora', sans-serif; font-size: 19px">Motoristas verificados</h3>
-<p style="margin: 0; font-size: 15px; color: var(--muted)"><span class="hl">A CNH passa por aprovação antes de qualquer oferta</span>. Se for recusada, o app explica o motivo e orienta o envio de uma nova foto.</p>
-</div>
-
-</div>
-</div>
-
-<!-- TELAS DO APP -->
-<div id="telas" style="max-width: 1120px; margin: 0 auto; padding: 72px 24px 24px">
-<div style="max-width: 640px; display: flex; flex-direction: column; gap: 12px; margin-bottom: 40px">
-<div style="font-size: 13px; font-weight: 700; color: var(--green-t); letter-spacing: 0.08em; text-transform: uppercase">O app por dentro</div>
-<h2 style="margin: 0; font-family: 'Sora', sans-serif; font-weight: 700; font-size: 34px; line-height: 1.2">Telas da versão atual</h2>
-<p style="margin: 0; font-size: 16px; color: var(--muted)">Capturas reais do aplicativo em desenvolvimento, com dados de teste.</p>
-</div>
-<div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 40px 32px">
-
-<div style="flex: none; width: 240px; display: flex; flex-direction: column; gap: 16px">
-<div style="width: 240px; height: 497px; box-sizing: border-box; background: var(--frame); border-radius: 36px; padding: 10px; box-shadow: 0 20px 40px rgba(15,23,42,0.15)">
-<button type="button" class="shot-btn" aria-label="Ampliar a tela: Oferecer carona"><img src="img/oferecer-carona.jpg" data-cap="Oferecer carona" alt="Tela Oferecer carona, com sentido, ponto de saída, dia, horário, vagas e observação" style="display: block; width: 100%; height: 100%; object-fit: cover; border-radius: 27px"></button>
-</div>
-<div>
-<div style="font-family: 'Sora', sans-serif; font-weight: 700; font-size: 17px">Oferecer carona</div>
-<div style="font-size: 14px; color: var(--muted)">Sentido, saída, dia, horário e vagas. O app não deixa publicar com horário no passado.</div>
-</div>
-</div>
-
-<div style="flex: none; width: 240px; display: flex; flex-direction: column; gap: 16px">
-<div style="width: 240px; height: 497px; box-sizing: border-box; background: var(--frame); border-radius: 36px; padding: 10px; box-shadow: 0 20px 40px rgba(15,23,42,0.15)">
-<button type="button" class="shot-btn" aria-label="Ampliar a tela: Central de avisos"><img src="img/avisos.jpg" data-cap="Central de avisos" alt="Central de avisos com caronas na região, aprovação da CNH e pedido de carona com o botão Tô aqui" style="display: block; width: 100%; height: 100%; object-fit: cover; border-radius: 27px"></button>
-</div>
-<div>
-<div style="font-family: 'Sora', sans-serif; font-weight: 700; font-size: 17px">Central de avisos</div>
-<div style="font-size: 14px; color: var(--muted)">Caronas na região, aprovação da CNH e pedidos de carona, com o botão “Tô aqui!” para o motorista ajudar.</div>
-</div>
-</div>
-
-<div style="flex: none; width: 240px; display: flex; flex-direction: column; gap: 16px">
-<div style="width: 240px; height: 497px; box-sizing: border-box; background: var(--frame); border-radius: 36px; padding: 10px; box-shadow: 0 20px 40px rgba(15,23,42,0.15)">
-<button type="button" class="shot-btn" aria-label="Ampliar a tela: Minha semana"><img src="img/minha-semana.jpg" data-cap="Minha semana" alt="Tela Minha semana, com os turnos de aula de cada dia e os horários de chegada e saída do campus" style="display: block; width: 100%; height: 100%; object-fit: cover; border-radius: 27px"></button>
-</div>
-<div>
-<div style="font-family: 'Sora', sans-serif; font-weight: 700; font-size: 17px">Minha semana</div>
-<div style="font-size: 14px; color: var(--muted)">Marque os turnos de aula e o app calcula chegada e saída do campus. <span class="hl">Só você vê seus horários</span>.</div>
-</div>
-</div>
-
-</div>
-</div>
-
-<!-- SEGURANÇA -->
-<div id="seguranca" style="max-width: 1120px; margin: 0 auto; padding: 72px 24px 24px">
-<div style="background: var(--band); color: #FFFFFF; border-radius: 28px; padding: 56px 48px; display: flex; flex-wrap: wrap; gap: 40px">
-<div style="flex: 1 1 340px; display: flex; flex-direction: column; gap: 16px">
-<div style="font-size: 13px; font-weight: 700; color: #7FD1A4; letter-spacing: 0.08em; text-transform: uppercase">Segurança e confiança</div>
-<h2 style="margin: 0; font-family: 'Sora', sans-serif; font-weight: 700; font-size: 34px; line-height: 1.2">Uma comunidade fechada, com canal de denúncia</h2>
-<p style="margin: 0; font-size: 16px; color: #D5E0EC">O objetivo é criar um ambiente seguro e social: <span class="hl" style="--hl:#7FD1A4">só entra quem é da UnB</span>, e quem se comporta mal pode ser denunciado e, no futuro, suspenso.</p>
-</div>
-<div style="flex: 1 1 380px; display: flex; flex-direction: column; gap: 20px">
-<div style="display: flex; gap: 16px; align-items: flex-start">
-<div style="flex: none; width: 40px; height: 40px; border-radius: 12px; background: var(--surface); color: var(--blue-t); display: flex; align-items: center; justify-content: center">
-<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 3v6c0 4.5-3.2 8-8 9-4.8-1-8-4.5-8-9V6l8-3z"></path><path d="M9 12l2 2 4-4"></path></svg>
-</div>
-<div>
-<div style="font-weight: 700">Verificação por e-mail institucional</div>
-<div style="font-size: 14px; color: #D5E0EC">A matrícula é confirmada automaticamente quando o e-mail é o numérico.</div>
-</div>
-</div>
-<div style="display: flex; gap: 16px; align-items: flex-start">
-<div style="flex: none; width: 40px; height: 40px; border-radius: 12px; background: var(--surface); color: var(--blue-t); display: flex; align-items: center; justify-content: center">
-<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 21V4M5 4h11l-2 4 2 4H5"></path></svg>
-</div>
-<div>
-<div style="font-weight: 700">Canal de denúncias</div>
-<div style="font-size: 14px; color: #D5E0EC">Informe a pessoa, o motivo e descreva o ocorrido. A equipe analisa cada caso e a denúncia não gera advertência automática.</div>
-</div>
-</div>
-<div style="display: flex; gap: 16px; align-items: flex-start">
-<div style="flex: none; width: 40px; height: 40px; border-radius: 12px; background: var(--surface); color: var(--blue-t); display: flex; align-items: center; justify-content: center">
-<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"></rect><path d="M8 11V8a4 4 0 018 0v3"></path></svg>
-</div>
-<div>
-<div style="font-weight: 700">Dados protegidos</div>
-<div style="font-size: 14px; color: #D5E0EC">Regras de acesso no banco de dados: cada pessoa só enxerga e edita o próprio perfil.</div>
-</div>
-</div>
-<div style="display: flex; gap: 16px; align-items: flex-start">
-<div style="flex: none; width: 40px; height: 40px; border-radius: 12px; background: #7FD1A4; color: #002347; display: flex; align-items: center; justify-content: center">
-<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg>
-</div>
-<div>
-<div style="font-weight: 700">Em breve</div>
-<div style="font-size: 14px; color: #D5E0EC">Suspensão de usuários por cartões amarelos e vermelhos, com base em denúncia e verificação pelos moderadores.</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-
-<!-- ANDAMENTO -->
-<div id="andamento" style="max-width: 1120px; margin: 0 auto; padding: 72px 24px 24px">
-<div style="max-width: 640px; display: flex; flex-direction: column; gap: 12px; margin-bottom: 40px">
-<div style="font-size: 13px; font-weight: 700; color: var(--green-t); letter-spacing: 0.08em; text-transform: uppercase">Andamento do projeto</div>
-<h2 style="margin: 0; font-family: 'Sora', sans-serif; font-weight: 700; font-size: 34px; line-height: 1.2">O que já funciona e o que vem a seguir</h2>
-</div>
+<!-- ANDAMENTO (etapas 3 e 4 trocadas) -->
+<div id="andamento" style="max-width:1120px;margin:0 auto;padding:72px 24px 24px">
+<div style="max-width:640px;display:flex;flex-direction:column;gap:12px;margin-bottom:40px">
+<div class="eyebrow" style="font-size:13px;font-weight:700;color:var(--green-t);letter-spacing:.08em;text-transform:uppercase">Andamento do projeto</div>
+<h2 style="margin:0;font-family:'Sora',sans-serif;font-weight:700;font-size:34px;line-height:1.2">O que já funciona e o que vem a seguir</h2></div>
 <ol class="trail">
-<li class="stage done" style="--k:0">
-<div class="stage-top"><span class="node" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg></span><span class="link" aria-hidden="true"></span></div>
-<div class="stage-card">
-<span class="badge b-green">Em funcionamento</span>
-<div class="etapa">Etapa 1</div>
-<h3>Identificação e verificação</h3>
-<p>Login por código, verificação do e-mail institucional e perfil.</p>
-</div>
-</li>
-<li class="stage progress" style="--k:1">
-<div class="stage-top"><span class="node" aria-hidden="true">2</span><span class="link" aria-hidden="true"></span></div>
-<div class="stage-card">
-<span class="here"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s7-6.2 7-11.5A7 7 0 005 9.5C5 14.8 12 21 12 21z"></path><circle cx="12" cy="9.5" r="2.5"></circle></svg>Estamos aqui</span>
-<span class="badge b-blue">Em andamento</span>
-<div class="etapa">Etapa 2</div>
-<h3>Banco de dados e conexões</h3>
-<p>Caronas, avisos por região e “Minha semana” já estão no app.</p>
-</div>
-</li>
-<li class="stage build" style="--k:2">
-<div class="stage-top"><span class="node" aria-hidden="true">3</span><span class="link" aria-hidden="true"></span></div>
-<div class="stage-card">
-<span class="badge b-amber">Em construção</span>
-<div class="etapa">Etapa 3</div>
-<h3>Mapeamento e rotas</h3>
-<p>Pontos do campus definidos; a tela do mapa será feita com Leaflet.</p>
-</div>
-</li>
-<li class="stage first" style="--k:3">
-<div class="stage-top"><span class="node" aria-hidden="true">4</span></div>
-<div class="stage-card">
-<span class="badge b-gray">Primeira versão</span>
-<div class="etapa">Etapa 4</div>
-<h3>Segurança e denúncia</h3>
-<p>Primeira versão da tela de denúncias criada; a suspensão de usuários ainda será ligada a ela.</p>
-</div>
-</li>
-</ol>
-</div>
+<li class="stage done" style="--k:0"><div class="stage-top"><span class="node" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg></span><span class="link" aria-hidden="true"></span></div>
+<div class="stage-card"><span class="badge b-green">Em funcionamento</span><div class="etapa">Etapa 1</div><h3>Identificação e verificação</h3><p>Login por código, verificação do e-mail institucional e perfil.</p></div></li>
+<li class="stage progress" style="--k:1"><div class="stage-top"><span class="node" aria-hidden="true">2</span><span class="link" aria-hidden="true"></span></div>
+<div class="stage-card"><span class="here"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s7-6.2 7-11.5A7 7 0 005 9.5C5 14.8 12 21 12 21z"></path><circle cx="12" cy="9.5" r="2.5"></circle></svg>Estamos aqui</span><span class="badge b-blue">Em andamento</span><div class="etapa">Etapa 2</div><h3>Banco de dados e conexões</h3><p>Caronas, avisos por região e “Minha semana” já estão no app.</p></div></li>
+<li class="stage first" style="--k:2"><div class="stage-top"><span class="node" aria-hidden="true">3</span><span class="link" aria-hidden="true"></span></div>
+<div class="stage-card"><span class="badge b-gray">Primeira versão</span><div class="etapa">Etapa 3</div><h3>Segurança e denúncia</h3><p>Primeira versão da tela de denúncias criada; a suspensão de usuários ainda será ligada a ela.</p></div></li>
+<li class="stage build" style="--k:3"><div class="stage-top"><span class="node" aria-hidden="true">4</span></div>
+<div class="stage-card"><span class="badge b-amber">Em construção</span><div class="etapa">Etapa 4</div><h3>Mapeamento e rotas</h3><p>Pontos do campus definidos; a tela do mapa será feita com Leaflet.</p></div></li>
+</ol></div>
 
-<!-- PONTOS DO CAMPUS -->
-<div id="pontos" style="max-width: 1120px; margin: 0 auto; padding: 72px 24px 24px; display: flex; flex-wrap: wrap; gap: 40px">
-<div style="flex: 1 1 320px; display: flex; flex-direction: column; gap: 12px">
-<div style="font-size: 13px; font-weight: 700; color: var(--green-t); letter-spacing: 0.08em; text-transform: uppercase">Mapa do campus</div>
-<h2 style="margin: 0; font-family: 'Sora', sans-serif; font-weight: 700; font-size: 34px; line-height: 1.2">Pontos de encontro já definidos</h2>
-<p style="margin: 0; font-size: 16px; color: var(--muted)">A equipe mapeou oito pontos do Campus Darcy Ribeiro, com coordenadas, iluminação, movimento à noite e acessibilidade. Eles serão usados nos testes de mapa e geolocalização.</p>
-</div>
-<div style="flex: 1 1 460px; background: var(--surface); border: 1px solid var(--line); border-radius: 20px; padding: 8px 24px">
-<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 4px 16px; padding: 14px 0; border-bottom: 1px solid var(--line3)">
-<span style="flex: none; width: 40px; font-family: 'Sora', sans-serif; font-weight: 700; font-size: 14px; color: var(--green-t)">P01</span>
-<span style="flex: 1 1 220px; font-size: 15px; font-weight: 600">Entrada Principal FT</span>
-<span style="flex: none; font-size: 13px; color: var(--muted)">Estacionamento</span>
-</div>
-<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 4px 16px; padding: 14px 0; border-bottom: 1px solid var(--line3)">
-<span style="flex: none; width: 40px; font-family: 'Sora', sans-serif; font-weight: 700; font-size: 14px; color: var(--green-t)">P02</span>
-<span style="flex: 1 1 220px; font-size: 15px; font-weight: 600">Saída Principal FT (Parada ICC Norte)</span>
-<span style="flex: none; font-size: 13px; color: var(--muted)">Saída de prédio</span>
-</div>
-<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 4px 16px; padding: 14px 0; border-bottom: 1px solid var(--line3)">
-<span style="flex: none; width: 40px; font-family: 'Sora', sans-serif; font-weight: 700; font-size: 14px; color: var(--green-t)">P03</span>
-<span style="flex: 1 1 220px; font-size: 15px; font-weight: 600">Acesso ICC Norte (Ceubinho)</span>
-<span style="flex: none; font-size: 13px; color: var(--muted)">Saída de prédio</span>
-</div>
-<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 4px 16px; padding: 14px 0; border-bottom: 1px solid var(--line3)">
-<span style="flex: none; width: 40px; font-family: 'Sora', sans-serif; font-weight: 700; font-size: 14px; color: var(--green-t)">P04</span>
-<span style="flex: 1 1 220px; font-size: 15px; font-weight: 600">Acesso ICC Sul (UDFinho)</span>
-<span style="flex: none; font-size: 13px; color: var(--muted)">Saída de prédio</span>
-</div>
-<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 4px 16px; padding: 14px 0; border-bottom: 1px solid var(--line3)">
-<span style="flex: none; width: 40px; font-family: 'Sora', sans-serif; font-weight: 700; font-size: 14px; color: var(--green-t)">P05</span>
-<span style="flex: 1 1 220px; font-size: 15px; font-weight: 600">Acesso BSAN (Bloco de Salas Norte)</span>
-<span style="flex: none; font-size: 13px; color: var(--muted)">Saída de prédio</span>
-</div>
-<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 4px 16px; padding: 14px 0; border-bottom: 1px solid var(--line3)">
-<span style="flex: none; width: 40px; font-family: 'Sora', sans-serif; font-weight: 700; font-size: 14px; color: var(--green-t)">P06</span>
-<span style="flex: 1 1 220px; font-size: 15px; font-weight: 600">Acesso BSAS (Bloco de Salas Sul)</span>
-<span style="flex: none; font-size: 13px; color: var(--muted)">Saída de prédio</span>
-</div>
-<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 4px 16px; padding: 14px 0; border-bottom: 1px solid var(--line3)">
-<span style="flex: none; width: 40px; font-family: 'Sora', sans-serif; font-weight: 700; font-size: 14px; color: var(--green-t)">P07</span>
-<span style="flex: 1 1 220px; font-size: 15px; font-weight: 600">Parada L2 Norte (sentido Asa Norte)</span>
-<span style="flex: none; font-size: 13px; color: var(--muted)">Parada de ônibus</span>
-</div>
-<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 4px 16px; padding: 14px 0; border-bottom: 1px solid var(--line3)">
-<span style="flex: none; width: 40px; font-family: 'Sora', sans-serif; font-weight: 700; font-size: 14px; color: var(--green-t)">P08</span>
-<span style="flex: 1 1 220px; font-size: 15px; font-weight: 600">Parada L2 Norte (sentido Rodoviária)</span>
-<span style="flex: none; font-size: 13px; color: var(--muted)">Parada de ônibus</span>
-</div>
-</div>
-</div>
+<!-- PONTOS DO CAMPUS (cartões por tipo) -->
+<div id="pontos" style="max-width:1120px;margin:0 auto;padding:72px 24px 24px">
+<div style="max-width:640px;display:flex;flex-direction:column;gap:12px;margin-bottom:32px">
+<div class="eyebrow" style="font-size:13px;font-weight:700;color:var(--green-t);letter-spacing:.08em;text-transform:uppercase">Mapa do campus</div>
+<h2 style="margin:0;font-family:'Sora',sans-serif;font-weight:700;font-size:34px;line-height:1.2">Pontos de encontro já definidos</h2>
+<p style="margin:0;font-size:16px;color:var(--muted)">A equipe mapeou oito pontos do Campus Darcy Ribeiro, com coordenadas, iluminação, movimento à noite e acessibilidade. Eles serão usados nos testes de mapa e geolocalização.</p>
+<div class="pstrip"><span class="pchip">8 pontos</span><span class="pchip">3 tipos</span><span class="pchip">Campus Darcy Ribeiro</span></div></div>
+<div class="pgrid">
+<div class="pgrp k-park"><div class="pgrp-h"><div class="pgrp-n">P</div><div><h3>Estacionamento</h3><span>1 ponto</span></div></div>
+<ul><li class="fx-row"><span class="pid">P01</span><span class="pnm">Entrada Principal FT</span></li></ul></div>
+<div class="pgrp k-exit"><div class="pgrp-h"><div class="pgrp-n">5</div><div><h3>Saídas de prédio</h3><span>5 pontos</span></div></div>
+<ul>
+<li class="fx-row"><span class="pid">P02</span><span class="pnm">Saída Principal FT<span class="psub">Parada ICC Norte</span></span></li>
+<li class="fx-row"><span class="pid">P03</span><span class="pnm">Acesso ICC Norte<span class="psub">Ceubinho</span></span></li>
+<li class="fx-row"><span class="pid">P04</span><span class="pnm">Acesso ICC Sul<span class="psub">UDFinho</span></span></li>
+<li class="fx-row"><span class="pid">P05</span><span class="pnm">Acesso BSAN<span class="psub">Bloco de Salas Norte</span></span></li>
+<li class="fx-row"><span class="pid">P06</span><span class="pnm">Acesso BSAS<span class="psub">Bloco de Salas Sul</span></span></li></ul></div>
+<div class="pgrp k-bus"><div class="pgrp-h"><div class="pgrp-n">2</div><div><h3>Paradas de ônibus</h3><span>2 pontos · L2 Norte</span></div></div>
+<ul>
+<li class="fx-row"><span class="pid">P07</span><span class="pnm">Parada L2 Norte<span class="psub">Sentido Asa Norte</span></span></li>
+<li class="fx-row"><span class="pid">P08</span><span class="pnm">Parada L2 Norte<span class="psub">Sentido Rodoviária</span></span></li></ul></div>
+</div></div>
 
-<!-- TECNOLOGIA -->
-<div id="tecnologia" style="max-width: 1120px; margin: 0 auto; padding: 72px 24px 0">
-<div style="max-width: 640px; display: flex; flex-direction: column; gap: 16px">
-<h2 style="margin: 0; font-family: 'Sora', sans-serif; font-weight: 700; font-size: 26px">Tecnologia</h2>
-<div style="display: flex; flex-wrap: wrap; gap: 10px">
-<span class="tech t-flutter fx-chip">Flutter (Dart)</span>
-<span class="tech t-supabase fx-chip">Supabase</span>
-<span class="tech t-leaflet fx-chip">Leaflet (previsto)</span>
-</div>
-<p style="margin: 0; font-size: 15px; color: var(--muted)">Aplicativo testado no navegador e em Android, com código organizado por funcionalidade.</p>
-</div>
-</div>
+<div id="tecnologia" style="max-width:1120px;margin:0 auto;padding:72px 24px 0">
+<div style="max-width:640px;display:flex;flex-direction:column;gap:16px">
+<h2 style="margin:0;font-family:'Sora',sans-serif;font-weight:700;font-size:26px">Tecnologia</h2>
+<div style="display:flex;flex-wrap:wrap;gap:10px"><span class="tech t-flutter fx-chip">Flutter (Dart)</span><span class="tech t-supabase fx-chip">Supabase</span><span class="tech t-leaflet fx-chip">Leaflet (previsto)</span></div>
+<p style="margin:0;font-size:15px;color:var(--muted)">Aplicativo testado no navegador e em Android, com código organizado por funcionalidade.</p></div></div>
 
-<!-- EQUIPE -->
-<div id="equipe" style="max-width: 1120px; margin: 0 auto; padding: 72px 24px 88px">
-<div style="max-width: 640px; display: flex; flex-direction: column; gap: 12px; margin-bottom: 40px">
-<div style="font-size: 13px; font-weight: 700; color: var(--green-t); letter-spacing: 0.08em; text-transform: uppercase">Equipe</div>
-<h2 style="margin: 0; font-family: 'Sora', sans-serif; font-weight: 700; font-size: 34px; line-height: 1.2">Participantes do Projeto</h2>
-</div>
+<div id="equipe" style="max-width:1120px;margin:0 auto;padding:72px 24px 88px">
+<div style="max-width:640px;display:flex;flex-direction:column;gap:12px;margin-bottom:40px">
+<div class="eyebrow" style="font-size:13px;font-weight:700;color:var(--green-t);letter-spacing:.08em;text-transform:uppercase">Equipe</div>
+<h2 style="margin:0;font-family:'Sora',sans-serif;font-weight:700;font-size:34px;line-height:1.2">Participantes do Projeto</h2></div>
 <ul class="team">
-<li class="member">Belphon Linardy Bahm Kiminu</li>
-<li class="member">Bruno Nicholas Marques da Silva</li>
-<li class="member">Caio Leal Vargas</li>
-<li class="member">Felipe Akira Furrier Serikava</li>
-<li class="member">Henrique Vasconcelos Ribeiro de Oliveira</li>
-<li class="member">Pedro Abílio Cruzeiro Moreira</li>
-<li class="member">Vitor Gabriel Carvalho Souza</li>
-</ul>
-<div class="advisor">
-<div class="adv-label">Orientação</div>
-<div class="adv-name">Professor Edson Mintsu Hung</div>
-<div class="adv-sub">Projeto Integrador de Fundamentos, Universidade de Brasília, 2026.</div>
-</div>
+<li class="member">Belphon Linardy Bahm Kiminu</li><li class="member">Bruno Nicholas Marques da Silva</li><li class="member">Caio Leal Vargas</li><li class="member">Felipe Akira Furrier Serikava</li><li class="member">Henrique Vasconcelos Ribeiro de Oliveira</li><li class="member">Pedro Abílio Cruzeiro Moreira</li><li class="member">Vitor Gabriel Carvalho Souza</li></ul>
+<div class="advisor"><div class="adv-label">Orientação</div><div class="adv-name">Professor Edson Mintsu Hung</div><div class="adv-sub">Projeto Integrador de Fundamentos, Universidade de Brasília, 2026.</div></div>
 </div>
 
-<!-- RODAPÉ -->
-<div style="background: var(--footer); color: #CBD5E1">
-<div style="max-width: 1120px; margin: 0 auto; padding: 40px 24px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px">
-<div style="display: flex; align-items: center; gap: 12px">
-<div style="width: 36px; height: 36px; background: var(--blue-bg); color: #FFFFFF; border-radius: 10px; display: flex; align-items: center; justify-content: center">
-<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s7-6.2 7-11.5A7 7 0 005 9.5C5 14.8 12 21 12 21z"></path><circle cx="12" cy="9.5" r="2.5"></circle></svg>
-</div>
-<span style="font-family: 'Sora', sans-serif; font-weight: 700; font-size: 18px; color: #FFFFFF">Tô aqui UnB</span>
-</div>
-<p style="margin: 0; font-size: 14px; max-width: 520px">Projeto acadêmico desenvolvido por estudantes para a comunidade da Universidade de Brasília.</p>
-<p style="margin: 0; font-size: 13px; color: #94A3B8">© 2026 Tô aqui UnB</p>
-</div>
-</div>
-
+<div style="background:var(--footer);color:#CBD5E1"><div style="max-width:1120px;margin:0 auto;padding:40px 24px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px">
+<div style="display:flex;align-items:center;gap:12px"><div style="width:36px;height:36px;background:var(--blue-bg);color:#fff;border-radius:10px;display:flex;align-items:center;justify-content:center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s7-6.2 7-11.5A7 7 0 005 9.5C5 14.8 12 21 12 21z"></path><circle cx="12" cy="9.5" r="2.5"></circle></svg></div><span style="font-family:'Sora',sans-serif;font-weight:700;font-size:18px;color:#fff">Tô aqui UnB</span></div>
+<p style="margin:0;font-size:14px;max-width:520px">Projeto acadêmico desenvolvido por estudantes para a comunidade da Universidade de Brasília.</p>
+<p style="margin:0;font-size:13px;color:#94A3B8">© 2026 Tô aqui UnB</p></div></div>
 </div>
 
 <script>
-(function () {
-  var root = document.querySelector('.tq');
-  var btn = document.getElementById('theme-toggle');
-  function apply(dark) {
-    root.classList.toggle('dark', dark);
-    document.body.style.background = dark ? '#0A1628' : '#E6ECF4';
-    var label = dark ? 'Mudar para o modo claro' : 'Mudar para o modo escuro';
-    btn.setAttribute('aria-label', label);
-    btn.setAttribute('title', label);
-  }
-  try { if (localStorage.getItem('tq-theme') === 'dark') apply(true); } catch (e) {}
-  btn.addEventListener('click', function () {
-    var dark = !root.classList.contains('dark');
-    apply(dark);
-    try { localStorage.setItem('tq-theme', dark ? 'dark' : 'light'); } catch (e) {}
-  });
+(function(){
+var root=document.querySelector('.tq'),btn=document.getElementById('theme-toggle');
+function apply(dark){root.classList.toggle('dark',dark);document.body.style.background=dark?'#0A1628':'#E6ECF4';var l=dark?'Mudar para o modo claro':'Mudar para o modo escuro';btn.setAttribute('aria-label',l);btn.setAttribute('title',l)}
+try{if(localStorage.getItem('tq-theme')==='dark')apply(true)}catch(e){}
+btn.addEventListener('click',function(){var dark=!root.classList.contains('dark');apply(dark);try{localStorage.setItem('tq-theme',dark?'dark':'light')}catch(e){}});
 })();
 </script>
 
-
 <dialog id="lightbox" aria-label="Tela ampliada do aplicativo">
+<div class="lb-stage" id="lb-stage"><img id="lb-img" alt="" draggable="false"></div>
+<div class="lb-hint">Roda do mouse ou pinça para zoom · arraste para mover · duplo clique alterna 2,5×</div>
 <button type="button" class="lb-btn lb-close" id="lb-close" aria-label="Fechar">&times;</button>
-<button type="button" class="lb-btn" id="lb-prev" aria-label="Tela anterior">&#8249;</button>
-<figure>
-<img id="lb-img" alt="">
-<figcaption id="lb-cap"></figcaption>
-</figure>
-<button type="button" class="lb-btn" id="lb-next" aria-label="Próxima tela">&#8250;</button>
+<button type="button" class="lb-btn lb-nav" id="lb-prev" aria-label="Tela anterior">&#8249;</button>
+<button type="button" class="lb-btn lb-nav" id="lb-next" aria-label="Próxima tela">&#8250;</button>
+<div class="lb-bar"><button type="button" class="lb-btn" id="lb-out" aria-label="Diminuir zoom">−</button><button type="button" class="lb-btn" id="lb-zl" aria-label="Redefinir zoom">100%</button><button type="button" class="lb-btn" id="lb-in" aria-label="Aumentar zoom">+</button><span id="lb-cap"></span></div>
 </dialog>
 
 <script>
-(function () {
-  var d = document;
-  function qsa(s, r) { return Array.prototype.slice.call((r || d).querySelectorAll(s)); }
-  function $(id) { return d.getElementById(id); }
-  var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+(function(){
+var d=document;
+function qsa(s,r){return Array.prototype.slice.call((r||d).querySelectorAll(s))}
+function $(id){return d.getElementById(id)}
+var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  /* ---------- classes de interação ---------- */
-  qsa('#como-funciona h3, #funcionalidades h3, #andamento h3').forEach(function (h) { h.parentElement.classList.add('fx-card'); });
-  qsa('#pontos > div:last-child > div').forEach(function (r) { r.classList.add('fx-row'); });
-  qsa('span[style*="padding: 6px 16px"]').forEach(function (c) { c.classList.add('fx-chip'); });
-  qsa('.shot-btn').forEach(function (b) { b.parentElement.classList.add('fx-shot'); });
-  var heroShot = d.querySelector('#topo .fx-shot');
-  if (heroShot) heroShot.classList.add('fx-tilt');
+qsa('#como-funciona h3, #andamento h3, #funcionalidades h3').forEach(function(h){h.parentElement.classList.add('fx-card')});
+qsa('span[style*="padding: 6px 16px"]').forEach(function(c){c.classList.add('fx-chip')});
+qsa('.shot-btn').forEach(function(b){b.parentElement.classList.add('fx-shot')});
+var heroShot=d.querySelector('#topo .fx-shot');if(heroShot)heroShot.classList.add('fx-tilt');
 
-  /* ---------- entrada suave ao rolar ---------- */
-  function mark(sel, step) {
-    qsa(sel).forEach(function (el, i) {
-      el.classList.add('rv');
-      el.style.setProperty('--d', (i * step) + 'ms');
-    });
-  }
-  mark('#topo > div', 140);
-  mark('#topo + div > div > div', 90);
-  mark('#como-funciona > div:first-child, #funcionalidades > div:first-child, #telas > div:first-child, #andamento > div:first-child', 0);
-  mark('#como-funciona > div:nth-child(2) > div', 110);
-  mark('#funcionalidades > div:nth-child(2) > div', 90);
-  mark('#telas > div:nth-child(2) > div', 130);
-  mark('#seguranca > div', 0);
-  mark('#seguranca > div > div:nth-child(2) > div', 110);
-  mark('#pontos > div', 140);
-  mark('#tecnologia', 0);
-  mark('#equipe > div:first-child', 0);
-  mark('#equipe .member', 80);
-  mark('#equipe .advisor', 0);
+function mark(sel,step){qsa(sel).forEach(function(el,i){el.classList.add('rv');el.style.setProperty('--d',(i*step)+'ms')})}
+mark('#topo > div',140);
+mark('#topo + div > div > div',90);
+mark('#como-funciona > div:first-child, #telas > div:first-child, #andamento > div:first-child, #funcionalidades .head, #pontos > div:first-child',0);
+mark('#como-funciona > div:nth-child(2) > div',110);
+mark('#funcionalidades .grid > div',90);
+mark('#telas > div:nth-child(2) > div',130);
+mark('#seguranca > div',0);
+mark('#seguranca > div > div:nth-child(2) > div',110);
+mark('#pontos .pgrp',140);
+mark('#tecnologia',0);
+mark('#equipe > div:first-child',0);
+mark('#equipe .member',80);
+mark('#equipe .advisor',0);
 
-  var io = null;
-  if ('IntersectionObserver' in window && !reduce) {
-    io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) {
-        if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
-      });
-    }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
-  }
-  qsa('.rv, .hl').forEach(function (el) { if (io) io.observe(el); else el.classList.add('in'); });
+var io=null;
+if('IntersectionObserver'in window&&!reduce){io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12,rootMargin:'0px 0px -6% 0px'})}
+qsa('.rv, .hl').forEach(function(el){if(io)io.observe(el);else el.classList.add('in')});
 
-  /* ---------- menu lateral: seção ativa, anel deslizante e toque no celular ---------- */
-  var wrap = $('sec-wrap'), nav = $('sec-nav'), ind = $('sec-ind');
-  var links = qsa('#sec-nav a');
-  var items = links.map(function (a, i) {
-    a.style.setProperty('--i', i);
-    return { link: a, el: d.getElementById(a.getAttribute('href').slice(1)) };
-  }).filter(function (i) { return i.el; });
-  var ticking = false, placed = false;
-  var noHover = window.matchMedia && matchMedia('(hover:none)').matches;
+/* menu lateral */
+var wrap=$('sec-wrap'),ind=$('sec-ind'),links=qsa('#sec-nav a');
+var items=links.map(function(a,i){a.style.setProperty('--i',i);return{link:a,el:d.getElementById(a.getAttribute('href').slice(1))}}).filter(function(i){return i.el});
+var ticking=false,placed=false,noHover=window.matchMedia&&matchMedia('(hover:none)').matches;
+function setOpen(o){wrap.classList.toggle('open',o)}
+wrap.addEventListener('click',function(e){if(noHover&&!wrap.classList.contains('open')){e.preventDefault();setOpen(true)}});
+links.forEach(function(a){a.addEventListener('click',function(){setOpen(false)})});
+d.addEventListener('click',function(e){if(!wrap.contains(e.target))setOpen(false)});
+d.addEventListener('keydown',function(e){if(e.key==='Escape')setOpen(false)});
+function moveRing(l){if(!l)return;var y=l.offsetTop+(l.offsetHeight-ind.offsetHeight)/2;
+if(!placed){ind.style.transition='none';ind.style.transform='translateY('+y+'px)';void ind.offsetWidth;ind.style.transition='';ind.classList.add('ready');placed=true}else{ind.style.transform='translateY('+y+'px)'}}
+function update(){ticking=false;var doc=d.documentElement,line=window.innerHeight*.35,current=items[0];
+items.forEach(function(i){if(i.el.getBoundingClientRect().top<=line)current=i});
+if(window.innerHeight+window.scrollY>=doc.scrollHeight-4)current=items[items.length-1];
+items.forEach(function(i){var on=i===current;i.link.classList.toggle('active',on);if(on)i.link.setAttribute('aria-current','true');else i.link.removeAttribute('aria-current')});
+if(current)moveRing(current.link)}
+function onScroll(){if(!ticking){ticking=true;requestAnimationFrame(update)}}
+window.addEventListener('scroll',onScroll,{passive:true});window.addEventListener('resize',onScroll);update();
 
-  function setOpen(o) { wrap.classList.toggle('open', o); }
-  /* no toque: o primeiro toque abre os nomes, o segundo navega */
-  wrap.addEventListener('click', function (e) {
-    if (noHover && !wrap.classList.contains('open')) { e.preventDefault(); setOpen(true); }
-  });
-  links.forEach(function (a) { a.addEventListener('click', function () { setOpen(false); }); });
-  d.addEventListener('click', function (e) { if (!wrap.contains(e.target)) setOpen(false); });
-  d.addEventListener('keydown', function (e) { if (e.key === 'Escape') setOpen(false); });
+/* inclinação do celular do topo */
+if(heroShot&&!reduce&&window.matchMedia&&matchMedia('(hover:hover) and (pointer:fine)').matches){
+heroShot.addEventListener('pointermove',function(e){var r=heroShot.getBoundingClientRect(),px=(e.clientX-r.left)/r.width-.5,py=(e.clientY-r.top)/r.height-.5;heroShot.classList.remove('rest');heroShot.style.setProperty('--ry',(px*12).toFixed(2)+'deg');heroShot.style.setProperty('--rx',(-py*10).toFixed(2)+'deg')});
+heroShot.addEventListener('pointerleave',function(){heroShot.classList.add('rest');heroShot.style.setProperty('--rx','0deg');heroShot.style.setProperty('--ry','0deg')})}
 
-  function moveRing(l) {
-    if (!l) return;
-    var y = l.offsetTop + (l.offsetHeight - ind.offsetHeight) / 2;
-    if (!placed) {
-      ind.style.transition = 'none';
-      ind.style.transform = 'translateY(' + y + 'px)';
-      void ind.offsetWidth;
-      ind.style.transition = '';
-      ind.classList.add('ready');
-      placed = true;
-    } else {
-      ind.style.transform = 'translateY(' + y + 'px)';
-    }
-  }
-
-  function update() {
-    ticking = false;
-    var doc = d.documentElement;
-    var line = window.innerHeight * 0.35;
-    var current = items[0];
-    items.forEach(function (i) { if (i.el.getBoundingClientRect().top <= line) current = i; });
-    if (window.innerHeight + window.scrollY >= doc.scrollHeight - 4) current = items[items.length - 1];
-    items.forEach(function (i) {
-      var on = i === current;
-      i.link.classList.toggle('active', on);
-      if (on) i.link.setAttribute('aria-current', 'true'); else i.link.removeAttribute('aria-current');
-    });
-    if (current) moveRing(current.link);
-  }
-  function onScroll() { if (!ticking) { ticking = true; requestAnimationFrame(update); } }
-  window.addEventListener('scroll', onScroll, { passive: true });
-  window.addEventListener('resize', onScroll);
-  update();
-
-  /* ---------- celular do topo inclina com o mouse ---------- */
-  if (heroShot && !reduce && window.matchMedia && matchMedia('(hover:hover) and (pointer:fine)').matches) {
-    heroShot.addEventListener('pointermove', function (e) {
-      var r = heroShot.getBoundingClientRect();
-      var px = (e.clientX - r.left) / r.width - 0.5;
-      var py = (e.clientY - r.top) / r.height - 0.5;
-      heroShot.classList.remove('rest');
-      heroShot.style.setProperty('--ry', (px * 12).toFixed(2) + 'deg');
-      heroShot.style.setProperty('--rx', (-py * 10).toFixed(2) + 'deg');
-    });
-    heroShot.addEventListener('pointerleave', function () {
-      heroShot.classList.add('rest');
-      heroShot.style.setProperty('--rx', '0deg');
-      heroShot.style.setProperty('--ry', '0deg');
-    });
-  }
-
-  /* ---------- clique na tela abre a imagem ampliada ---------- */
-  var dlg = $('lightbox'), lbImg = $('lb-img'), lbCap = $('lb-cap');
-  var shots = qsa('.shot-btn img'), cur = 0;
-  function show(i) {
-    cur = (i + shots.length) % shots.length;
-    var im = shots[cur];
-    lbImg.src = im.currentSrc || im.src;
-    lbImg.alt = im.alt;
-    lbCap.textContent = im.getAttribute('data-cap') || im.alt;
-  }
-  shots.forEach(function (im, i) {
-    im.parentElement.addEventListener('click', function () {
-      if (!dlg.showModal) return;
-      show(i);
-      dlg.showModal();
-      d.documentElement.style.overflow = 'hidden';
-    });
-  });
-  $('lb-prev').addEventListener('click', function () { show(cur - 1); });
-  $('lb-next').addEventListener('click', function () { show(cur + 1); });
-  $('lb-close').addEventListener('click', function () { dlg.close(); });
-  dlg.addEventListener('click', function (e) { if (e.target === dlg) dlg.close(); });
-  dlg.addEventListener('keydown', function (e) {
-    if (e.key === 'ArrowLeft') show(cur - 1);
-    if (e.key === 'ArrowRight') show(cur + 1);
-  });
-  dlg.addEventListener('close', function () { d.documentElement.style.overflow = ''; });
+/* ---------- ampliar com zoom de verdade ---------- */
+var dlg=$('lightbox'),st=$('lb-stage'),im=$('lb-img'),zl=$('lb-zl'),shots=qsa('.shot-btn img'),cur=0,z=1,tx=0,ty=0,ptr={},pd=0;
+function paint(){im.style.transform='translate('+tx+'px,'+ty+'px) scale('+z+')';zl.textContent=Math.round(z*100)+'%';st.classList.toggle('z',z>1)}
+function zoomAt(nz,cx,cy){nz=Math.max(1,Math.min(6,nz));var r=st.getBoundingClientRect(),px=cx-(r.left+r.width/2),py=cy-(r.top+r.height/2),k=nz/z;tx=px-(px-tx)*k;ty=py-(py-ty)*k;z=nz;if(z===1){tx=0;ty=0}paint()}
+function zoomC(nz){var r=st.getBoundingClientRect();zoomAt(nz,r.left+r.width/2,r.top+r.height/2)}
+function reset(){z=1;tx=0;ty=0;paint()}
+function show(i){cur=(i+shots.length)%shots.length;var s=shots[cur];im.src=s.currentSrc||s.src;im.alt=s.alt;$('lb-cap').textContent=s.getAttribute('data-cap')||s.alt;reset()}
+shots.forEach(function(s,i){s.parentElement.addEventListener('click',function(){if(!dlg.showModal)return;show(i);dlg.showModal();d.documentElement.style.overflow='hidden'})});
+$('lb-prev').onclick=function(){show(cur-1)};$('lb-next').onclick=function(){show(cur+1)};$('lb-close').onclick=function(){dlg.close()};
+$('lb-in').onclick=function(){zoomC(z*1.5)};$('lb-out').onclick=function(){zoomC(z/1.5)};zl.onclick=reset;
+dlg.addEventListener('close',function(){d.documentElement.style.overflow=''});
+st.addEventListener('wheel',function(e){e.preventDefault();zoomAt(z*Math.exp(-e.deltaY*.0018),e.clientX,e.clientY)},{passive:false});
+st.addEventListener('dblclick',function(e){z>1?reset():zoomAt(2.5,e.clientX,e.clientY)});
+st.addEventListener('pointerdown',function(e){ptr[e.pointerId]={x:e.clientX,y:e.clientY};try{st.setPointerCapture(e.pointerId)}catch(x){}
+var k=Object.keys(ptr);if(k.length===2)pd=Math.hypot(ptr[k[0]].x-ptr[k[1]].x,ptr[k[0]].y-ptr[k[1]].y);st.classList.add('drag')});
+st.addEventListener('pointermove',function(e){var o=ptr[e.pointerId];if(!o)return;var k=Object.keys(ptr);
+if(k.length===2){ptr[e.pointerId]={x:e.clientX,y:e.clientY};var a=ptr[k[0]],b=ptr[k[1]],nd=Math.hypot(a.x-b.x,a.y-b.y);if(pd)zoomAt(z*nd/pd,(a.x+b.x)/2,(a.y+b.y)/2);pd=nd}
+else if(z>1){tx+=e.clientX-o.x;ty+=e.clientY-o.y;ptr[e.pointerId]={x:e.clientX,y:e.clientY};paint()}});
+function up(e){delete ptr[e.pointerId];pd=0;if(!Object.keys(ptr).length)st.classList.remove('drag')}
+st.addEventListener('pointerup',up);st.addEventListener('pointercancel',up);
+dlg.addEventListener('keydown',function(e){if(e.key==='ArrowLeft')show(cur-1);if(e.key==='ArrowRight')show(cur+1);if(e.key==='+'||e.key==='=')zoomC(z*1.5);if(e.key==='-')zoomC(z/1.5);if(e.key==='0')reset()});
 })();
 </script>
 
 <script>
-(function () {
-  var st = document.querySelectorAll('.trail .stage');
-  if (!st.length) return;
-  if (!('IntersectionObserver' in window)) { for (var i = 0; i < st.length; i++) st[i].classList.add('in'); return; }
-  var io = new IntersectionObserver(function (es) {
-    es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
-  }, { threshold: 0.25 });
-  for (var j = 0; j < st.length; j++) io.observe(st[j]);
-})();
+(function(){var st=document.querySelectorAll('.trail .stage');if(!st.length)return;
+if(!('IntersectionObserver'in window)){for(var i=0;i<st.length;i++)st[i].classList.add('in');return}
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.25});
+for(var j=0;j<st.length;j++)io.observe(st[j])})();
 </script>
-
 </body>
 </html>
