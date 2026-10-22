@@ -126,19 +126,20 @@ html{scroll-behavior:smooth}
 .pstrip{display:flex;flex-wrap:wrap;gap:10px;margin-top:4px}
 .pchip{font-size:13px;font-weight:700;padding:6px 14px;border-radius:999px;background:var(--pale-blue);color:var(--blue-t)}
 
-/* ---------- funcionalidades em destaque ---------- */
-.fband{background:var(--band);color:#fff;border-radius:28px;padding:56px 48px}
-.fband .head{max-width:640px;display:flex;flex-direction:column;gap:12px;margin-bottom:40px}
+/* ---------- funcionalidades: faixa com lista editorial ---------- */
+.fband{--hl:#7FD1A4;background:var(--band);color:#fff;border-radius:28px;padding:56px 48px;display:flex;flex-wrap:wrap;gap:48px}
+.fband .head{flex:1 1 280px;align-self:flex-start;position:sticky;top:32px;display:flex;flex-direction:column;gap:16px}
 .fband .eyebrow{color:#7FD1A4}
 .fband h2{margin:0;font-family:'Sora',sans-serif;font-weight:700;font-size:34px;line-height:1.2}
-.fband .sub{margin:0;font-size:16px;color:#D5E0EC}
-.fband .grid{display:flex;flex-wrap:wrap;gap:20px}
-.fcard{flex:1 1 300px;background:var(--surface);color:var(--ink);border:1px solid var(--line);border-radius:20px;padding:28px;display:flex;flex-direction:column;gap:12px}
-.fcard .ic{width:48px;height:48px;border-radius:14px;display:flex;align-items:center;justify-content:center}
-.fcard .ic.b{background:var(--pale-blue);color:var(--blue-t)}.fcard .ic.g{background:var(--pale-green);color:var(--green-t)}
-.fcard h3{margin:0;font-family:'Sora',sans-serif;font-size:19px}
-.fcard p{margin:0;font-size:15px;color:var(--muted)}
-@media(max-width:600px){.fband{padding:36px 22px}}
+.flist{flex:1.7 1 420px;display:flex;flex-direction:column}
+.frow{display:flex;gap:18px;align-items:flex-start;padding:22px 16px;margin:0 -16px;border-bottom:1px solid rgba(255,255,255,.18);border-radius:16px;transition:background .25s ease,opacity .7s ease var(--d,0s),translate .7s ease var(--d,0s)}
+.frow:last-child{border-bottom:0}
+.frow:hover{background:rgba(255,255,255,.08)}
+.frow .ic{flex:none;width:48px;height:48px;border-radius:14px;background:var(--surface);color:var(--blue-t);display:flex;align-items:center;justify-content:center;transition:transform .25s ease}
+.frow:hover .ic{transform:scale(1.1) rotate(-4deg)}
+.frow h3{margin:0 0 4px;font-family:'Sora',sans-serif;font-size:19px;color:#fff}
+.frow p{margin:0;font-size:15px;color:#D5E0EC}
+@media(max-width:700px){.fband{padding:36px 22px;gap:28px}.fband .head{position:static}}
 
 /* ---------- tecnologias ---------- */
 .tech{display:inline-flex;align-items:center;gap:8px;border:1px solid;border-radius:999px;padding:6px 16px;font-size:14px;font-weight:600}
@@ -231,17 +232,17 @@ html{scroll-behavior:auto}
 <div style="flex:1 1 300px;background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:28px;display:flex;flex-direction:column;gap:12px"><div style="width:40px;height:40px;border-radius:999px;background:var(--blue-bg);color:#fff;font-family:'Sora',sans-serif;font-weight:700;display:flex;align-items:center;justify-content:center">3</div><h3 style="margin:0;font-family:'Sora',sans-serif;font-size:20px">Combine a carona</h3><p style="margin:0;font-size:15px;color:var(--muted)">Veja as caronas da sua região, ofereça a sua com dia, horário e vagas, e <span class="hl">receba avisos quando surgir uma compatível com você</span>.</p></div>
 </div></div>
 
-<!-- FUNCIONALIDADES (faixa em destaque) -->
+<!-- FUNCIONALIDADES -->
 <div id="funcionalidades" style="max-width:1120px;margin:0 auto;padding:72px 24px 24px">
 <div class="fband">
 <div class="head"><div class="eyebrow">Funcionalidades</div><h2>Pensado para o dia a dia de quem estuda na UnB</h2></div>
-<div class="grid">
-<div class="fcard"><div class="ic b"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 16V12l2-5h12l2 5v4"></path><path d="M3 16h18v3H3z"></path><circle cx="7.5" cy="16" r="1"></circle><circle cx="16.5" cy="16" r="1"></circle></svg></div><h3>Caronas de carro e a pé</h3><p>Ida ao campus, volta para a sua região e deslocamentos dentro do campus, em um só lugar.</p></div>
-<div class="fcard"><div class="ic g"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s7-6.2 7-11.5A7 7 0 005 9.5C5 14.8 12 21 12 21z"></path><circle cx="12" cy="9.5" r="2.5"></circle></svg></div><h3>Caronas por região</h3><p>Filtre pela região onde você mora e pelo tipo de motorista. Se não houver carona agora, <span class="hl">o app avisa quando aparecer uma</span>.</p></div>
-<div class="fcard"><div class="ic b"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 17V11a6 6 0 1112 0v6l1.5 2h-15L6 17z"></path><path d="M10 21h4"></path></svg></div><h3>Avisos no sininho</h3><p>Receba alertas de caronas na sua região e veja quando houver demanda, com o botão “Tô aqui!” para o motorista ajudar.</p></div>
-<div class="fcard"><div class="ic g"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"></rect><path d="M3 10h18M8 3v4M16 3v4"></path></svg></div><h3>Minha semana</h3><p>Marque seus turnos de aula e o app calcula chegada e saída do campus. <span class="hl">Só você vê seus horários</span>; motoristas veem apenas quantas pessoas chegam.</p></div>
-<div class="fcard"><div class="ic b"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.5"></circle><path d="M2.5 20c0-3.5 3-6 6.5-6s6.5 2.5 6.5 6"></path><circle cx="17.5" cy="9" r="2.5"></circle><path d="M17 14c3 0 4.5 2 4.5 5"></path></svg></div><h3>Grupos de afinidade</h3><p>Cada carona mostra como o motorista se declarou, e você filtra por esse critério. <span class="hl">Isso permite caronas exclusivas, como só para mulheres</span>. Quem prefere não declarar usa o app normalmente.</p></div>
-<div class="fcard"><div class="ic g"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"></rect><circle cx="9" cy="11" r="2"></circle><path d="M6 16c.5-1.5 1.7-2 3-2s2.5.5 3 2M14 10h4M14 14h3"></path></svg></div><h3>Motoristas verificados</h3><p><span class="hl">A CNH passa por aprovação antes de qualquer oferta</span>. Se for recusada, o app explica o motivo e orienta o envio de uma nova foto.</p></div>
+<div class="flist">
+<div class="frow"><div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 16V12l2-5h12l2 5v4"></path><path d="M3 16h18v3H3z"></path><circle cx="7.5" cy="16" r="1"></circle><circle cx="16.5" cy="16" r="1"></circle></svg></div><div><h3>Caronas de carro e a pé</h3><p>Ida ao campus, volta para a sua região e deslocamentos dentro do campus, em um só lugar.</p></div></div>
+<div class="frow"><div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s7-6.2 7-11.5A7 7 0 005 9.5C5 14.8 12 21 12 21z"></path><circle cx="12" cy="9.5" r="2.5"></circle></svg></div><div><h3>Caronas por região</h3><p>Filtre pela região onde você mora e pelo tipo de motorista. Se não houver carona agora, <span class="hl">o app avisa quando aparecer uma</span>.</p></div></div>
+<div class="frow"><div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 17V11a6 6 0 1112 0v6l1.5 2h-15L6 17z"></path><path d="M10 21h4"></path></svg></div><div><h3>Avisos no sininho</h3><p>Receba alertas de caronas na sua região e veja quando houver demanda, com o botão “Tô aqui!” para o motorista ajudar.</p></div></div>
+<div class="frow"><div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"></rect><path d="M3 10h18M8 3v4M16 3v4"></path></svg></div><div><h3>Minha semana</h3><p>Marque seus turnos de aula e o app calcula chegada e saída do campus. <span class="hl">Só você vê seus horários</span>; motoristas veem apenas quantas pessoas chegam.</p></div></div>
+<div class="frow"><div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.5"></circle><path d="M2.5 20c0-3.5 3-6 6.5-6s6.5 2.5 6.5 6"></path><circle cx="17.5" cy="9" r="2.5"></circle><path d="M17 14c3 0 4.5 2 4.5 5"></path></svg></div><div><h3>Grupos de afinidade</h3><p>Cada carona mostra como o motorista se declarou, e você filtra por esse critério. <span class="hl">Isso permite caronas exclusivas, como só para mulheres</span>. Quem prefere não declarar usa o app normalmente.</p></div></div>
+<div class="frow"><div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"></rect><circle cx="9" cy="11" r="2"></circle><path d="M6 16c.5-1.5 1.7-2 3-2s2.5.5 3 2M14 10h4M14 14h3"></path></svg></div><div><h3>Motoristas verificados</h3><p><span class="hl">A CNH passa por aprovação antes de qualquer oferta</span>. Se for recusada, o app explica o motivo e orienta o envio de uma nova foto.</p></div></div>
 </div></div></div>
 
 <div id="telas" style="max-width:1120px;margin:0 auto;padding:72px 24px 24px">
@@ -353,7 +354,7 @@ function qsa(s,r){return Array.prototype.slice.call((r||d).querySelectorAll(s))}
 function $(id){return d.getElementById(id)}
 var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-qsa('#como-funciona h3, #andamento h3, #funcionalidades h3').forEach(function(h){h.parentElement.classList.add('fx-card')});
+qsa('#como-funciona h3, #andamento h3').forEach(function(h){h.parentElement.classList.add('fx-card')});
 qsa('span[style*="padding: 6px 16px"]').forEach(function(c){c.classList.add('fx-chip')});
 qsa('.shot-btn').forEach(function(b){b.parentElement.classList.add('fx-shot')});
 var heroShot=d.querySelector('#topo .fx-shot');if(heroShot)heroShot.classList.add('fx-tilt');
@@ -363,7 +364,7 @@ mark('#topo > div',140);
 mark('#topo + div > div > div',90);
 mark('#como-funciona > div:first-child, #telas > div:first-child, #andamento > div:first-child, #funcionalidades .head, #pontos > div:first-child',0);
 mark('#como-funciona > div:nth-child(2) > div',110);
-mark('#funcionalidades .grid > div',90);
+mark('#funcionalidades .frow',90);
 mark('#telas > div:nth-child(2) > div',130);
 mark('#seguranca > div',0);
 mark('#seguranca > div > div:nth-child(2) > div',110);
