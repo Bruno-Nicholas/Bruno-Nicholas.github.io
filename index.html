@@ -13,14 +13,60 @@ html{scroll-behavior:smooth}
 .tq{--bg:#E6ECF4;--surface:#F4F7FB;--ink:#0F172A;--muted:#3B4A5F;--soft:#293850;--line:#C7D3E1;--line2:#AEBDD0;--line3:#D6DFEA;--blue-t:#003366;--blue-bg:#003366;--green-t:#007038;--green-bg:#008040;--green-deep:#00592D;--pale-blue:#D3E0EF;--pale-green:#CFE8DA;--pale-gray:#DDE5EF;--amber-bg:#F8E7B0;--amber-t:#6B4000;--band:#003366;--frame:#0F172A;--footer:#0F172A;--hl:#008040}
 .tq.dark{--bg:#0A1628;--surface:#12223A;--ink:#E8EEF7;--muted:#A9B8CC;--soft:#C3D0E0;--line:#243752;--line2:#34506F;--line3:#1D3049;--blue-t:#7DB2F0;--blue-bg:#2F6DB5;--green-t:#4CC38A;--green-bg:#008040;--green-deep:#8EE0B4;--pale-blue:#1B3355;--pale-green:#123B2B;--pale-gray:#1D3049;--amber-bg:#3D2E0A;--amber-t:#F5D27A;--band:#123E70;--frame:#27405F;--footer:#050B16;--hl:#4CC38A}
 .tq a{color:var(--blue-t)}.tq a:hover{color:var(--green-t)}
-.hl{text-decoration:underline;text-decoration-color:var(--hl);text-decoration-thickness:2px;text-underline-offset:4px}
 </style>
 <style>
 .icon-sun{display:none}
 .tq.dark .icon-sun{display:block}
 .tq.dark .icon-moon{display:none}
 
+/* ---------- destaques de texto (sublinhado animado) ---------- */
+.hl{--tint:color-mix(in srgb,var(--hl) 24%,transparent);background-image:linear-gradient(var(--hl),var(--hl)),linear-gradient(var(--tint),var(--tint));background-repeat:no-repeat;background-position:0 100%,0 100%;background-size:100% 2px,100% 0;padding-bottom:2px;border-radius:3px;-webkit-box-decoration-break:clone;box-decoration-break:clone;transition:background-size .9s ease .15s}
+.js .hl{background-size:0 2px,100% 0}
+.js .hl.in{background-size:100% 2px,100% 0}
+.hl:hover,.js .hl.in:hover{background-size:100% 2px,100% 100%;transition-duration:.35s;transition-delay:0s}
+
+/* ---------- entrada suave ao rolar ---------- */
+.rv{transition:opacity .7s ease var(--d,0s),translate .7s ease var(--d,0s)}
+.js .rv{opacity:0;translate:0 22px}
+.js .rv.in{opacity:1;translate:0 0}
+
+/* ---------- cartões, chips e linhas ---------- */
+.fx-card{transition:opacity .7s ease var(--d,0s),translate .7s ease var(--d,0s),transform .25s ease,box-shadow .25s ease,border-color .25s ease}
+.fx-card:hover{transform:translateY(-5px);box-shadow:0 16px 34px rgba(15,23,42,.12);border-color:var(--line2)}
+.tq.dark .fx-card:hover{box-shadow:0 16px 34px rgba(0,0,0,.45)}
+.fx-card>div:first-child{transition:transform .25s ease}
+.fx-card:hover>div:first-child{transform:scale(1.1) rotate(-4deg)}
+.fx-chip{transition:transform .2s ease}
+.fx-chip:hover{transform:translateY(-2px)}
+.fx-row{transition:background .2s ease,box-shadow .2s ease}
+.fx-row:hover{background:var(--pale-blue);box-shadow:-14px 0 0 var(--pale-blue),14px 0 0 var(--pale-blue);border-radius:6px}
+
+/* ---------- celulares clicáveis ---------- */
+.shot-btn{display:block;width:100%;height:100%;padding:0;border:0;background:none;cursor:zoom-in;border-radius:inherit;font:inherit}
+.shot-btn:focus-visible{outline:3px solid var(--green-t);outline-offset:4px}
+.fx-shot{position:relative;transition:transform .3s ease,box-shadow .3s ease}
+.fx-shot:not(.fx-tilt):hover{transform:translateY(-8px) rotate(-1.2deg);box-shadow:0 30px 56px rgba(15,23,42,.28)!important}
+.fx-shot::after{content:"Ampliar";position:absolute;left:50%;bottom:24px;translate:-50% 8px;background:rgba(15,23,42,.88);color:#FFFFFF;font-size:12px;font-weight:700;padding:6px 14px;border-radius:999px;opacity:0;pointer-events:none;transition:opacity .2s,translate .2s}
+.fx-shot:hover::after,.fx-shot:focus-within::after{opacity:1;translate:-50% 0}
+.fx-tilt{transform:perspective(900px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg));transition:transform .15s ease-out}
+.fx-tilt.rest{transition:transform .5s ease}
+
+/* ---------- visualização ampliada ---------- */
+#lightbox{border:0;padding:0;background:transparent;width:100vw;height:100vh;max-width:none;max-height:none;color:#FFFFFF}
+#lightbox[open]{display:flex;align-items:center;justify-content:center;gap:12px}
+#lightbox::backdrop{background:rgba(5,11,22,.82);backdrop-filter:blur(5px)}
+#lightbox figure{margin:0;display:flex;flex-direction:column;align-items:center;gap:12px;max-width:min(92vw,520px);animation:lbIn .25s ease}
+#lightbox img{display:block;max-width:100%;max-height:82vh;width:auto;height:auto;border-radius:24px;box-shadow:0 30px 80px rgba(0,0,0,.5);background:#111111}
+#lightbox figcaption{font:600 15px 'Plus Jakarta Sans',system-ui,sans-serif;text-align:center}
+.lb-btn{flex:none;width:48px;height:48px;border-radius:999px;border:1px solid rgba(255,255,255,.3);background:rgba(15,23,42,.6);color:#FFFFFF;font-size:26px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.lb-btn:hover{background:rgba(255,255,255,.2)}
+.lb-btn:focus-visible{outline:3px solid #7FD1A4;outline-offset:2px}
+.lb-close{position:absolute;top:16px;right:16px}
+@keyframes lbIn{from{opacity:0;scale:.96}to{opacity:1;scale:1}}
+@media (max-width:600px){#lightbox[open]{gap:4px}.lb-btn{width:40px;height:40px}}
+
 /* ---------- menu de seções (lateral) ---------- */
+/* invisível até o mouse chegar na borda direita; no celular, um toque abre (e uma barrinha indica onde tocar) */
 .sec-wrap{--x:0;position:fixed;z-index:50;right:0;top:50%;transform:translateY(-50%);padding:20px 6px 20px 28px}
 .sec-wrap.open,.sec-wrap:has(:focus-visible){--x:1}
 @media (hover:hover){.sec-wrap:hover{--x:1}}
@@ -34,16 +80,97 @@ html{scroll-behavior:smooth}
 .sec-nav a.active{color:var(--blue-t)}
 .sec-nav a.active::after{background:var(--green-t)}
 .sec-nav a:focus-visible{outline:3px solid var(--green-t);outline-offset:-2px}
+/* anel verde que desliza até a seção atual */
 .sec-ind{position:absolute;top:0;right:7px;width:18px;height:18px;box-sizing:border-box;border:2px solid var(--green-t);border-radius:999px;opacity:0;pointer-events:none;transition:transform .5s cubic-bezier(.3,1.4,.5,1),opacity .3s ease}
 .sec-ind.ready{opacity:1}
 @media (hover:none){.sec-wrap::after{content:"";position:absolute;right:3px;top:50%;width:5px;height:64px;margin-top:-32px;border-radius:999px;background:var(--blue-t);opacity:.4;transition:opacity .2s ease;pointer-events:none}.sec-wrap.open::after{opacity:0}}
 @media (max-height:520px){.sec-nav a{height:26px}}
-@media (prefers-reduced-motion: reduce){.sec-nav,.sec-nav a span,.sec-ind{transition:none!important}}
+
+/* ---------- trilha do andamento ---------- */
+.trail{--t:.35s;list-style:none;margin:0 -20px 0 0;padding:18px 0 0;display:flex;align-items:stretch}
+.stage{flex:1 1 0;min-width:0;display:flex;flex-direction:column;gap:22px}
+.stage-top{display:flex;align-items:center}
+.node{flex:none;position:relative;box-sizing:border-box;width:44px;height:44px;border-radius:999px;display:flex;align-items:center;justify-content:center;font:700 16px 'Sora',sans-serif}
+.done .node{background:var(--green-bg);color:#FFFFFF}
+.progress .node{background:var(--blue-bg);color:#FFFFFF}
+.progress .node::after{content:"";position:absolute;inset:0;border-radius:inherit;border:2px solid var(--blue-t);animation:nodePing 2.2s ease-out infinite}
+.build .node{background:var(--amber-bg);color:var(--amber-t);border:2px solid var(--amber-t)}
+.first .node{background:var(--pale-gray);color:var(--soft);border:2px dashed var(--line2)}
+@keyframes nodePing{from{opacity:.7;transform:scale(1)}to{opacity:0;transform:scale(1.7)}}
+.link{position:relative;flex:1 1 auto;height:3px;margin:0 14px 0 10px;color:var(--line2);background:repeating-linear-gradient(90deg,currentColor 0 8px,transparent 8px 14px)}
+.link::after{content:"";position:absolute;right:-4px;top:50%;translate:0 -50%;border-left:10px solid currentColor;border-top:6px solid transparent;border-bottom:6px solid transparent}
+.done .link{color:var(--green-t);background:currentColor}
+.progress .link{background:linear-gradient(var(--blue-t),var(--blue-t)) 0 0/38% 100% no-repeat,repeating-linear-gradient(90deg,var(--line2) 0 8px,transparent 8px 14px)}
+.stage-card{position:relative;flex:1;margin-right:20px;box-sizing:border-box;background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:24px;display:flex;flex-direction:column;gap:10px}
+.progress .stage-card{border-color:var(--blue-t);box-shadow:0 10px 28px rgba(0,51,102,.14)}
+.stage-card h3{margin:0;font-family:'Sora',sans-serif;font-size:18px}
+.stage-card p{margin:0;font-size:14px;color:var(--muted)}
+.etapa{font-size:13px;font-weight:600;color:var(--muted)}
+.badge{align-self:flex-start;font-size:12px;font-weight:700;padding:4px 12px;border-radius:999px}
+.b-green{background:var(--pale-green);color:var(--green-deep)}
+.b-blue{background:var(--pale-blue);color:var(--blue-t)}
+.b-amber{background:var(--amber-bg);color:var(--amber-t)}
+.b-gray{background:var(--pale-gray);color:var(--soft)}
+.here{position:absolute;top:-13px;left:20px;display:flex;align-items:center;gap:6px;background:var(--ink);color:var(--bg);font-size:12px;font-weight:700;padding:3px 12px 3px 8px;border-radius:999px}
+/* o caminho se desenha ao rolar (só com JavaScript) */
+.js .stage .node{scale:.6;opacity:0;transition:scale .45s cubic-bezier(.3,1.5,.5,1) calc(var(--k,0)*var(--t)),opacity .3s ease calc(var(--k,0)*var(--t))}
+.js .stage.in .node{scale:1;opacity:1}
+.js .stage .link{clip-path:inset(-8px 100% -8px 0);transition:clip-path .8s ease calc(var(--k,0)*var(--t) + .25s)}
+.js .stage.in .link{clip-path:inset(-8px -14px -8px 0)}
+.js .stage-card{opacity:0;translate:0 16px;transition:opacity .6s ease calc(var(--k,0)*var(--t) + .1s),translate .6s ease calc(var(--k,0)*var(--t) + .1s),transform .25s ease,box-shadow .25s ease,border-color .25s ease}
+.js .stage.in .stage-card{opacity:1;translate:0 0}
+/* celular: o caminho vira vertical, descendo */
+@media (max-width:860px){
+.trail{--t:0s;flex-direction:column;margin-right:0;padding-top:12px}
+.stage{flex-direction:row;gap:18px}
+.stage-top{flex-direction:column}
+.link{flex:1 1 auto;width:3px;height:auto;min-height:26px;margin:8px 0;background:repeating-linear-gradient(180deg,currentColor 0 8px,transparent 8px 14px)}
+.link::after{right:auto;top:auto;left:50%;bottom:-4px;translate:-50% 0;border-left:6px solid transparent;border-right:6px solid transparent;border-top:10px solid currentColor;border-bottom:0}
+.done .link{background:currentColor}
+.progress .link{background:linear-gradient(var(--blue-t),var(--blue-t)) 0 0/100% 38% no-repeat,repeating-linear-gradient(180deg,var(--line2) 0 8px,transparent 8px 14px)}
+.stage-card{margin:0 0 22px}
+.stage:last-child .stage-card{margin-bottom:0}
+.js .stage .link{clip-path:inset(0 -8px 100% -8px)}
+.js .stage.in .link{clip-path:inset(0 -8px -14px -8px)}
+}
+
+/* ---------- tecnologias coloridas ---------- */
+.tech{display:inline-flex;align-items:center;gap:8px;border:1px solid;border-radius:999px;padding:6px 16px;font-size:14px;font-weight:600}
+.tech::before{content:"";width:8px;height:8px;border-radius:999px;background:currentColor}
+.t-flutter{background:#DCEBFA;color:#0B4F9C;border-color:#9CC3EE}
+.t-supabase{background:#D3F0E1;color:#0A6B40;border-color:#8FD6B3}
+.t-leaflet{background:#FBE5BF;color:#8A4B00;border-color:#E3B25E;border-style:dashed}
+.tq.dark .t-flutter{background:#12335C;color:#8FC1FF;border-color:#2B5A94}
+.tq.dark .t-supabase{background:#0F3A2A;color:#5FDDA0;border-color:#1F6B4C}
+.tq.dark .t-leaflet{background:#3D2A0A;color:#F5B95C;border-color:#7A5A1E}
+
+/* ---------- participantes ---------- */
+.team{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:16px}
+.member{display:flex;align-items:center;min-height:64px;box-sizing:border-box;background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:16px 22px;font-size:15px;font-weight:600;line-height:1.35;transition:opacity .7s ease var(--d,0s),translate .7s ease var(--d,0s),transform .25s ease,box-shadow .25s ease,border-color .25s ease}
+.member:hover{transform:translateY(-3px);border-color:var(--line2);box-shadow:0 12px 26px rgba(15,23,42,.1)}
+.advisor{margin-top:20px;background:var(--band);color:#FFFFFF;border-radius:24px;padding:28px 32px;display:flex;flex-direction:column;gap:4px}
+.adv-label{font-size:13px;font-weight:700;color:#7FD1A4;letter-spacing:.08em;text-transform:uppercase}
+.adv-name{font-family:'Sora',sans-serif;font-weight:700;font-size:20px}
+.adv-sub{font-size:14px;color:#D5E0EC}
+
+@media (prefers-reduced-motion: reduce){
+html{scroll-behavior:auto}
+.rv,.fx-card,.fx-shot,.fx-tilt,.hl,.sec-nav,.sec-nav a span,.sec-ind,.stage .node,.stage .link,.stage-card,.member{transition:none!important}
+.progress .node::after{animation:none}
+.js .stage .link{clip-path:none!important}
+.js .stage .node{scale:1!important;opacity:1!important}
+.js .stage-card{opacity:1!important;translate:none!important}
+.js .rv{opacity:1!important;translate:none!important}
+.js .hl{background-size:100% 2px,100% 0!important}
+#lightbox figure{animation:none}
+}
 </style>
+<script>document.documentElement.className+=' js'</script>
 </head>
 <body>
 <div class="tq" style="width: 100%; background: var(--bg); color: var(--ink); font-family: 'Plus Jakarta Sans', system-ui, sans-serif; line-height: 1.6">
 
+<!-- MENU DE SEÇÕES (lateral: fica invisível e aparece ao passar o mouse na borda direita; no celular abre com um toque) -->
 <div class="sec-wrap" id="sec-wrap">
 <nav class="sec-nav" id="sec-nav" aria-label="Navegação por seções">
 <i class="sec-ind" id="sec-ind" aria-hidden="true"></i>
@@ -98,7 +225,7 @@ Em desenvolvimento · Projeto Integrador 2026
 
 <div style="flex: 1 1 320px; display: flex; flex-direction: column; align-items: center; gap: 12px">
 <div style="width: 290px; height: 600px; box-sizing: border-box; background: var(--frame); border-radius: 42px; padding: 12px; box-shadow: 0 24px 48px rgba(15,23,42,0.18)">
-<img src="img/lista-de-caronas.jpg" alt="Tela de caronas do app Tô aqui UnB, com a lista de caronas da região e o botão Oferecer carona" style="display: block; width: 100%; height: 100%; object-fit: cover; border-radius: 32px">
+<button type="button" class="shot-btn" aria-label="Ampliar a tela: Lista de caronas"><img src="img/lista-de-caronas.jpg" data-cap="Lista de caronas" alt="Tela de caronas do app Tô aqui UnB, com a lista de caronas da região e o botão Oferecer carona" style="display: block; width: 100%; height: 100%; object-fit: cover; border-radius: 32px"></button>
 </div>
 </div>
 </div>
@@ -108,7 +235,7 @@ Em desenvolvimento · Projeto Integrador 2026
 <div style="max-width: 1120px; margin: 0 auto; padding: 40px 24px; display: flex; flex-wrap: wrap; gap: 32px">
 <div style="flex: 1 1 240px; display: flex; flex-direction: column; gap: 4px">
 <div style="font-family: 'Sora', sans-serif; font-weight: 700; font-size: 20px; color: var(--blue-t)">Só comunidade UnB</div>
-<div style="font-size: 14px; color: var(--muted)">Entrada de alunos com seus e-mails @aluno.unb.br e para docentes com @unb.br. </div>
+<div style="font-size: 14px; color: var(--muted)">Entrada de alunos com seus e-mails @aluno.unb.br e para docentes com @unb.br.</div>
 </div>
 <div style="flex: 1 1 240px; display: flex; flex-direction: column; gap: 4px">
 <div style="font-family: 'Sora', sans-serif; font-weight: 700; font-size: 20px; color: var(--green-t)">Login sem senha</div>
@@ -140,7 +267,7 @@ Em desenvolvimento · Projeto Integrador 2026
 <div style="flex: 1 1 300px; background: var(--surface); border: 1px solid var(--line); border-radius: 20px; padding: 28px; display: flex; flex-direction: column; gap: 12px">
 <div style="width: 40px; height: 40px; border-radius: 999px; background: var(--blue-bg); color: #FFFFFF; font-family: 'Sora', sans-serif; font-weight: 700; display: flex; align-items: center; justify-content: center">2</div>
 <h3 style="margin: 0; font-family: 'Sora', sans-serif; font-size: 20px">Monte seu perfil e sua semana</h3>
-<p style="margin: 0; font-size: 15px; color: var(--muted)">Em menos de um minuto, você escolhe a região onde mora e já recebe notificações de possíveis trajetos úteis. Você também pode marcar seus turnos de aula em “Minha semana”, e personalizar suas notificações.</p>
+<p style="margin: 0; font-size: 15px; color: var(--muted)">Em menos de um minuto você pode escolher a região onde mora e já recebe notificações de possíveis trajetos úteis. Caso queira, você também pode marcar seus turnos de aula em “Minha semana”.</p>
 </div>
 <div style="flex: 1 1 300px; background: var(--surface); border: 1px solid var(--line); border-radius: 20px; padding: 28px; display: flex; flex-direction: column; gap: 12px">
 <div style="width: 40px; height: 40px; border-radius: 999px; background: var(--blue-bg); color: #FFFFFF; font-family: 'Sora', sans-serif; font-weight: 700; display: flex; align-items: center; justify-content: center">3</div>
@@ -220,7 +347,7 @@ Em desenvolvimento · Projeto Integrador 2026
 
 <div style="flex: none; width: 240px; display: flex; flex-direction: column; gap: 16px">
 <div style="width: 240px; height: 497px; box-sizing: border-box; background: var(--frame); border-radius: 36px; padding: 10px; box-shadow: 0 20px 40px rgba(15,23,42,0.15)">
-<img src="img/oferecer-carona.jpg" alt="Tela Oferecer carona, com sentido, ponto de saída, dia, horário, vagas e observação" style="display: block; width: 100%; height: 100%; object-fit: cover; border-radius: 27px">
+<button type="button" class="shot-btn" aria-label="Ampliar a tela: Oferecer carona"><img src="img/oferecer-carona.jpg" data-cap="Oferecer carona" alt="Tela Oferecer carona, com sentido, ponto de saída, dia, horário, vagas e observação" style="display: block; width: 100%; height: 100%; object-fit: cover; border-radius: 27px"></button>
 </div>
 <div>
 <div style="font-family: 'Sora', sans-serif; font-weight: 700; font-size: 17px">Oferecer carona</div>
@@ -230,7 +357,7 @@ Em desenvolvimento · Projeto Integrador 2026
 
 <div style="flex: none; width: 240px; display: flex; flex-direction: column; gap: 16px">
 <div style="width: 240px; height: 497px; box-sizing: border-box; background: var(--frame); border-radius: 36px; padding: 10px; box-shadow: 0 20px 40px rgba(15,23,42,0.15)">
-<img src="img/avisos.jpg" alt="Central de avisos com caronas na região, aprovação da CNH e pedido de carona com o botão Tô aqui" style="display: block; width: 100%; height: 100%; object-fit: cover; border-radius: 27px">
+<button type="button" class="shot-btn" aria-label="Ampliar a tela: Central de avisos"><img src="img/avisos.jpg" data-cap="Central de avisos" alt="Central de avisos com caronas na região, aprovação da CNH e pedido de carona com o botão Tô aqui" style="display: block; width: 100%; height: 100%; object-fit: cover; border-radius: 27px"></button>
 </div>
 <div>
 <div style="font-family: 'Sora', sans-serif; font-weight: 700; font-size: 17px">Central de avisos</div>
@@ -240,7 +367,7 @@ Em desenvolvimento · Projeto Integrador 2026
 
 <div style="flex: none; width: 240px; display: flex; flex-direction: column; gap: 16px">
 <div style="width: 240px; height: 497px; box-sizing: border-box; background: var(--frame); border-radius: 36px; padding: 10px; box-shadow: 0 20px 40px rgba(15,23,42,0.15)">
-<img src="img/minha-semana.jpg" alt="Tela Minha semana, com os turnos de aula de cada dia e os horários de chegada e saída do campus" style="display: block; width: 100%; height: 100%; object-fit: cover; border-radius: 27px">
+<button type="button" class="shot-btn" aria-label="Ampliar a tela: Minha semana"><img src="img/minha-semana.jpg" data-cap="Minha semana" alt="Tela Minha semana, com os turnos de aula de cada dia e os horários de chegada e saída do campus" style="display: block; width: 100%; height: 100%; object-fit: cover; border-radius: 27px"></button>
 </div>
 <div>
 <div style="font-family: 'Sora', sans-serif; font-weight: 700; font-size: 17px">Minha semana</div>
@@ -257,7 +384,7 @@ Em desenvolvimento · Projeto Integrador 2026
 <div style="flex: 1 1 340px; display: flex; flex-direction: column; gap: 16px">
 <div style="font-size: 13px; font-weight: 700; color: #7FD1A4; letter-spacing: 0.08em; text-transform: uppercase">Segurança e confiança</div>
 <h2 style="margin: 0; font-family: 'Sora', sans-serif; font-weight: 700; font-size: 34px; line-height: 1.2">Uma comunidade fechada, com canal de denúncia</h2>
-<p style="margin: 0; font-size: 16px; color: #D5E0EC">O objetivo é criar um ambiente seguro e social: <span class="hl" style="text-decoration-color: #7FD1A4">só entra quem é da UnB</span>, e quem se comporta mal pode ser denunciado e, no futuro, suspenso.</p>
+<p style="margin: 0; font-size: 16px; color: #D5E0EC">O objetivo é criar um ambiente seguro e social: <span class="hl" style="--hl:#7FD1A4">só entra quem é da UnB</span>, e quem se comporta mal pode ser denunciado e, no futuro, suspenso.</p>
 </div>
 <div style="flex: 1 1 380px; display: flex; flex-direction: column; gap: 20px">
 <div style="display: flex; gap: 16px; align-items: flex-start">
@@ -306,37 +433,45 @@ Em desenvolvimento · Projeto Integrador 2026
 <div style="font-size: 13px; font-weight: 700; color: var(--green-t); letter-spacing: 0.08em; text-transform: uppercase">Andamento do projeto</div>
 <h2 style="margin: 0; font-family: 'Sora', sans-serif; font-weight: 700; font-size: 34px; line-height: 1.2">O que já funciona e o que vem a seguir</h2>
 </div>
-<div style="display: flex; flex-wrap: wrap; gap: 20px">
-
-<div style="flex: 1 1 240px; background: var(--surface); border: 1px solid var(--line); border-radius: 20px; padding: 24px; display: flex; flex-direction: column; gap: 10px">
-<span style="align-self: flex-start; background: var(--pale-green); color: var(--green-deep); font-size: 12px; font-weight: 700; padding: 4px 12px; border-radius: 999px">Em funcionamento</span>
-<div style="font-size: 13px; font-weight: 600; color: var(--muted)">Etapa 1</div>
-<h3 style="margin: 0; font-family: 'Sora', sans-serif; font-size: 18px">Identificação e verificação</h3>
-<p style="margin: 0; font-size: 14px; color: var(--muted)">Login por código, verificação do e-mail institucional e perfil.</p>
+<ol class="trail">
+<li class="stage done" style="--k:0">
+<div class="stage-top"><span class="node" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg></span><span class="link" aria-hidden="true"></span></div>
+<div class="stage-card">
+<span class="badge b-green">Em funcionamento</span>
+<div class="etapa">Etapa 1</div>
+<h3>Identificação e verificação</h3>
+<p>Login por código, verificação do e-mail institucional e perfil.</p>
 </div>
-
-<div style="flex: 1 1 240px; background: var(--surface); border: 1px solid var(--line); border-radius: 20px; padding: 24px; display: flex; flex-direction: column; gap: 10px">
-<span style="align-self: flex-start; background: var(--pale-blue); color: var(--blue-t); font-size: 12px; font-weight: 700; padding: 4px 12px; border-radius: 999px">Em andamento</span>
-<div style="font-size: 13px; font-weight: 600; color: var(--muted)">Etapa 2</div>
-<h3 style="margin: 0; font-family: 'Sora', sans-serif; font-size: 18px">Banco de dados e conexões</h3>
-<p style="margin: 0; font-size: 14px; color: var(--muted)">Caronas, avisos por região e “Minha semana” já estão no app.</p>
+</li>
+<li class="stage progress" style="--k:1">
+<div class="stage-top"><span class="node" aria-hidden="true">2</span><span class="link" aria-hidden="true"></span></div>
+<div class="stage-card">
+<span class="here"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s7-6.2 7-11.5A7 7 0 005 9.5C5 14.8 12 21 12 21z"></path><circle cx="12" cy="9.5" r="2.5"></circle></svg>Estamos aqui</span>
+<span class="badge b-blue">Em andamento</span>
+<div class="etapa">Etapa 2</div>
+<h3>Banco de dados e conexões</h3>
+<p>Caronas, avisos por região e “Minha semana” já estão no app.</p>
 </div>
-
-<div style="flex: 1 1 240px; background: var(--surface); border: 1px solid var(--line); border-radius: 20px; padding: 24px; display: flex; flex-direction: column; gap: 10px">
-<span style="align-self: flex-start; background: var(--amber-bg); color: var(--amber-t); font-size: 12px; font-weight: 700; padding: 4px 12px; border-radius: 999px">Em construção</span>
-<div style="font-size: 13px; font-weight: 600; color: var(--muted)">Etapa 3</div>
-<h3 style="margin: 0; font-family: 'Sora', sans-serif; font-size: 18px">Mapeamento e rotas</h3>
-<p style="margin: 0; font-size: 14px; color: var(--muted)">Pontos do campus definidos; a tela do mapa será feita com Leaflet.</p>
+</li>
+<li class="stage build" style="--k:2">
+<div class="stage-top"><span class="node" aria-hidden="true">3</span><span class="link" aria-hidden="true"></span></div>
+<div class="stage-card">
+<span class="badge b-amber">Em construção</span>
+<div class="etapa">Etapa 3</div>
+<h3>Mapeamento e rotas</h3>
+<p>Pontos do campus definidos; a tela do mapa será feita com Leaflet.</p>
 </div>
-
-<div style="flex: 1 1 240px; background: var(--surface); border: 1px solid var(--line); border-radius: 20px; padding: 24px; display: flex; flex-direction: column; gap: 10px">
-<span style="align-self: flex-start; background: var(--pale-gray); color: var(--soft); font-size: 12px; font-weight: 700; padding: 4px 12px; border-radius: 999px">Primeira versão</span>
-<div style="font-size: 13px; font-weight: 600; color: var(--muted)">Etapa 4</div>
-<h3 style="margin: 0; font-family: 'Sora', sans-serif; font-size: 18px">Segurança e denúncia</h3>
-<p style="margin: 0; font-size: 14px; color: var(--muted)">Primeira versão da tela de denúncias criada; a suspensão de usuários ainda será ligada a ela.</p>
+</li>
+<li class="stage first" style="--k:3">
+<div class="stage-top"><span class="node" aria-hidden="true">4</span></div>
+<div class="stage-card">
+<span class="badge b-gray">Primeira versão</span>
+<div class="etapa">Etapa 4</div>
+<h3>Segurança e denúncia</h3>
+<p>Primeira versão da tela de denúncias criada; a suspensão de usuários ainda será ligada a ela.</p>
 </div>
-
-</div>
+</li>
+</ol>
 </div>
 
 <!-- PONTOS DO CAMPUS -->
@@ -390,30 +525,38 @@ Em desenvolvimento · Projeto Integrador 2026
 </div>
 </div>
 
-<!-- TECNOLOGIA E EQUIPE -->
-<div style="max-width: 1120px; margin: 0 auto; padding: 72px 24px 88px; display: flex; flex-wrap: wrap; gap: 40px">
-<div style="flex: 1 1 360px; display: flex; flex-direction: column; gap: 16px">
+<!-- TECNOLOGIA -->
+<div id="tecnologia" style="max-width: 1120px; margin: 0 auto; padding: 72px 24px 0">
+<div style="max-width: 640px; display: flex; flex-direction: column; gap: 16px">
 <h2 style="margin: 0; font-family: 'Sora', sans-serif; font-weight: 700; font-size: 26px">Tecnologia</h2>
 <div style="display: flex; flex-wrap: wrap; gap: 10px">
-<span style="background: var(--surface); border: 1px solid var(--line2); border-radius: 999px; padding: 6px 16px; font-size: 14px; font-weight: 600">Flutter (Dart)</span>
-<span style="background: var(--surface); border: 1px solid var(--line2); border-radius: 999px; padding: 6px 16px; font-size: 14px; font-weight: 600">Supabase</span>
-<span style="background: var(--surface); border: 1px solid var(--line2); border-radius: 999px; padding: 6px 16px; font-size: 14px; font-weight: 600">Leaflet (previsto)</span>
+<span class="tech t-flutter fx-chip">Flutter (Dart)</span>
+<span class="tech t-supabase fx-chip">Supabase</span>
+<span class="tech t-leaflet fx-chip">Leaflet (previsto)</span>
 </div>
 <p style="margin: 0; font-size: 15px; color: var(--muted)">Aplicativo testado no navegador e em Android, com código organizado por funcionalidade.</p>
 </div>
-<div style="flex: 1 1 460px; display: flex; flex-direction: column; gap: 16px">
-<h2 style="margin: 0; font-family: 'Sora', sans-serif; font-weight: 700; font-size: 26px">Equipe</h2>
-<div id="equipe" style="flex: 1 1 460px; display: flex; flex-direction: column; gap: 16px">
-<div style="display: flex; flex-wrap: wrap; gap: 10px">
-<span style="background: var(--pale-blue); color: var(--blue-t); border-radius: 999px; padding: 6px 16px; font-size: 14px; font-weight: 600">Belphon Linardy Bahm Kiminu</span>
-<span style="background: var(--pale-blue); color: var(--blue-t); border-radius: 999px; padding: 6px 16px; font-size: 14px; font-weight: 600">Bruno Nicholas Marques da Silva</span>
-<span style="background: var(--pale-blue); color: var(--blue-t); border-radius: 999px; padding: 6px 16px; font-size: 14px; font-weight: 600">Caio Leal Vargas</span>
-<span style="background: var(--pale-blue); color: var(--blue-t); border-radius: 999px; padding: 6px 16px; font-size: 14px; font-weight: 600">Felipe Akira Furrier Serikava</span>
-<span style="background: var(--pale-blue); color: var(--blue-t); border-radius: 999px; padding: 6px 16px; font-size: 14px; font-weight: 600">Henrique Vasconcelos Ribeiro de Oliveira</span>
-<span style="background: var(--pale-blue); color: var(--blue-t); border-radius: 999px; padding: 6px 16px; font-size: 14px; font-weight: 600">Pedro Abílio Cruzeiro Moreira</span>
-<span style="background: var(--pale-blue); color: var(--blue-t); border-radius: 999px; padding: 6px 16px; font-size: 14px; font-weight: 600">Vitor Gabriel Carvalho Souza</span>
 </div>
-<p style="margin: 0; font-size: 15px; color: var(--muted)">Projeto Integrador de Fundamentos, Universidade de Brasília, 2026. Orientação do professor Edson Mintsu Hung.</p>
+
+<!-- EQUIPE -->
+<div id="equipe" style="max-width: 1120px; margin: 0 auto; padding: 72px 24px 88px">
+<div style="max-width: 640px; display: flex; flex-direction: column; gap: 12px; margin-bottom: 40px">
+<div style="font-size: 13px; font-weight: 700; color: var(--green-t); letter-spacing: 0.08em; text-transform: uppercase">Equipe</div>
+<h2 style="margin: 0; font-family: 'Sora', sans-serif; font-weight: 700; font-size: 34px; line-height: 1.2">Participantes do Projeto</h2>
+</div>
+<ul class="team">
+<li class="member">Belphon Linardy Bahm Kiminu</li>
+<li class="member">Bruno Nicholas Marques da Silva</li>
+<li class="member">Caio Leal Vargas</li>
+<li class="member">Felipe Akira Furrier Serikava</li>
+<li class="member">Henrique Vasconcelos Ribeiro de Oliveira</li>
+<li class="member">Pedro Abílio Cruzeiro Moreira</li>
+<li class="member">Vitor Gabriel Carvalho Souza</li>
+</ul>
+<div class="advisor">
+<div class="adv-label">Orientação</div>
+<div class="adv-name">Professor Edson Mintsu Hung</div>
+<div class="adv-sub">Projeto Integrador de Fundamentos, Universidade de Brasília, 2026.</div>
 </div>
 </div>
 
@@ -453,11 +596,66 @@ Em desenvolvimento · Projeto Integrador 2026
 })();
 </script>
 
+
+<dialog id="lightbox" aria-label="Tela ampliada do aplicativo">
+<button type="button" class="lb-btn lb-close" id="lb-close" aria-label="Fechar">&times;</button>
+<button type="button" class="lb-btn" id="lb-prev" aria-label="Tela anterior">&#8249;</button>
+<figure>
+<img id="lb-img" alt="">
+<figcaption id="lb-cap"></figcaption>
+</figure>
+<button type="button" class="lb-btn" id="lb-next" aria-label="Próxima tela">&#8250;</button>
+</dialog>
+
 <script>
 (function () {
   var d = document;
-  var wrap = d.getElementById('sec-wrap'), ind = d.getElementById('sec-ind');
-  var links = Array.prototype.slice.call(d.querySelectorAll('#sec-nav a'));
+  function qsa(s, r) { return Array.prototype.slice.call((r || d).querySelectorAll(s)); }
+  function $(id) { return d.getElementById(id); }
+  var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---------- classes de interação ---------- */
+  qsa('#como-funciona h3, #funcionalidades h3, #andamento h3').forEach(function (h) { h.parentElement.classList.add('fx-card'); });
+  qsa('#pontos > div:last-child > div').forEach(function (r) { r.classList.add('fx-row'); });
+  qsa('span[style*="padding: 6px 16px"]').forEach(function (c) { c.classList.add('fx-chip'); });
+  qsa('.shot-btn').forEach(function (b) { b.parentElement.classList.add('fx-shot'); });
+  var heroShot = d.querySelector('#topo .fx-shot');
+  if (heroShot) heroShot.classList.add('fx-tilt');
+
+  /* ---------- entrada suave ao rolar ---------- */
+  function mark(sel, step) {
+    qsa(sel).forEach(function (el, i) {
+      el.classList.add('rv');
+      el.style.setProperty('--d', (i * step) + 'ms');
+    });
+  }
+  mark('#topo > div', 140);
+  mark('#topo + div > div > div', 90);
+  mark('#como-funciona > div:first-child, #funcionalidades > div:first-child, #telas > div:first-child, #andamento > div:first-child', 0);
+  mark('#como-funciona > div:nth-child(2) > div', 110);
+  mark('#funcionalidades > div:nth-child(2) > div', 90);
+  mark('#telas > div:nth-child(2) > div', 130);
+  mark('#seguranca > div', 0);
+  mark('#seguranca > div > div:nth-child(2) > div', 110);
+  mark('#pontos > div', 140);
+  mark('#tecnologia', 0);
+  mark('#equipe > div:first-child', 0);
+  mark('#equipe .member', 80);
+  mark('#equipe .advisor', 0);
+
+  var io = null;
+  if ('IntersectionObserver' in window && !reduce) {
+    io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
+  }
+  qsa('.rv, .hl').forEach(function (el) { if (io) io.observe(el); else el.classList.add('in'); });
+
+  /* ---------- menu lateral: seção ativa, anel deslizante e toque no celular ---------- */
+  var wrap = $('sec-wrap'), nav = $('sec-nav'), ind = $('sec-ind');
+  var links = qsa('#sec-nav a');
   var items = links.map(function (a, i) {
     a.style.setProperty('--i', i);
     return { link: a, el: d.getElementById(a.getAttribute('href').slice(1)) };
@@ -466,6 +664,7 @@ Em desenvolvimento · Projeto Integrador 2026
   var noHover = window.matchMedia && matchMedia('(hover:none)').matches;
 
   function setOpen(o) { wrap.classList.toggle('open', o); }
+  /* no toque: o primeiro toque abre os nomes, o segundo navega */
   wrap.addEventListener('click', function (e) {
     if (noHover && !wrap.classList.contains('open')) { e.preventDefault(); setOpen(true); }
   });
@@ -506,7 +705,65 @@ Em desenvolvimento · Projeto Integrador 2026
   window.addEventListener('scroll', onScroll, { passive: true });
   window.addEventListener('resize', onScroll);
   update();
+
+  /* ---------- celular do topo inclina com o mouse ---------- */
+  if (heroShot && !reduce && window.matchMedia && matchMedia('(hover:hover) and (pointer:fine)').matches) {
+    heroShot.addEventListener('pointermove', function (e) {
+      var r = heroShot.getBoundingClientRect();
+      var px = (e.clientX - r.left) / r.width - 0.5;
+      var py = (e.clientY - r.top) / r.height - 0.5;
+      heroShot.classList.remove('rest');
+      heroShot.style.setProperty('--ry', (px * 12).toFixed(2) + 'deg');
+      heroShot.style.setProperty('--rx', (-py * 10).toFixed(2) + 'deg');
+    });
+    heroShot.addEventListener('pointerleave', function () {
+      heroShot.classList.add('rest');
+      heroShot.style.setProperty('--rx', '0deg');
+      heroShot.style.setProperty('--ry', '0deg');
+    });
+  }
+
+  /* ---------- clique na tela abre a imagem ampliada ---------- */
+  var dlg = $('lightbox'), lbImg = $('lb-img'), lbCap = $('lb-cap');
+  var shots = qsa('.shot-btn img'), cur = 0;
+  function show(i) {
+    cur = (i + shots.length) % shots.length;
+    var im = shots[cur];
+    lbImg.src = im.currentSrc || im.src;
+    lbImg.alt = im.alt;
+    lbCap.textContent = im.getAttribute('data-cap') || im.alt;
+  }
+  shots.forEach(function (im, i) {
+    im.parentElement.addEventListener('click', function () {
+      if (!dlg.showModal) return;
+      show(i);
+      dlg.showModal();
+      d.documentElement.style.overflow = 'hidden';
+    });
+  });
+  $('lb-prev').addEventListener('click', function () { show(cur - 1); });
+  $('lb-next').addEventListener('click', function () { show(cur + 1); });
+  $('lb-close').addEventListener('click', function () { dlg.close(); });
+  dlg.addEventListener('click', function (e) { if (e.target === dlg) dlg.close(); });
+  dlg.addEventListener('keydown', function (e) {
+    if (e.key === 'ArrowLeft') show(cur - 1);
+    if (e.key === 'ArrowRight') show(cur + 1);
+  });
+  dlg.addEventListener('close', function () { d.documentElement.style.overflow = ''; });
 })();
 </script>
+
+<script>
+(function () {
+  var st = document.querySelectorAll('.trail .stage');
+  if (!st.length) return;
+  if (!('IntersectionObserver' in window)) { for (var i = 0; i < st.length; i++) st[i].classList.add('in'); return; }
+  var io = new IntersectionObserver(function (es) {
+    es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.25 });
+  for (var j = 0; j < st.length; j++) io.observe(st[j]);
+})();
+</script>
+
 </body>
 </html>
