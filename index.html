@@ -58,7 +58,7 @@ html{scroll-behavior:smooth}
 /* ---------- menu de seções ---------- */
 .sec-wrap{--x:0;position:fixed;z-index:50;right:0;top:50%;transform:translateY(-50%);padding:20px 6px 20px 28px}
 .sec-wrap.open,.sec-wrap:has(:focus-visible){--x:1}
-@media (hover:hover){.sec-wrap:hover{--x:1}}
+@media (hover:hover) and (pointer:fine){.sec-wrap:hover{--x:1}}
 .sec-nav{position:relative;display:flex;flex-direction:column;gap:2px;padding:8px 4px;background:color-mix(in srgb,var(--surface) 94%,transparent);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border:1px solid var(--line);border-radius:22px;box-shadow:0 calc(6px + var(--x)*8px) calc(18px + var(--x)*14px) rgba(15,23,42,calc(.10 + var(--x)*.08));opacity:var(--x);transform:translateX(calc((1 - var(--x))*34px));transition:opacity .3s ease,transform .45s cubic-bezier(.2,.8,.2,1),box-shadow .35s ease}
 .sec-nav a{position:relative;display:flex;align-items:center;justify-content:flex-end;height:32px;padding:0 7px;border-radius:999px;color:var(--soft);font-size:13px;font-weight:600;text-decoration:none;white-space:nowrap;transition:background .2s ease,color .2s ease}
 .sec-nav a span{display:block;overflow:hidden;max-width:calc(var(--x)*140px);padding-right:calc(var(--x)*10px);opacity:var(--x);transform:translateX(calc((1 - var(--x))*12px));transition:max-width .45s cubic-bezier(.2,.8,.2,1) calc(var(--x)*var(--i,0)*28ms),padding .45s cubic-bezier(.2,.8,.2,1) calc(var(--x)*var(--i,0)*28ms),opacity .3s ease calc(var(--x)*var(--i,0)*28ms),transform .45s cubic-bezier(.2,.8,.2,1) calc(var(--x)*var(--i,0)*28ms)}
@@ -69,7 +69,7 @@ html{scroll-behavior:smooth}
 .sec-nav a:focus-visible{outline:3px solid var(--green-t);outline-offset:-2px}
 .sec-ind{position:absolute;top:0;right:7px;width:18px;height:18px;box-sizing:border-box;border:2px solid var(--green-t);border-radius:999px;opacity:0;pointer-events:none;transition:transform .5s cubic-bezier(.3,1.4,.5,1),opacity .3s ease}
 .sec-ind.ready{opacity:1}
-@media (hover:none){.sec-wrap::after{content:"";position:absolute;right:3px;top:50%;width:5px;height:64px;margin-top:-32px;border-radius:999px;background:var(--blue-t);opacity:.4;transition:opacity .2s ease;pointer-events:none}.sec-wrap.open::after{opacity:0}}
+@media (hover:none),(pointer:coarse){.sec-wrap::after{content:"";position:absolute;right:3px;top:50%;width:5px;height:64px;margin-top:-32px;border-radius:999px;background:var(--blue-t);opacity:.4;transition:opacity .2s ease;pointer-events:none}.sec-wrap.open::after{opacity:0}}
 @media (max-height:520px){.sec-nav a{height:26px}}
 
 /* ---------- trilha ---------- */
