@@ -8,9 +8,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
 <style>
-body{margin:0}
+body{margin:0;background:#E6ECF4}
 html{scroll-behavior:smooth}
-.tq{--bg:#F6F8FB;--surface:#FFFFFF;--ink:#0F172A;--muted:#475569;--soft:#334155;--line:#E2E8F0;--line2:#CBD5E1;--line3:#EEF2F6;--blue-t:#003366;--blue-bg:#003366;--green-t:#008040;--green-bg:#008040;--green-deep:#00592D;--pale-blue:#E8EEF5;--pale-green:#E6F4EC;--pale-gray:#F1F5F9;--amber-bg:#FEF3C7;--amber-t:#7A4A00;--band:#003366;--frame:#0F172A;--footer:#0F172A;--hl:#008040}
+.tq{--bg:#E6ECF4;--surface:#F4F7FB;--ink:#0F172A;--muted:#3B4A5F;--soft:#293850;--line:#C7D3E1;--line2:#AEBDD0;--line3:#D6DFEA;--blue-t:#003366;--blue-bg:#003366;--green-t:#007038;--green-bg:#008040;--green-deep:#00592D;--pale-blue:#D3E0EF;--pale-green:#CFE8DA;--pale-gray:#DDE5EF;--amber-bg:#F8E7B0;--amber-t:#6B4000;--band:#003366;--frame:#0F172A;--footer:#0F172A;--hl:#008040}
 .tq.dark{--bg:#0A1628;--surface:#12223A;--ink:#E8EEF7;--muted:#A9B8CC;--soft:#C3D0E0;--line:#243752;--line2:#34506F;--line3:#1D3049;--blue-t:#7DB2F0;--blue-bg:#2F6DB5;--green-t:#4CC38A;--green-bg:#008040;--green-deep:#8EE0B4;--pale-blue:#1B3355;--pale-green:#123B2B;--pale-gray:#1D3049;--amber-bg:#3D2E0A;--amber-t:#F5D27A;--band:#123E70;--frame:#27405F;--footer:#050B16;--hl:#4CC38A}
 .tq a{color:var(--blue-t)}.tq a:hover{color:var(--green-t)}
 .hl{text-decoration:underline;text-decoration-color:var(--hl);text-decoration-thickness:2px;text-underline-offset:4px}
@@ -19,10 +19,44 @@ html{scroll-behavior:smooth}
 .icon-sun{display:none}
 .tq.dark .icon-sun{display:block}
 .tq.dark .icon-moon{display:none}
+
+/* ---------- menu de seções (lateral) ---------- */
+.sec-wrap{--x:0;position:fixed;z-index:50;right:0;top:50%;transform:translateY(-50%);padding:20px 6px 20px 28px}
+.sec-wrap.open,.sec-wrap:has(:focus-visible){--x:1}
+@media (hover:hover){.sec-wrap:hover{--x:1}}
+.sec-nav{position:relative;display:flex;flex-direction:column;gap:2px;padding:8px 4px;background:color-mix(in srgb,var(--surface) 94%,transparent);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border:1px solid var(--line);border-radius:22px;box-shadow:0 calc(6px + var(--x)*8px) calc(18px + var(--x)*14px) rgba(15,23,42,calc(.10 + var(--x)*.08));opacity:var(--x);transform:translateX(calc((1 - var(--x))*34px));transition:opacity .3s ease,transform .45s cubic-bezier(.2,.8,.2,1),box-shadow .35s ease}
+.tq.dark .sec-nav{box-shadow:0 calc(6px + var(--x)*8px) calc(18px + var(--x)*14px) rgba(0,0,0,.45)}
+.sec-nav a{position:relative;display:flex;align-items:center;justify-content:flex-end;height:32px;padding:0 7px;border-radius:999px;color:var(--soft);font-size:13px;font-weight:600;text-decoration:none;white-space:nowrap;transition:background .2s ease,color .2s ease}
+.sec-nav a span{display:block;overflow:hidden;max-width:calc(var(--x)*140px);padding-right:calc(var(--x)*10px);opacity:var(--x);transform:translateX(calc((1 - var(--x))*12px));transition:max-width .45s cubic-bezier(.2,.8,.2,1) calc(var(--x)*var(--i,0)*28ms),padding .45s cubic-bezier(.2,.8,.2,1) calc(var(--x)*var(--i,0)*28ms),opacity .3s ease calc(var(--x)*var(--i,0)*28ms),transform .45s cubic-bezier(.2,.8,.2,1) calc(var(--x)*var(--i,0)*28ms)}
+.sec-nav a::after{content:"";flex:none;position:relative;z-index:1;width:10px;height:10px;border-radius:999px;background:var(--line2);transition:background .25s ease,transform .25s ease}
+.sec-nav a:hover{background:var(--pale-blue);color:var(--blue-t)}
+.sec-nav a:hover::after{background:var(--blue-t);transform:scale(1.15)}
+.sec-nav a.active{color:var(--blue-t)}
+.sec-nav a.active::after{background:var(--green-t)}
+.sec-nav a:focus-visible{outline:3px solid var(--green-t);outline-offset:-2px}
+.sec-ind{position:absolute;top:0;right:7px;width:18px;height:18px;box-sizing:border-box;border:2px solid var(--green-t);border-radius:999px;opacity:0;pointer-events:none;transition:transform .5s cubic-bezier(.3,1.4,.5,1),opacity .3s ease}
+.sec-ind.ready{opacity:1}
+@media (hover:none){.sec-wrap::after{content:"";position:absolute;right:3px;top:50%;width:5px;height:64px;margin-top:-32px;border-radius:999px;background:var(--blue-t);opacity:.4;transition:opacity .2s ease;pointer-events:none}.sec-wrap.open::after{opacity:0}}
+@media (max-height:520px){.sec-nav a{height:26px}}
+@media (prefers-reduced-motion: reduce){.sec-nav,.sec-nav a span,.sec-ind{transition:none!important}}
 </style>
 </head>
 <body>
 <div class="tq" style="width: 100%; background: var(--bg); color: var(--ink); font-family: 'Plus Jakarta Sans', system-ui, sans-serif; line-height: 1.6">
+
+<div class="sec-wrap" id="sec-wrap">
+<nav class="sec-nav" id="sec-nav" aria-label="Navegação por seções">
+<i class="sec-ind" id="sec-ind" aria-hidden="true"></i>
+<a href="#topo"><span>Início</span></a>
+<a href="#como-funciona"><span>Como funciona</span></a>
+<a href="#funcionalidades"><span>Funcionalidades</span></a>
+<a href="#telas"><span>Telas</span></a>
+<a href="#seguranca"><span>Segurança</span></a>
+<a href="#andamento"><span>Andamento</span></a>
+<a href="#pontos"><span>Campus</span></a>
+<a href="#equipe"><span>Equipe</span></a>
+</nav>
+</div>
 
 <!-- NAV -->
 <div style="background: var(--surface); border-bottom: 1px solid var(--line)">
@@ -369,6 +403,7 @@ Em desenvolvimento · Projeto Integrador 2026
 </div>
 <div style="flex: 1 1 460px; display: flex; flex-direction: column; gap: 16px">
 <h2 style="margin: 0; font-family: 'Sora', sans-serif; font-weight: 700; font-size: 26px">Equipe</h2>
+<div id="equipe" style="flex: 1 1 460px; display: flex; flex-direction: column; gap: 16px">
 <div style="display: flex; flex-wrap: wrap; gap: 10px">
 <span style="background: var(--pale-blue); color: var(--blue-t); border-radius: 999px; padding: 6px 16px; font-size: 14px; font-weight: 600">Belphon Linardy Bahm Kiminu</span>
 <span style="background: var(--pale-blue); color: var(--blue-t); border-radius: 999px; padding: 6px 16px; font-size: 14px; font-weight: 600">Bruno Nicholas Marques da Silva</span>
@@ -404,7 +439,7 @@ Em desenvolvimento · Projeto Integrador 2026
   var btn = document.getElementById('theme-toggle');
   function apply(dark) {
     root.classList.toggle('dark', dark);
-    document.body.style.background = dark ? '#0A1628' : '#F6F8FB';
+    document.body.style.background = dark ? '#0A1628' : '#E6ECF4';
     var label = dark ? 'Mudar para o modo claro' : 'Mudar para o modo escuro';
     btn.setAttribute('aria-label', label);
     btn.setAttribute('title', label);
@@ -415,6 +450,62 @@ Em desenvolvimento · Projeto Integrador 2026
     apply(dark);
     try { localStorage.setItem('tq-theme', dark ? 'dark' : 'light'); } catch (e) {}
   });
+})();
+</script>
+
+<script>
+(function () {
+  var d = document;
+  var wrap = d.getElementById('sec-wrap'), ind = d.getElementById('sec-ind');
+  var links = Array.prototype.slice.call(d.querySelectorAll('#sec-nav a'));
+  var items = links.map(function (a, i) {
+    a.style.setProperty('--i', i);
+    return { link: a, el: d.getElementById(a.getAttribute('href').slice(1)) };
+  }).filter(function (i) { return i.el; });
+  var ticking = false, placed = false;
+  var noHover = window.matchMedia && matchMedia('(hover:none)').matches;
+
+  function setOpen(o) { wrap.classList.toggle('open', o); }
+  wrap.addEventListener('click', function (e) {
+    if (noHover && !wrap.classList.contains('open')) { e.preventDefault(); setOpen(true); }
+  });
+  links.forEach(function (a) { a.addEventListener('click', function () { setOpen(false); }); });
+  d.addEventListener('click', function (e) { if (!wrap.contains(e.target)) setOpen(false); });
+  d.addEventListener('keydown', function (e) { if (e.key === 'Escape') setOpen(false); });
+
+  function moveRing(l) {
+    if (!l) return;
+    var y = l.offsetTop + (l.offsetHeight - ind.offsetHeight) / 2;
+    if (!placed) {
+      ind.style.transition = 'none';
+      ind.style.transform = 'translateY(' + y + 'px)';
+      void ind.offsetWidth;
+      ind.style.transition = '';
+      ind.classList.add('ready');
+      placed = true;
+    } else {
+      ind.style.transform = 'translateY(' + y + 'px)';
+    }
+  }
+
+  function update() {
+    ticking = false;
+    var doc = d.documentElement;
+    var line = window.innerHeight * 0.35;
+    var current = items[0];
+    items.forEach(function (i) { if (i.el.getBoundingClientRect().top <= line) current = i; });
+    if (window.innerHeight + window.scrollY >= doc.scrollHeight - 4) current = items[items.length - 1];
+    items.forEach(function (i) {
+      var on = i === current;
+      i.link.classList.toggle('active', on);
+      if (on) i.link.setAttribute('aria-current', 'true'); else i.link.removeAttribute('aria-current');
+    });
+    if (current) moveRing(current.link);
+  }
+  function onScroll() { if (!ticking) { ticking = true; requestAnimationFrame(update); } }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll);
+  update();
 })();
 </script>
 </body>
