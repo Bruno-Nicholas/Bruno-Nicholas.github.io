@@ -14,14 +14,14 @@ html{scroll-behavior:smooth}
 .tq.dark{--bg:#0A1628;--surface:#12223A;--ink:#E8EEF7;--muted:#A9B8CC;--soft:#C3D0E0;--line:#243752;--line2:#34506F;--line3:#1D3049;--blue-t:#7DB2F0;--blue-bg:#2F6DB5;--green-t:#4CC38A;--green-bg:#008040;--green-deep:#8EE0B4;--pale-blue:#1B3355;--pale-green:#123B2B;--pale-gray:#1D3049;--amber-bg:#3D2E0A;--amber-t:#F5D27A;--band:#123E70;--frame:#27405F;--footer:#050B16;--hl:#4CC38A}
 .tq a{color:var(--blue-t)}.tq a:hover{color:var(--green-t)}
 .icon-sun{display:none}.tq.dark .icon-sun{display:block}.tq.dark .icon-moon{display:none}
- 
+
 .hl{--tint:color-mix(in srgb,var(--hl) 24%,transparent);background-image:linear-gradient(var(--hl),var(--hl)),linear-gradient(var(--tint),var(--tint));background-repeat:no-repeat;background-position:0 100%,0 100%;background-size:100% 2px,100% 0;padding-bottom:2px;border-radius:3px;-webkit-box-decoration-break:clone;box-decoration-break:clone;transition:background-size .9s ease .15s}
 .js .hl{background-size:0 2px,100% 0}.js .hl.in{background-size:100% 2px,100% 0}
 .hl:hover,.js .hl.in:hover{background-size:100% 2px,100% 100%;transition-duration:.35s;transition-delay:0s}
- 
+
 .rv{transition:opacity .7s ease var(--d,0s),translate .7s ease var(--d,0s)}
 .js .rv{opacity:0;translate:0 22px}.js .rv.in{opacity:1;translate:0 0}
- 
+
 .fx-card{transition:opacity .7s ease var(--d,0s),translate .7s ease var(--d,0s),transform .25s ease,box-shadow .25s ease,border-color .25s ease}
 .fx-card:hover{transform:translateY(-5px);box-shadow:0 16px 34px rgba(15,23,42,.12);border-color:var(--line2)}
 .tq.dark .fx-card:hover{box-shadow:0 16px 34px rgba(0,0,0,.45)}
@@ -29,7 +29,7 @@ html{scroll-behavior:smooth}
 .fx-card:hover>div:first-child{transform:scale(1.1) rotate(-4deg)}
 .fx-chip{transition:transform .2s ease}.fx-chip:hover{transform:translateY(-2px)}
 .fx-row{transition:background .2s ease}.fx-row:hover{background:var(--pale-blue)}
- 
+
 .shot-btn{display:block;width:100%;height:100%;padding:0;border:0;background:none;cursor:zoom-in;border-radius:inherit;font:inherit}
 .shot-btn:focus-visible{outline:3px solid var(--green-t);outline-offset:4px}
 .fx-shot{position:relative;transition:transform .3s ease,box-shadow .3s ease}
@@ -38,7 +38,7 @@ html{scroll-behavior:smooth}
 .fx-shot:hover::after,.fx-shot:focus-within::after{opacity:1;translate:-50% 0}
 .fx-tilt{transform:perspective(900px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg));transition:transform .15s ease-out}
 .fx-tilt.rest{transition:transform .5s ease}
- 
+
 /* ---------- visualização ampliada com zoom ---------- */
 #lightbox{border:0;padding:0;background:transparent;width:100vw;height:100vh;max-width:none;max-height:none;color:#fff;overflow:hidden}
 #lightbox::backdrop{background:rgba(5,11,22,.9);backdrop-filter:blur(5px)}
@@ -54,7 +54,7 @@ html{scroll-behavior:smooth}
 .lb-nav{position:absolute;top:50%;translate:0 -50%;width:48px;height:48px;background:rgba(15,23,42,.7);border:1px solid rgba(255,255,255,.3);font-size:28px}
 #lb-prev{left:14px}#lb-next{right:14px}
 .lb-hint{position:absolute;top:24px;left:50%;translate:-50% 0;font:500 13px 'Plus Jakarta Sans',system-ui,sans-serif;opacity:.75;text-align:center;width:min(70vw,560px)}
- 
+
 /* ---------- menu de seções ---------- */
 .sec-wrap{--x:0;position:fixed;z-index:50;right:0;top:50%;transform:translateY(-50%);padding:20px 6px 20px 28px}
 .sec-wrap.open,.sec-wrap:has(:focus-visible){--x:1}
@@ -71,7 +71,7 @@ html{scroll-behavior:smooth}
 .sec-ind.ready{opacity:1}
 @media (hover:none){.sec-wrap::after{content:"";position:absolute;right:3px;top:50%;width:5px;height:64px;margin-top:-32px;border-radius:999px;background:var(--blue-t);opacity:.4;transition:opacity .2s ease;pointer-events:none}.sec-wrap.open::after{opacity:0}}
 @media (max-height:520px){.sec-nav a{height:26px}}
- 
+
 /* ---------- trilha ---------- */
 .trail{--t:.35s;list-style:none;margin:0 -20px 0 0;padding:18px 0 0;display:flex;align-items:stretch}
 .stage{flex:1 1 0;min-width:0;display:flex;flex-direction:column;gap:22px}
@@ -109,7 +109,7 @@ html{scroll-behavior:smooth}
 .progress .link{background:linear-gradient(var(--blue-t),var(--blue-t)) 0 0/100% 38% no-repeat,repeating-linear-gradient(180deg,var(--line2) 0 8px,transparent 8px 14px)}
 .stage-card{margin:0 0 22px}.stage:last-child .stage-card{margin-bottom:0}
 .js .stage .link{clip-path:inset(0 -8px 100% -8px)}.js .stage.in .link{clip-path:inset(0 -8px -14px -8px)}}
- 
+
 /* ---------- pontos do campus (cartões por tipo) ---------- */
 .k-park{--c:var(--blue-bg)}.k-exit{--c:var(--green-bg)}.k-bus{--c:#B45F06}
 .pgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:20px;align-items:start}
@@ -125,10 +125,10 @@ html{scroll-behavior:smooth}
 .pgrp .psub{display:block;font-size:12px;font-weight:500;color:var(--muted)}
 .pstrip{display:flex;flex-wrap:wrap;gap:10px;margin-top:4px}
 .pchip{font-size:13px;font-weight:700;padding:6px 14px;border-radius:999px;background:var(--pale-blue);color:var(--blue-t)}
- 
+
 /* ---------- funcionalidades: faixa com lista editorial ---------- */
 .fband{--hl:#7FD1A4;background:var(--band);color:#fff;border-radius:28px;padding:56px 48px;display:flex;flex-wrap:wrap;gap:48px}
-.fband .head{flex:1 1 280px;align-self:flex-start;position:sticky;top:32px;display:flex;flex-direction:column;gap:16px}
+.fband .head{flex:1 1 280px;align-self:flex-start;display:flex;flex-direction:column;gap:16px}
 .fband .eyebrow{color:#7FD1A4}
 .fband h2{margin:0;font-family:'Sora',sans-serif;font-weight:700;font-size:34px;line-height:1.2}
 .flist{flex:1.7 1 420px;display:flex;flex-direction:column}
@@ -139,14 +139,14 @@ html{scroll-behavior:smooth}
 .frow:hover .ic{transform:scale(1.1) rotate(-4deg)}
 .frow h3{margin:0 0 4px;font-family:'Sora',sans-serif;font-size:19px;color:#fff}
 .frow p{margin:0;font-size:15px;color:#D5E0EC}
-@media(max-width:700px){.fband{padding:36px 22px;gap:28px}.fband .head{position:static}}
- 
+@media(max-width:700px){.fband{padding:36px 22px;gap:28px}}
+
 /* ---------- tecnologias ---------- */
 .tech{display:inline-flex;align-items:center;gap:8px;border:1px solid;border-radius:999px;padding:6px 16px;font-size:14px;font-weight:600}
 .tech::before{content:"";width:8px;height:8px;border-radius:999px;background:currentColor}
 .t-flutter{background:#DCEBFA;color:#0B4F9C;border-color:#9CC3EE}.t-supabase{background:#D3F0E1;color:#0A6B40;border-color:#8FD6B3}.t-leaflet{background:#FBE5BF;color:#8A4B00;border-color:#E3B25E;border-style:dashed}
 .tq.dark .t-flutter{background:#12335C;color:#8FC1FF;border-color:#2B5A94}.tq.dark .t-supabase{background:#0F3A2A;color:#5FDDA0;border-color:#1F6B4C}.tq.dark .t-leaflet{background:#3D2A0A;color:#F5B95C;border-color:#7A5A1E}
- 
+
 /* ---------- participantes: um nome por linha de cartão, última linha centralizada ---------- */
 .team{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;justify-content:center;gap:16px}
 .member{flex:0 0 auto;max-width:100%;display:flex;align-items:center;box-sizing:border-box;min-height:64px;background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:16px 26px;font-size:15px;font-weight:600;line-height:1.35;white-space:nowrap;transition:opacity .7s ease var(--d,0s),translate .7s ease var(--d,0s),transform .25s ease,box-shadow .25s ease,border-color .25s ease}
@@ -156,7 +156,7 @@ html{scroll-behavior:smooth}
 .adv-label{font-size:13px;font-weight:700;color:#7FD1A4;letter-spacing:.08em;text-transform:uppercase}
 .adv-name{font-family:'Sora',sans-serif;font-weight:700;font-size:20px}
 .adv-sub{font-size:14px;color:#D5E0EC}
- 
+
 @media (prefers-reduced-motion: reduce){
 html{scroll-behavior:auto}
 .rv,.fx-card,.fx-shot,.fx-tilt,.hl,.sec-nav,.sec-nav a span,.sec-ind,.stage .node,.stage .link,.stage-card,.member{transition:none!important}
@@ -169,7 +169,7 @@ html{scroll-behavior:auto}
 </head>
 <body>
 <div class="tq" style="width:100%;background:var(--bg);color:var(--ink);font-family:'Plus Jakarta Sans',system-ui,sans-serif;line-height:1.6">
- 
+
 <div class="sec-wrap" id="sec-wrap">
 <nav class="sec-nav" id="sec-nav" aria-label="Navegação por seções">
 <i class="sec-ind" id="sec-ind" aria-hidden="true"></i>
@@ -183,7 +183,7 @@ html{scroll-behavior:auto}
 <a href="#equipe"><span>Equipe</span></a>
 </nav>
 </div>
- 
+
 <div style="background:var(--surface);border-bottom:1px solid var(--line)">
 <div style="max-width:1120px;margin:0 auto;padding:16px 24px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px">
 <a href="#topo" style="display:flex;align-items:center;gap:12px;text-decoration:none">
@@ -199,7 +199,7 @@ html{scroll-behavior:auto}
 <svg class="icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path></svg>
 <svg class="icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 019.5 4a8 8 0 1010.5 10.5z"></path></svg></button>
 </div></div></div>
- 
+
 <div id="topo" style="max-width:1120px;margin:0 auto;padding:72px 24px 80px;display:flex;flex-wrap:wrap;align-items:center;gap:48px">
 <div style="flex:1 1 440px;display:flex;flex-direction:column;gap:24px">
 <div style="align-self:flex-start;display:flex;align-items:center;gap:8px;padding:6px 14px;border-radius:999px;background:var(--pale-green);color:var(--green-deep);font-size:13px;font-weight:600"><span style="width:8px;height:8px;border-radius:999px;background:var(--green-bg)"></span>Em desenvolvimento · Projeto Integrador 2026</div>
@@ -213,7 +213,7 @@ html{scroll-behavior:auto}
 <div style="width:290px;height:600px;box-sizing:border-box;background:var(--frame);border-radius:42px;padding:12px;box-shadow:0 24px 48px rgba(15,23,42,.18)">
 <button type="button" class="shot-btn" aria-label="Ampliar a tela: Lista de caronas"><img src="img/lista-de-caronas.jpg" data-full="img/full/lista-de-caronas.png" data-cap="Lista de caronas" alt="Tela de caronas do app Tô aqui UnB, com a lista de caronas da região e o botão Oferecer carona" style="display:block;width:100%;height:100%;object-fit:cover;border-radius:32px"></button></div></div>
 </div>
- 
+
 <div style="background:var(--surface);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
 <div style="max-width:1120px;margin:0 auto;padding:40px 24px;display:flex;flex-wrap:wrap;gap:32px">
 <div style="flex:1 1 240px"><div style="font-family:'Sora',sans-serif;font-weight:700;font-size:20px;color:var(--blue-t)">Só comunidade UnB</div><div style="font-size:14px;color:var(--muted)">Entrada de alunos com seus e-mails @aluno.unb.br e para docentes com @unb.br.</div></div>
@@ -221,7 +221,7 @@ html{scroll-behavior:auto}
 <div style="flex:1 1 240px"><div style="font-family:'Sora',sans-serif;font-weight:700;font-size:20px;color:var(--blue-t)">Sem coleta de CPF</div><div style="font-size:14px;color:var(--muted)">O app respeita a LGPD e pede só o necessário.</div></div>
 <div style="flex:1 1 240px"><div style="font-family:'Sora',sans-serif;font-weight:700;font-size:20px;color:var(--green-t)">Motoristas com CNH</div><div style="font-size:14px;color:var(--muted)">Só quem tem a CNH aprovada pode publicar caronas.</div></div>
 </div></div>
- 
+
 <div id="como-funciona" style="max-width:1120px;margin:0 auto;padding:88px 24px 24px">
 <div style="max-width:640px;display:flex;flex-direction:column;gap:12px;margin-bottom:40px">
 <div class="eyebrow" style="font-size:13px;font-weight:700;color:var(--green-t);letter-spacing:.08em;text-transform:uppercase">Como funciona</div>
@@ -231,7 +231,7 @@ html{scroll-behavior:auto}
 <div style="flex:1 1 300px;background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:28px;display:flex;flex-direction:column;gap:12px"><div style="width:40px;height:40px;border-radius:999px;background:var(--blue-bg);color:#fff;font-family:'Sora',sans-serif;font-weight:700;display:flex;align-items:center;justify-content:center">2</div><h3 style="margin:0;font-family:'Sora',sans-serif;font-size:20px">Monte seu perfil e sua semana</h3><p style="margin:0;font-size:15px;color:var(--muted)">Em menos de um minuto você pode escolher a região onde mora e já recebe notificações de possíveis trajetos úteis. Caso queira, você também pode marcar seus turnos de aula em “Minha semana”.</p></div>
 <div style="flex:1 1 300px;background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:28px;display:flex;flex-direction:column;gap:12px"><div style="width:40px;height:40px;border-radius:999px;background:var(--blue-bg);color:#fff;font-family:'Sora',sans-serif;font-weight:700;display:flex;align-items:center;justify-content:center">3</div><h3 style="margin:0;font-family:'Sora',sans-serif;font-size:20px">Combine a carona</h3><p style="margin:0;font-size:15px;color:var(--muted)">Veja as caronas da sua região, ofereça a sua com dia, horário e vagas, e <span class="hl">receba avisos quando surgir uma compatível com você</span>.</p></div>
 </div></div>
- 
+
 <!-- FUNCIONALIDADES -->
 <div id="funcionalidades" style="max-width:1120px;margin:0 auto;padding:72px 24px 24px">
 <div class="fband">
@@ -244,7 +244,7 @@ html{scroll-behavior:auto}
 <div class="frow"><div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.5"></circle><path d="M2.5 20c0-3.5 3-6 6.5-6s6.5 2.5 6.5 6"></path><circle cx="17.5" cy="9" r="2.5"></circle><path d="M17 14c3 0 4.5 2 4.5 5"></path></svg></div><div><h3>Grupos de afinidade</h3><p>Cada carona mostra como o motorista se declarou, e você filtra por esse critério. <span class="hl">Isso permite caronas exclusivas, como só para mulheres</span>. Quem prefere não declarar usa o app normalmente.</p></div></div>
 <div class="frow"><div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"></rect><circle cx="9" cy="11" r="2"></circle><path d="M6 16c.5-1.5 1.7-2 3-2s2.5.5 3 2M14 10h4M14 14h3"></path></svg></div><div><h3>Motoristas verificados</h3><p><span class="hl">A CNH passa por aprovação antes de qualquer oferta</span>. Se for recusada, o app explica o motivo e orienta o envio de uma nova foto.</p></div></div>
 </div></div></div>
- 
+
 <div id="telas" style="max-width:1120px;margin:0 auto;padding:72px 24px 24px">
 <div style="max-width:640px;display:flex;flex-direction:column;gap:12px;margin-bottom:40px">
 <div class="eyebrow" style="font-size:13px;font-weight:700;color:var(--green-t);letter-spacing:.08em;text-transform:uppercase">O app por dentro</div>
@@ -255,7 +255,7 @@ html{scroll-behavior:auto}
 <div style="flex:none;width:240px;display:flex;flex-direction:column;gap:16px"><div style="width:240px;height:497px;box-sizing:border-box;background:var(--frame);border-radius:36px;padding:10px;box-shadow:0 20px 40px rgba(15,23,42,.15)"><button type="button" class="shot-btn" aria-label="Ampliar a tela: Central de avisos"><img src="img/avisos.jpg" data-full="img/full/avisos.png" data-cap="Central de avisos" alt="Central de avisos com caronas na região, aprovação da CNH e pedido de carona com o botão Tô aqui" style="display:block;width:100%;height:100%;object-fit:cover;border-radius:27px"></button></div><div><div style="font-family:'Sora',sans-serif;font-weight:700;font-size:17px">Central de avisos</div><div style="font-size:14px;color:var(--muted)">Caronas na região, aprovação da CNH e pedidos de carona, com o botão “Tô aqui!” para o motorista ajudar.</div></div></div>
 <div style="flex:none;width:240px;display:flex;flex-direction:column;gap:16px"><div style="width:240px;height:497px;box-sizing:border-box;background:var(--frame);border-radius:36px;padding:10px;box-shadow:0 20px 40px rgba(15,23,42,.15)"><button type="button" class="shot-btn" aria-label="Ampliar a tela: Minha semana"><img src="img/minha-semana.jpg" data-full="img/full/minha-semana.png" data-cap="Minha semana" alt="Tela Minha semana, com os turnos de aula de cada dia e os horários de chegada e saída do campus" style="display:block;width:100%;height:100%;object-fit:cover;border-radius:27px"></button></div><div><div style="font-family:'Sora',sans-serif;font-weight:700;font-size:17px">Minha semana</div><div style="font-size:14px;color:var(--muted)">Marque os turnos de aula e o app calcula chegada e saída do campus. <span class="hl">Só você vê seus horários</span>.</div></div></div>
 </div></div>
- 
+
 <div id="seguranca" style="max-width:1120px;margin:0 auto;padding:72px 24px 24px">
 <div style="background:var(--band);color:#fff;border-radius:28px;padding:56px 48px;display:flex;flex-wrap:wrap;gap:40px">
 <div style="flex:1 1 340px;display:flex;flex-direction:column;gap:16px">
@@ -268,7 +268,7 @@ html{scroll-behavior:auto}
 <div style="display:flex;gap:16px;align-items:flex-start"><div style="flex:none;width:40px;height:40px;border-radius:12px;background:var(--surface);color:var(--blue-t);display:flex;align-items:center;justify-content:center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"></rect><path d="M8 11V8a4 4 0 018 0v3"></path></svg></div><div><div style="font-weight:700">Dados protegidos</div><div style="font-size:14px;color:#D5E0EC">Regras de acesso no banco de dados: cada pessoa só enxerga e edita o próprio perfil.</div></div></div>
 <div style="display:flex;gap:16px;align-items:flex-start"><div style="flex:none;width:40px;height:40px;border-radius:12px;background:#7FD1A4;color:#002347;display:flex;align-items:center;justify-content:center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg></div><div><div style="font-weight:700">Em breve</div><div style="font-size:14px;color:#D5E0EC">Suspensão de usuários por cartões amarelos e vermelhos, com base em denúncia e verificação pelos moderadores.</div></div></div>
 </div></div></div>
- 
+
 <!-- ANDAMENTO (etapas 3 e 4 trocadas) -->
 <div id="andamento" style="max-width:1120px;margin:0 auto;padding:72px 24px 24px">
 <div style="max-width:640px;display:flex;flex-direction:column;gap:12px;margin-bottom:40px">
@@ -284,7 +284,7 @@ html{scroll-behavior:auto}
 <li class="stage build" style="--k:3"><div class="stage-top"><span class="node" aria-hidden="true">4</span></div>
 <div class="stage-card"><span class="badge b-amber">Em construção</span><div class="etapa">Etapa 4</div><h3>Mapeamento e rotas</h3><p>Pontos do campus definidos; a tela do mapa será feita com Leaflet.</p></div></li>
 </ol></div>
- 
+
 <!-- PONTOS DO CAMPUS (cartões por tipo) -->
 <div id="pontos" style="max-width:1120px;margin:0 auto;padding:72px 24px 24px">
 <div style="max-width:640px;display:flex;flex-direction:column;gap:12px;margin-bottom:32px">
@@ -307,13 +307,13 @@ html{scroll-behavior:auto}
 <li class="fx-row"><span class="pid">P07</span><span class="pnm">Parada L2 Norte<span class="psub">Sentido Asa Norte</span></span></li>
 <li class="fx-row"><span class="pid">P08</span><span class="pnm">Parada L2 Norte<span class="psub">Sentido Rodoviária</span></span></li></ul></div>
 </div></div>
- 
+
 <div id="tecnologia" style="max-width:1120px;margin:0 auto;padding:72px 24px 0">
 <div style="max-width:640px;display:flex;flex-direction:column;gap:16px">
 <h2 style="margin:0;font-family:'Sora',sans-serif;font-weight:700;font-size:26px">Tecnologia</h2>
 <div style="display:flex;flex-wrap:wrap;gap:10px"><span class="tech t-flutter fx-chip">Flutter (Dart)</span><span class="tech t-supabase fx-chip">Supabase</span><span class="tech t-leaflet fx-chip">Leaflet (previsto)</span></div>
 <p style="margin:0;font-size:15px;color:var(--muted)">Aplicativo testado no navegador e em Android, com código organizado por funcionalidade.</p></div></div>
- 
+
 <div id="equipe" style="max-width:1120px;margin:0 auto;padding:72px 24px 88px">
 <div style="max-width:640px;display:flex;flex-direction:column;gap:12px;margin-bottom:40px">
 <div class="eyebrow" style="font-size:13px;font-weight:700;color:var(--green-t);letter-spacing:.08em;text-transform:uppercase">Equipe</div>
@@ -322,13 +322,13 @@ html{scroll-behavior:auto}
 <li class="member">Belphon Linardy Bahm Kiminu</li><li class="member">Bruno Nicholas Marques da Silva</li><li class="member">Caio Leal Vargas</li><li class="member">Felipe Akira Furrier Serikava</li><li class="member">Henrique Vasconcelos Ribeiro de Oliveira</li><li class="member">Pedro Abílio Cruzeiro Moreira</li><li class="member">Vitor Gabriel Carvalho Souza</li></ul>
 <div class="advisor"><div class="adv-label">Orientação</div><div class="adv-name">Professor Edson Mintsu Hung</div><div class="adv-sub">Projeto Integrador de Fundamentos, Universidade de Brasília, 2026.</div></div>
 </div>
- 
+
 <div style="background:var(--footer);color:#CBD5E1"><div style="max-width:1120px;margin:0 auto;padding:40px 24px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px">
 <div style="display:flex;align-items:center;gap:12px"><div style="width:36px;height:36px;background:var(--blue-bg);color:#fff;border-radius:10px;display:flex;align-items:center;justify-content:center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s7-6.2 7-11.5A7 7 0 005 9.5C5 14.8 12 21 12 21z"></path><circle cx="12" cy="9.5" r="2.5"></circle></svg></div><span style="font-family:'Sora',sans-serif;font-weight:700;font-size:18px;color:#fff">Tô aqui UnB</span></div>
 <p style="margin:0;font-size:14px;max-width:520px">Projeto acadêmico desenvolvido por estudantes para a comunidade da Universidade de Brasília.</p>
 <p style="margin:0;font-size:13px;color:#94A3B8">© 2026 Tô aqui UnB</p></div></div>
 </div>
- 
+
 <script>
 (function(){
 var root=document.querySelector('.tq'),btn=document.getElementById('theme-toggle');
@@ -337,7 +337,7 @@ try{if(localStorage.getItem('tq-theme')==='dark')apply(true)}catch(e){}
 btn.addEventListener('click',function(){var dark=!root.classList.contains('dark');apply(dark);try{localStorage.setItem('tq-theme',dark?'dark':'light')}catch(e){}});
 })();
 </script>
- 
+
 <dialog id="lightbox" aria-label="Tela ampliada do aplicativo">
 <div class="lb-stage" id="lb-stage"><img id="lb-img" alt="" draggable="false"></div>
 <div class="lb-hint">Roda do mouse ou pinça para zoom · arraste para mover · duplo clique alterna 2,5×</div>
@@ -346,19 +346,19 @@ btn.addEventListener('click',function(){var dark=!root.classList.contains('dark'
 <button type="button" class="lb-btn lb-nav" id="lb-next" aria-label="Próxima tela">&#8250;</button>
 <div class="lb-bar"><button type="button" class="lb-btn" id="lb-out" aria-label="Diminuir zoom">−</button><button type="button" class="lb-btn" id="lb-zl" aria-label="Redefinir zoom">100%</button><button type="button" class="lb-btn" id="lb-in" aria-label="Aumentar zoom">+</button><span id="lb-cap"></span></div>
 </dialog>
- 
+
 <script>
 (function(){
 var d=document;
 function qsa(s,r){return Array.prototype.slice.call((r||d).querySelectorAll(s))}
 function $(id){return d.getElementById(id)}
 var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
- 
+
 qsa('#como-funciona h3, #andamento h3').forEach(function(h){h.parentElement.classList.add('fx-card')});
 qsa('span[style*="padding: 6px 16px"]').forEach(function(c){c.classList.add('fx-chip')});
 qsa('.shot-btn').forEach(function(b){b.parentElement.classList.add('fx-shot')});
 var heroShot=d.querySelector('#topo .fx-shot');if(heroShot)heroShot.classList.add('fx-tilt');
- 
+
 function mark(sel,step){qsa(sel).forEach(function(el,i){el.classList.add('rv');el.style.setProperty('--d',(i*step)+'ms')})}
 mark('#topo > div',140);
 mark('#topo + div > div > div',90);
@@ -373,11 +373,11 @@ mark('#tecnologia',0);
 mark('#equipe > div:first-child',0);
 mark('#equipe .member',80);
 mark('#equipe .advisor',0);
- 
+
 var io=null;
 if('IntersectionObserver'in window&&!reduce){io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12,rootMargin:'0px 0px -6% 0px'})}
 qsa('.rv, .hl').forEach(function(el){if(io)io.observe(el);else el.classList.add('in')});
- 
+
 /* menu lateral */
 var wrap=$('sec-wrap'),ind=$('sec-ind'),links=qsa('#sec-nav a');
 var items=links.map(function(a,i){a.style.setProperty('--i',i);return{link:a,el:d.getElementById(a.getAttribute('href').slice(1))}}).filter(function(i){return i.el});
@@ -396,12 +396,12 @@ items.forEach(function(i){var on=i===current;i.link.classList.toggle('active',on
 if(current)moveRing(current.link)}
 function onScroll(){if(!ticking){ticking=true;requestAnimationFrame(update)}}
 window.addEventListener('scroll',onScroll,{passive:true});window.addEventListener('resize',onScroll);update();
- 
+
 /* inclinação do celular do topo */
 if(heroShot&&!reduce&&window.matchMedia&&matchMedia('(hover:hover) and (pointer:fine)').matches){
 heroShot.addEventListener('pointermove',function(e){var r=heroShot.getBoundingClientRect(),px=(e.clientX-r.left)/r.width-.5,py=(e.clientY-r.top)/r.height-.5;heroShot.classList.remove('rest');heroShot.style.setProperty('--ry',(px*12).toFixed(2)+'deg');heroShot.style.setProperty('--rx',(-py*10).toFixed(2)+'deg')});
 heroShot.addEventListener('pointerleave',function(){heroShot.classList.add('rest');heroShot.style.setProperty('--rx','0deg');heroShot.style.setProperty('--ry','0deg')})}
- 
+
 /* ---------- ampliar com zoom de verdade ---------- */
 var dlg=$('lightbox'),st=$('lb-stage'),im=$('lb-img'),zl=$('lb-zl'),shots=qsa('.shot-btn img'),cur=0,z=1,tx=0,ty=0,ptr={},pd=0;
 function paint(){im.style.transform='translate('+tx+'px,'+ty+'px) scale('+z+')';zl.textContent=Math.round(z*100)+'%';st.classList.toggle('z',z>1)}
@@ -426,7 +426,7 @@ st.addEventListener('pointerup',up);st.addEventListener('pointercancel',up);
 dlg.addEventListener('keydown',function(e){if(e.key==='ArrowLeft')show(cur-1);if(e.key==='ArrowRight')show(cur+1);if(e.key==='+'||e.key==='=')zoomC(z*1.5);if(e.key==='-')zoomC(z/1.5);if(e.key==='0')reset()});
 })();
 </script>
- 
+
 <script>
 (function(){var st=document.querySelectorAll('.trail .stage');if(!st.length)return;
 if(!('IntersectionObserver'in window)){for(var i=0;i<st.length;i++)st[i].classList.add('in');return}
@@ -435,4 +435,3 @@ for(var j=0;j<st.length;j++)io.observe(st[j])})();
 </script>
 </body>
 </html>
- 
