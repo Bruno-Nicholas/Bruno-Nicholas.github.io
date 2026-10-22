@@ -69,7 +69,6 @@ html{scroll-behavior:smooth}
 .sec-nav a:focus-visible{outline:3px solid var(--green-t);outline-offset:-2px}
 .sec-ind{position:absolute;top:0;right:7px;width:18px;height:18px;box-sizing:border-box;border:2px solid var(--green-t);border-radius:999px;opacity:0;pointer-events:none;transition:transform .5s cubic-bezier(.3,1.4,.5,1),opacity .3s ease}
 .sec-ind.ready{opacity:1}
-@media (hover:none),(pointer:coarse){.sec-wrap::after{content:"";position:absolute;right:3px;top:50%;width:5px;height:64px;margin-top:-32px;border-radius:999px;background:var(--blue-t);opacity:.4;transition:opacity .2s ease;pointer-events:none}.sec-wrap.open::after{opacity:0}}
 .sec-nav{pointer-events:none}
 .sec-wrap.open .sec-nav,.sec-wrap:has(:focus-visible) .sec-nav{pointer-events:auto}
 @media (hover:hover) and (pointer:fine){.sec-wrap:hover .sec-nav{pointer-events:auto}}
@@ -79,6 +78,7 @@ html{scroll-behavior:smooth}
 .sec-wrap::after{content:"";position:absolute;right:0;top:50%;width:28px;height:100px;margin-top:-50px;background:linear-gradient(var(--blue-t),var(--blue-t)) right 3px center/5px 64px no-repeat;opacity:.55;transition:opacity .2s ease;pointer-events:auto;cursor:pointer}
 .sec-wrap.open::after{opacity:0;pointer-events:none}
 .sec-nav a{height:40px}
+}
 @media (max-height:520px){.sec-nav a{height:26px}}
 
 /* ---------- trilha ---------- */
@@ -391,9 +391,9 @@ qsa('.rv, .hl').forEach(function(el){if(io)io.observe(el);else el.classList.add(
 /* menu lateral */
 var wrap=$('sec-wrap'),ind=$('sec-ind'),links=qsa('#sec-nav a');
 var items=links.map(function(a,i){a.style.setProperty('--i',i);return{link:a,el:d.getElementById(a.getAttribute('href').slice(1))}}).filter(function(i){return i.el});
-var ticking=false,placed=false,noHover=window.matchMedia&&matchMedia('(hover:none)').matches;
+var ticking=false,placed=false,noHover=window.matchMedia&&matchMedia('(hover:none),(pointer:coarse)').matches;
 function setOpen(o){wrap.classList.toggle('open',o)}
-wrap.addEventListener('click',function(e){if(noHover&&!wrap.classList.contains('open')){e.preventDefault();setOpen(true)}});
+wrap.addEventListener('click',function(e){if(e.target.closest('a'))return;if(noHover&&!wrap.classList.contains('open')){e.preventDefault();setOpen(true)}});
 links.forEach(function(a){a.addEventListener('click',function(){setOpen(false)})});
 d.addEventListener('click',function(e){if(!wrap.contains(e.target))setOpen(false)});
 d.addEventListener('keydown',function(e){if(e.key==='Escape')setOpen(false)});
@@ -444,42 +444,5 @@ var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isInter
 for(var j=0;j<st.length;j++)io.observe(st[j])})();
 </script>
 
-<script>
-(function () {
-  var wrap = document.getElementById('sec-wrap'), nav = document.getElementById('sec-nav'), ind = document.getElementById('sec-ind');
-  if (!wrap || !nav) return;
-  var touch = window.matchMedia('(hover:none),(pointer:coarse)');
-  var items = [].slice.call(nav.querySelectorAll('a')).map(function (a) {
-    var s = document.querySelector(a.getAttribute('href'));
-    return s ? { a: a, s: s } : null;
-  }).filter(Boolean);
-  function setOpen(o) { wrap.classList.toggle('open', o); }
-  wrap.addEventListener('click', function (e) {
-    if (e.target.closest('a')) { if (touch.matches) setOpen(false); return; }
-    if (touch.matches && !e.target.closest('nav')) setOpen(!wrap.classList.contains('open'));
-  });
-  document.addEventListener('click', function (e) { if (!wrap.contains(e.target)) setOpen(false); });
-  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') setOpen(false); });
-  var cur = null;
-  function place() {
-    if (!cur) return;
-    ind.style.transform = 'translateY(' + (cur.a.offsetTop + 7) + 'px)';
-    ind.classList.add('ready');
-  }
-  function update() {
-    var line = window.innerHeight * 0.35, best = items[0];
-    items.forEach(function (it) { if (it.s.getBoundingClientRect().top <= line) best = it; });
-    if (best !== cur) {
-      if (cur) { cur.a.classList.remove('active'); cur.a.removeAttribute('aria-current'); }
-      cur = best; cur.a.classList.add('active'); cur.a.setAttribute('aria-current', 'true');
-      place();
-    }
-  }
-  var t = false;
-  window.addEventListener('scroll', function () { if (!t) { t = true; requestAnimationFrame(function () { t = false; update(); }); } }, { passive: true });
-  window.addEventListener('resize', function () { update(); place(); });
-  update(); place();
-})();
-</script>
 </body>
 </html>
