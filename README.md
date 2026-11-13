@@ -4,9 +4,12 @@
 
 ### Carona entre estudantes na UnB, de carro e a pé 🚗🚶
 
+[![Baixar o app](https://img.shields.io/badge/Baixar_o_app-APK_Android-008040?style=for-the-badge&logo=android&logoColor=white)](https://github.com/Bruno-Nicholas/Bruno-Nicholas.github.io/releases/latest/download/toaqui.apk)
 [![Ver o site](https://img.shields.io/badge/Ver_o_site-bruno--nicholas.github.io-003366?style=for-the-badge)](https://bruno-nicholas.github.io/)
 
+[![Versão](https://img.shields.io/badge/vers%C3%A3o-v1.0.0-008040?style=flat-square)](https://github.com/Bruno-Nicholas/Bruno-Nicholas.github.io/releases/latest)
 ![Status](https://img.shields.io/badge/status-em_desenvolvimento-F59E0B?style=flat-square)
+![Android](https://img.shields.io/badge/plataforma-Android-3DDC84?style=flat-square&logo=android&logoColor=white)
 ![Flutter](https://img.shields.io/badge/Flutter-Dart-02569B?style=flat-square&logo=flutter&logoColor=white)
 ![Supabase](https://img.shields.io/badge/Supabase-back--end-3ECF8E?style=flat-square&logo=supabase&logoColor=white)
 ![GitHub Pages](https://img.shields.io/badge/GitHub_Pages-no_ar-008040?style=flat-square&logo=github&logoColor=white)
@@ -22,7 +25,25 @@ O **Tô aqui UnB** é um aplicativo que conecta estudantes da Universidade de Br
 
 A ideia é simples: **gastar menos, chegar mais rápido e conhecer gente nova no caminho**, em um ambiente seguro, já que o acesso é restrito a quem tem e-mail institucional `@aluno.unb.br`.
 
-> 💡 Este repositório contém a **landing page** do projeto, publicada com GitHub Pages.
+> 💡 Este repositório contém a **landing page** do projeto, publicada com GitHub Pages, e as **versões do aplicativo** (APK) em Releases.
+
+---
+
+## 📲 Baixe o app
+
+<div align="center">
+
+<a href="https://github.com/Bruno-Nicholas/Bruno-Nicholas.github.io/releases/latest/download/toaqui.apk"><img src="img/qrcode-apk.png" width="200" alt="QR code para baixar o APK do Tô aqui UnB"></a>
+
+<sub>Aponte a câmera do celular ou <a href="https://github.com/Bruno-Nicholas/Bruno-Nicholas.github.io/releases/latest/download/toaqui.apk"><b>clique aqui para baixar o APK</b></a></sub>
+
+</div>
+
+1. 📥 Baixe o arquivo **`toaqui.apk`** pelo QR code ou pelo botão acima.
+2. 🔓 Se o Android pedir, permita a instalação de apps desta origem (só na primeira vez).
+3. 📧 Abra o app e entre com seu e-mail institucional da UnB.
+
+> 🏷️ Versão atual: **v1.0.0** · todas as versões em [Releases](https://github.com/Bruno-Nicholas/Bruno-Nicholas.github.io/releases/latest).
 
 ---
 
@@ -53,7 +74,7 @@ A ideia é simples: **gastar menos, chegar mais rápido e conhecer gente nova no
   </tr>
 </table>
 
-<sub>Capturas reais da versão atual, com dados de teste.</sub>
+<sub>Capturas reais da versão 1.0, com dados de teste.</sub>
 
 </div>
 
@@ -77,14 +98,14 @@ flowchart LR
 |:---:|---|---|
 | 1 | Identificação e verificação | ✅ Em funcionamento |
 | 2 | Banco de dados e conexões | 🔄 Em andamento |
-| 3 | Mapeamento e rotas | 🚧 Em construção |
-| 4 | Segurança e denúncia | 🟡 Primeira versão |
+| 3 | Segurança e denúncia | 🟡 Primeira versão |
+| 4 | Mapeamento e rotas | 🚧 Em construção |
 
 ---
 
 ## 💻 Tecnologias
 
-- 📱 **Flutter (Dart)** no aplicativo, testado no navegador e em Android
+- 📱 **Flutter (Dart)** no aplicativo, distribuído em APK para Android
 - 🗄️ **Supabase** para autenticação, banco de dados e regras de acesso
 - 🗺️ **Leaflet** para o mapa (previsto)
 
@@ -95,7 +116,7 @@ flowchart LR
 ```text
 .
 ├── index.html   # página do projeto
-└── img/         # capturas de tela do aplicativo
+└── img/         # capturas de tela e QR code do aplicativo
 ```
 
 <details>
